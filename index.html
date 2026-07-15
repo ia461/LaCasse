@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Casse | سوق قطع غيار السيارات في الجزائر</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;900&display=swap');
+
+  :root{
+    --navy:#2c2d31;
+    --navy-2:#45464b;
+    --ink:#1a1a1c;
+    --text:#22232a;
+    --text-soft:#5c5d64;
+    --bg:#f3f2ef;
+    --card:#ffffff;
+    --line:#e2e0da;
+    --orange:#c9a227;
+    --orange-dark:#a3811a;
+    --amber:#e8c766;
+    --green:#1f7a43;
+    --green-bg:#e6f4ea;
+    --red:#c0392b;
+    --red-bg:#fbe9e7;
+    --yellow-bg:#fdf3d6;
+    --yellow-text:#8a6800;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html, body{overflow-x:hidden; width:100%;}
+  body{
+    font-family:'Tajawal','Cairo',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  input,select,textarea{font-family:inherit; font-size:14px;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px;}
+  .hidden{display:none !important;}
+
+  /* ---------- Header ---------- */
+  header{
+    background:linear-gradient(180deg, #313236 0%, var(--navy) 100%);
+    position:sticky; top:0; z-index:50;
+    box-shadow:0 2px 12px rgba(0,0,0,.15);
+    border-bottom:1px solid rgba(201,162,39,.25);
+  }
+  header .bar{display:flex; align-items:center; justify-content:space-between; height:64px; gap:8px;}
+  .logo{display:flex; align-items:center; gap:8px; color:#fff; font-weight:900; font-size:20px;}
+  .logo .icon{width:36px; height:36px; border-radius:10px; background:var(--orange); display:flex; align-items:center; justify-content:center; font-size:18px;}
+  .logo span.dot{color:var(--orange);}
+  nav.tabs{display:flex; gap:4px; background:rgba(255,255,255,.08); padding:4px; border-radius:999px; overflow-x:auto; max-width:100%;}
+  nav.tabs button{
+    padding:8px 18px; border-radius:999px; font-weight:700; font-size:14px;
+    background:transparent; color:rgba(255,255,255,.75); white-space:nowrap; flex-shrink:0;
+  }
+  @media (max-width:420px){
+    nav.tabs button{padding:7px 12px; font-size:12.5px;}
+    .logo{font-size:17px;}
+  }
+  nav.tabs button.active{background:#fff; color:var(--navy);}
+  nav.tabs button:hover:not(.active){color:#fff;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:radial-gradient(1200px 500px at 15% -10%, rgba(201,162,39,.16), transparent 60%), linear-gradient(160deg, #313236 0%, var(--navy) 55%, #1c1d20 100%);
+    color:#fff; padding:56px 0 90px; position:relative; overflow:hidden;
+  }
+  .hero .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(201,162,39,.18); color:#e8c766; border:1px solid rgba(201,162,39,.45);
+    font-weight:700; font-size:12.5px; padding:6px 14px; border-radius:999px;
+  }
+  .hero h1{font-size:34px; font-weight:900; margin:18px 0 14px; max-width:640px; line-height:1.35;}
+  .hero p.lead{color:rgba(255,255,255,.72); max-width:560px; font-size:15px;}
+
+  .search-card{
+    background:#fff; border-radius:18px; padding:22px; margin-top:34px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25); color:var(--text);
+  }
+  .search-card .title{display:flex; align-items:center; gap:6px; color:var(--orange); font-weight:800; font-size:14px; margin-bottom:14px;}
+  .filters-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:10px;}
+  @media (max-width:900px){ .filters-grid{grid-template-columns:repeat(2,1fr);} }
+
+  .field label{display:block; font-size:11px; font-weight:800; color:var(--text-soft); margin-bottom:5px;}
+  .field select, .field input, .field textarea{
+    width:100%; background:var(--bg); border:1.5px solid var(--line); border-radius:10px;
+    padding:9px 11px; color:var(--text); font-weight:600;
+  }
+  .field select:focus, .field input:focus, .field textarea:focus{outline:none; border-color:var(--orange);}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:7px; justify-content:center;
+    font-weight:800; font-size:14px; padding:12px 22px; border-radius:12px;
+    transition:.15s ease;
+  }
+  .btn-orange{background:var(--orange); color:var(--navy); font-weight:900;}
+  .btn-orange:hover{background:var(--orange-dark); color:#fff;}
+  .btn-navy{background:var(--navy); color:#fff;}
+  .btn-navy:hover{background:#081a2c;}
+  .btn-outline{background:#fff; border:1.5px solid var(--line); color:var(--text);}
+  .btn-outline:hover{border-color:var(--orange); color:var(--orange);}
+  .btn-block{width:100%;}
+  .btn-sm{padding:8px 14px; font-size:13px; border-radius:9px;}
+
+  /* ---------- Sections generic ---------- */
+  section.block{padding:56px 0;}
+  h2.section-title{font-size:26px; font-weight:900; text-align:center;}
+  p.section-sub{text-align:center; color:var(--text-soft); margin-top:6px; font-size:14px;}
+
+  .how-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:36px;}
+  @media (max-width:800px){ .how-grid{grid-template-columns:1fr;} }
+  .how-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px;}
+  .how-card h3{display:flex; align-items:center; gap:10px; font-size:17px; font-weight:900; margin-bottom:18px;}
+  .how-card h3 .ic{width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .ic-buyer{background:#e7edf3; color:var(--navy-2);}
+  .ic-seller{background:#f6efd6; color:var(--orange-dark);}
+
+  .step{display:flex; gap:12px; margin-bottom:16px;}
+  .step .num{flex-shrink:0; width:26px; height:26px; border-radius:50%; background:var(--navy); color:#fff; font-size:12px; font-weight:900; display:flex; align-items:center; justify-content:center;}
+  .step .txt b{display:block; font-size:14px; font-weight:800;}
+  .step .txt span{font-size:13.5px; color:var(--text-soft);}
+  .note-yellow{font-size:12.5px; color:var(--yellow-text); background:var(--yellow-bg); border-radius:8px; padding:8px 12px; margin-top:6px; display:inline-block;}
+
+  .info-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:800px){ .info-3{grid-template-columns:1fr;} }
+  .info-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px;}
+  .info-card .ic{width:42px; height:42px; border-radius:12px; background:var(--navy); color:var(--amber); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:10px;}
+  .info-card b{font-size:15px;}
+  .info-card p{font-size:13.5px; color:var(--text-soft); margin-top:5px;}
+
+  /* ---------- Badges ---------- */
+  .badge{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:800; padding:4px 10px; border-radius:999px;}
+  .b-steel{background:#e7edf3; color:var(--navy-2);}
+  .b-green{background:var(--green-bg); color:var(--green);}
+  .b-orange{background:#f6efd6; color:var(--orange-dark);}
+  .b-yellow{background:var(--yellow-bg); color:var(--yellow-text);}
+  .b-red{background:var(--red-bg); color:var(--red);}
+
+  /* ---------- Views (buyer/seller) ---------- */
+  .view{padding:32px 0 60px;}
+  .view-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:22px;}
+  .view-head h1{font-size:20px; font-weight:900;}
+  .view-head p{font-size:13.5px; color:var(--text-soft);}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:14px;}
+  .card .head-row{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .card .tags{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+  .card .desc{font-size:13.5px; color:var(--text-soft); margin-top:8px;}
+  .divider-dash{border-top:1px dashed var(--line); margin-top:14px; padding-top:14px;}
+
+  .grid-3{display:grid; grid-template-columns:1fr 1fr auto; gap:8px;}
+  @media (max-width:700px){ .grid-3{grid-template-columns:1fr;} }
+
+  .offer-row{display:flex; align-items:center; justify-content:space-between; gap:10px; background:var(--bg); border-radius:12px; padding:10px 14px; margin-bottom:8px; flex-wrap:wrap;}
+  .offer-row b{font-size:13.5px;}
+  .offer-row .price{font-weight:900; color:var(--orange-dark);}
+
+  /* Wallet card */
+  .wallet-card{
+    background:var(--navy); color:#fff; border-radius:16px; padding:20px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:26px;
+  }
+  .wallet-card .left{display:flex; align-items:center; gap:12px;}
+  .wallet-card .icon-box{width:46px; height:46px; border-radius:12px; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:20px;}
+  .wallet-card .amount{font-size:26px; font-weight:900;}
+  .wallet-card .amount span{font-size:13px; color:rgba(255,255,255,.6); font-weight:700;}
+  .wallet-card small{color:rgba(255,255,255,.6); font-weight:800; font-size:12px;}
+
+  /* Ticket code */
+  .ticket{position:relative; background:var(--navy); color:#fff; border-radius:16px; padding:20px 22px; overflow:hidden;}
+  .ticket::before, .ticket::after{content:""; position:absolute; top:50%; transform:translateY(-50%); width:22px; height:22px; background:var(--bg); border-radius:50%;}
+  .ticket::before{right:-11px;} .ticket::after{left:-11px;}
+  .ticket .top-row{display:flex; align-items:center; justify-content:space-between; border-bottom:1px dashed rgba(255,255,255,.25); padding-bottom:10px; margin-bottom:10px;}
+  .ticket .top-row .lbl{display:flex; align-items:center; gap:6px; font-size:12px; font-weight:800; color:rgba(255,255,255,.7);}
+  .ticket .top-row .id{font-size:11px; color:rgba(255,255,255,.45); font-family:monospace;}
+  .ticket .code{text-align:center; font-family:monospace; font-size:36px; letter-spacing:10px; font-weight:900; color:var(--amber);}
+  .ticket .hint{text-align:center; font-size:12px; color:rgba(255,255,255,.6); margin-top:10px; line-height:1.6;}
+
+  .empty-note{text-align:center; font-size:13.5px; color:#9a9a9a; background:var(--bg); border-radius:12px; padding:22px;}
+
+  .upload-box{border:2px dashed var(--line); border-radius:12px; padding:16px; text-align:center; cursor:pointer;}
+  .upload-box:hover{border-color:var(--orange);}
+  .upload-box img{max-height:96px; border-radius:8px;}
+
+  /* Footer */
+  footer{background:var(--navy); color:rgba(255,255,255,.72); margin-top:20px;}
+  footer .wrap{padding:22px 20px; display:flex; gap:12px; align-items:flex-start; font-size:12.5px; line-height:1.7;}
+  footer b{color:#fff;}
+
+  /* Toast */
+  #toast{
+    position:fixed; bottom:22px; left:50%; transform:translateX(-50%);
+    background:var(--ink); color:#fff; font-weight:800; font-size:14px;
+    padding:12px 20px; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,.3);
+    display:none; align-items:center; gap:8px; z-index:200;
+  }
+  #toast.error{background:var(--red);}
+  #toast.show{display:flex;}
+
+  .section-actions{display:flex; align-items:center; gap:8px; margin-bottom:12px; font-weight:900;}
+
+  /* Seller sub-tabs */
+  nav.subtabs{display:flex; gap:6px; overflow-x:auto; background:var(--card); border:1px solid var(--line); padding:5px; border-radius:14px; margin-bottom:18px;}
+  nav.subtabs button{
+    flex:1; white-space:nowrap; padding:10px 14px; border-radius:10px; font-weight:800; font-size:13px;
+    background:transparent; color:var(--text-soft); display:flex; align-items:center; justify-content:center; gap:5px;
+  }
+  nav.subtabs button.active{background:var(--navy); color:#fff;}
+  .count-dot{background:var(--orange); color:var(--navy); font-size:10.5px; font-weight:900; border-radius:999px; padding:1px 6px; min-width:16px; display:inline-block;}
+  nav.subtabs button.active .count-dot{background:var(--amber); color:var(--navy);}
+
+  /* utility */
+  .mt8{margin-top:8px;} .mt14{margin-top:14px;} .mb18{margin-bottom:18px;}
+  .flex-end{display:flex; justify-content:flex-end;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#" class="logo" onclick="setView('home')">
+      <span class="icon">🔧</span> La Casse<span class="dot">.</span>
+    </a>
+    <nav class="tabs">
+      <button id="tab-home" onclick="setView('home')">الرئيسية</button>
+      <button id="tab-buyer" onclick="setView('buyer')">مساحة المشتري</button>
+      <button id="tab-seller" onclick="setView('seller')">مساحة البائع</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<div id="view-home">
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge">🛡️ وسيط رقمي آمن لقطع الغيار</span>
+      <h1>اطلب قطعة غيار سيارتك، ودع البائعين يتنافسون على أفضل سعر</h1>
+      <p class="lead">منصة تجمع المشترين مع أصحاب محلات ومخازن قطع الغيار عبر كل الولايات، بنظام دفع آمن عبر المحفظة الرقمية وكود تأكيد سري يحميك من الاحتيال.</p>
+
+      <div class="search-card">
+        <div class="title">🔍 ابحث عن قطعة غيار</div>
+        <div class="filters-grid">
+          <div class="field"><label>الماركة</label><select id="f-brand" onchange="renderHomeBrowse()"></select></div>
+          <div class="field"><label>الموديل</label><input id="f-model" placeholder="مثال: كليو 4" oninput="renderHomeBrowse()"></div>
+          <div class="field"><label>السنة</label><select id="f-year" onchange="renderHomeBrowse()"></select></div>
+          <div class="field"><label>نوع القطعة</label><select id="f-part" onchange="renderHomeBrowse()"></select></div>
+          <div class="field"><label>الولاية</label><select id="f-wilaya" onchange="renderHomeBrowse()"></select></div>
+        </div>
+        <div class="flex-end mt14">
+          <button class="btn btn-orange" onclick="setView('buyer')">📩 انشر طلبك الآن</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="browse-section">
+    <div class="wrap">
+      <div class="view-head">
+        <div><h2 class="section-title" style="margin:0;">📋 طلبات مفتوحة الآن</h2><p class="section-sub" style="margin:4px 0 0;">تصفح آخر الطلبات، أو استعمل فلاتر البحث فوق لتضييقها</p></div>
+        <span class="badge b-yellow" id="home-browse-count"></span>
+      </div>
+      <div id="home-browse-list" class="mt14"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2 class="section-title">كيف تعمل المنصة؟</h2>
+      <p class="section-sub">مسار بسيط وآمن للمشتري والبائع، خطوة بخطوة</p>
+
+      <div class="how-grid">
+        <div class="how-card">
+          <h3><span class="ic ic-buyer">👤</span> للمشتري</h3>
+          <div class="step"><div class="num">1</div><div class="txt"><b>انشر طلبك مجانًا</b><span>اذكر الماركة والموديل والسنة ونوع القطعة، وأرفق صورة إن أمكن.</span></div></div>
+          <div class="step"><div class="num">2</div><div class="txt"><b>استقبل العروض</b><span>يقترح عليك بائعون من ولايتك أو من كل الجزائر أسعارًا متنافسة.</span></div></div>
+          <div class="step"><div class="num">3</div><div class="txt"><b>اقبل واستلم</b><span>اختر أفضل عرض، جرّب القطعة، ثم سلّم كود التأكيد السري للبائع.</span></div></div>
+          <span class="note-yellow">النشر والاستخدام مجاني بالكامل للمشتري.</span>
+        </div>
+        <div class="how-card">
+          <h3><span class="ic ic-seller">🏬</span> للبائع</h3>
+          <div class="step"><div class="num">1</div><div class="txt"><b>اشحن محفظتك الرقمية</b><span>اشحن رصيدًا مسبقًا لتتمكن من تأكيد عمليات البيع.</span></div></div>
+          <div class="step"><div class="num">2</div><div class="txt"><b>قدّم عروضك</b><span>تصفح طلبات الزبائن في تخصصك وقدّم السعر الأنسب.</span></div></div>
+          <div class="step"><div class="num">3</div><div class="txt"><b>أكّد البيع بالكود</b><span>بعد التسليم أدخل كود التأكيد، فتُخصم عمولة 200 د.ج فقط من محفظتك.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="info-3">
+        <div class="info-card"><div class="ic">💳</div><b>محفظة مسبقة الدفع</b><p>البائع يشحن رصيده مسبقًا، والعمولة تُخصم فقط عند تأكيد بيع فعلي.</p></div>
+        <div class="info-card"><div class="ic">🎫</div><b>كود تأكيد من 4 أرقام</b><p>لا تُحتسب أي عمولة بدون تطابق الكود، ما يحمي البائع من الطلبات الوهمية.</p></div>
+        <div class="info-card"><div class="ic">🛡️</div><b>لا دفع مالي عبر المنصة</b><p>التعامل المالي بين الطرفين يتم يدًا بيد، والمنصة وسيط تنظيمي فقط.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ BUYER ============ -->
+<div id="view-buyer" class="view hidden">
+  <div class="wrap">
+    <div class="view-head">
+      <div><h1>مساحة المشتري</h1><p>انشر ما تحتاجه وتابع عروض البائعين</p></div>
+      <button class="btn btn-orange btn-sm" id="btn-toggle-form" onclick="toggleBuyerForm()">➕ طلب قطعة جديدة</button>
+    </div>
+
+    <div class="card hidden" id="buyer-form">
+      <div class="filters-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="field"><label>الماركة</label><select id="nf-brand"></select></div>
+        <div class="field"><label>الموديل</label><input id="nf-model" placeholder="مثال: 208"></div>
+        <div class="field"><label>السنة</label><select id="nf-year"></select></div>
+        <div class="field"><label>نوع القطعة</label><select id="nf-part"></select></div>
+        <div class="field" style="grid-column:span 2;"><label>الولاية</label><select id="nf-wilaya"></select></div>
+      </div>
+      <div class="field mt14"><label>تفاصيل إضافية</label><textarea id="nf-details" rows="3" placeholder="اشرح حالة القطعة المطلوبة أو أي تفاصيل تساعد البائع..."></textarea></div>
+      <div class="field mt14">
+        <label>صورة القطعة (اختياري)</label>
+        <div class="upload-box" onclick="document.getElementById('nf-image').click()">
+          <input type="file" id="nf-image" accept="image/*" class="hidden" onchange="previewImage(this)">
+          <div id="nf-image-preview">📷 اضغط لرفع صورة</div>
+        </div>
+      </div>
+      <button class="btn btn-navy btn-block mt14" onclick="submitRequest()">📩 نشر الطلب</button>
+    </div>
+
+    <div id="buyer-list"></div>
+  </div>
+</div>
+
+<!-- ============ SELLER ============ -->
+<div id="view-seller" class="view hidden">
+  <div class="wrap">
+    <h1 style="font-size:20px; font-weight:900; margin-bottom:4px;">مساحة البائع</h1>
+    <p style="font-size:13.5px; color:var(--text-soft); margin-bottom:22px;">تابع طلبات الزبائن، قدّم عروضك، وأكّد عمليات البيع</p>
+
+    <!-- بوابة الدخول: تبان فقط إذا البائع ماشي مسجّل دخول -->
+    <div id="seller-auth-gate" class="card" style="max-width:420px; margin:0 auto;">
+      <b id="sa-title" style="font-size:16px; display:block; margin-bottom:16px;">🔑 تسجيل الدخول كبائع</b>
+      <div class="field mb18" id="sa-name-field" style="margin-bottom:12px;">
+        <label>اسمك أو اسم محلك</label>
+        <input id="sa-name" placeholder="مثال: محل الوحدة لقطع الغيار">
+      </div>
+      <div class="field" style="margin-bottom:12px;"><label>البريد الإلكتروني</label><input id="sa-email" type="email" placeholder="example@email.com"></div>
+      <div class="field" style="margin-bottom:14px;"><label>كلمة السر</label><input id="sa-password" type="password" placeholder="6 خانات على الأقل"></div>
+      <button class="btn btn-navy btn-block" id="sa-submit-btn" onclick="submitSellerAuth()">دخول</button>
+      <p id="sa-switch-text" style="text-align:center; font-size:12.5px; margin-top:14px; color:var(--text-soft);"></p>
+    </div>
+
+    <!-- لوحة تحكم البائع: تبان فقط بعد تسجيل الدخول -->
+    <div id="seller-authed" class="hidden">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <span style="font-size:13px; color:var(--text-soft); font-weight:700;">مرحبًا، <b id="seller-name-tag" style="color:var(--text);"></b> 👋</span>
+        <button class="btn btn-outline btn-sm" onclick="sellerLogout()">🚪 تسجيل الخروج</button>
+      </div>
+
+      <div class="wallet-card">
+        <div class="left">
+          <div class="icon-box">💳</div>
+          <div><small>رصيد المحفظة الرقمية</small><div class="amount" id="wallet-amount">0 <span>د.ج</span></div></div>
+        </div>
+        <button class="btn btn-orange btn-sm" onclick="setSellerTab('wallet')">➕ شحن الرصيد</button>
+      </div>
+
+      <nav class="tabs subtabs">
+        <button id="stab-requests" onclick="setSellerTab('requests')">📦 طلبات جديدة <span class="count-dot" id="cnt-requests"></span></button>
+        <button id="stab-pending" onclick="setSellerTab('pending')">⏳ عروضي</button>
+        <button id="stab-confirm" onclick="setSellerTab('confirm')">🛡️ تأكيد البيع <span class="count-dot" id="cnt-confirm"></span></button>
+        <button id="stab-wallet" onclick="setSellerTab('wallet')">💰 الشحن والمحفظة</button>
+      </nav>
+
+      <div id="seller-sec-requests" class="seller-sec">
+        <div id="seller-open-list"></div>
+      </div>
+
+      <div id="seller-sec-pending" class="seller-sec hidden">
+        <div id="seller-pending-list"></div>
+      </div>
+
+      <div id="seller-sec-confirm" class="seller-sec hidden">
+        <div id="seller-confirm-list"></div>
+      </div>
+
+      <div id="seller-sec-wallet" class="seller-sec hidden">
+        <div class="card" id="chargily-box" style="margin-bottom:14px;">
+          <b style="font-size:14px;">💳 شحن فوري بالبطاقة (EDAHABIA / CIB)</b>
+          <p style="font-size:12.5px; color:var(--text-soft); margin:8px 0 12px;">يُضاف الرصيد لمحفظتك تلقائيًا وفوريًا بعد نجاح الدفع، بدون انتظار مراجعة يدوية.</p>
+          <div class="filters-grid" style="grid-template-columns:1fr 1fr;">
+            <div class="field"><label>المبلغ (د.ج)</label><input type="number" id="chargily-amount" placeholder="1000" min="100"></div>
+            <button class="btn btn-orange" style="align-self:end;" onclick="payWithChargily()">💳 ادفع الآن</button>
+          </div>
+        </div>
+        <div class="card" id="topup-box">
+          <b style="font-size:14px;">🏦 شحن الرصيد عبر تحويل بريدي (CCP)</b>
+          <div class="card" style="background:var(--bg); margin-top:12px; margin-bottom:14px;">
+            <p style="font-size:12.5px; color:var(--text-soft); margin-bottom:8px;">حوّل المبلغ إلى الحساب البريدي التالي، ثم صرّح بالتحويل في الأسفل:</p>
+            <p style="font-size:13.5px;"><b>الاسم:</b> <span id="ccp-name"></span></p>
+            <p style="font-size:13.5px;"><b>رقم CCP:</b> <span id="ccp-number" style="font-family:monospace;"></span></p>
+            <p style="font-size:13.5px;"><b>مفتاح RIP:</b> <span id="ccp-rip" style="font-family:monospace;"></span></p>
+            <p style="font-size:12px; color:var(--yellow-text); background:var(--yellow-bg); border-radius:8px; padding:6px 10px; margin-top:8px; display:inline-block;" id="ccp-note"></p>
+          </div>
+          <div class="filters-grid" style="grid-template-columns:1fr 1fr;">
+            <div class="field"><label>المبلغ المحوَّل (د.ج)</label><input type="number" id="topup-amount" placeholder="1000"></div>
+            <div class="field"><label>رقم وصل التحويل / المرجع</label><input id="topup-ref" placeholder="رقم الوصل كما يظهر في تصريح التحويل"></div>
+          </div>
+          <div class="field mt14"><label>ملاحظة (اختياري)</label><input id="topup-note" placeholder="مثال: حوّلت من مكتب بريد بلدية..."></div>
+          <button class="btn btn-navy btn-block mt14" onclick="submitTopupRequest()">📨 تأكيد أنّي حوّلت المبلغ</button>
+          <p style="font-size:11.5px; color:#9a9a9a; margin-top:10px;">* بعد إرسال التصريح، تتم مراجعة التحويل يدويًا، ويُضاف المبلغ لرصيدك بمجرد التحقق منه فعليًا.</p>
+        </div>
+        <div class="section-actions mt14">💰 سجل طلبات الشحن</div>
+        <div id="seller-topups-list"></div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <button class="btn btn-outline btn-sm" onclick="openAdminPanel()">🔑 دخول كمسيّر (مراجعة تحويلات CCP)</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ADMIN (مراجعة يدوية لتحويلات CCP) ============ -->
+<div id="view-admin" class="view hidden">
+  <div class="wrap">
+    <div class="view-head">
+      <div><h1>🔑 لوحة المسيّر — مراجعة تحويلات CCP</h1><p>تحقق من وصول التحويل فعليًا في حسابك البريدي قبل القبول</p></div>
+      <button class="btn btn-outline btn-sm" onclick="adminLogout()">✖ تسجيل خروج المسيّر</button>
+    </div>
+    <div id="admin-topups-list"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>⚠️</span>
+    <p><b>تنويه هام:</b> منصة "La Casse" وسيط رقمي فقط يهدف لتسهيل التواصل بين المشترين والبائعين، ولا تتحمل أي مسؤولية عن عملية الشحن أو أي تعامل مالي يتم خارج آلية المحفظة الرقمية المعتمدة داخل المنصة. يُنصح دائمًا بفحص القطعة جيدًا قبل تسليم كود التأكيد.</p>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script type="module">
+/* ملاحظة: نتجنب "import" الثابت في أول الملف عمدًا — لأنه إذا فشل (مثلًا لا اتصال بالإنترنت
+   أو حجب من المتصفح) فإنه يوقف تنفيذ السكريبت كاملًا، حتى قبل ربط الأزرار.
+   بدلها نستعمل "dynamic import" داخل initFirebase() لاحقًا، وهذا قابل للالتقاط بـ try/catch. */
+let initializeApp, getFirestore, collection, doc, addDoc, updateDoc, setDoc, getDoc,
+    onSnapshot, query, orderBy, where, arrayUnion, increment, serverTimestamp;
+let getAuth, onAuthStateChanged, signInAnonymously, createUserWithEmailAndPassword,
+    signInWithEmailAndPassword, signOut;
+/* ================================================================
+   بيانات مرجعية — Reference data
+================================================================ */
+const CAR_BRANDS = [
+  "رونو","بيجو","دايسيا","فولكسفاغن","هيونداي","كيا","تويوتا","نيسان","شيفروليت",
+  "فيات","سيات","سكودا","سيتروين","أوبل","فورد","مرسيدس-بنز","بي إم دبليو","أودي",
+  "سوزوكي","ميتسوبيشي","مازدا","هوندا","جيلي","شيري","هافال / جريت وول","جاك (JAC)",
+  "تشانغان","فولفو","لادا","إم جي (MG)","بي واي دي (BYD)","جيتور (Jetour)","دونغفنغ",
+  "لكزس","جيب","لاند روفر","ميني","بورش","سانغ يونغ","سوبارو","إيفيكو (شاحنات)",
+  "مان (شاحنات)","إيسوزو","فوتون (شاحنات)","أخرى"
+];
+
+const WILAYAS = [
+  "أدرار","الشلف","الأغواط","أم البواقي","باتنة","بجاية","بسكرة","بشار","البليدة","البويرة",
+  "تمنراست","تبسة","تلمسان","تيارت","تيزي وزو","الجزائر","الجلفة","جيجل","سطيف","سعيدة",
+  "سكيكدة","سيدي بلعباس","عنابة","قالمة","قسنطينة","المدية","مستغانم","المسيلة","معسكر","ورقلة",
+  "وهران","البيض","إليزي","برج بوعريريج","بومرداس","الطارف","تندوف","تيسمسيلت","الوادي","خنشلة",
+  "سوق أهراس","تيبازة","ميلة","عين الدفلى","النعامة","عين تموشنت","غرداية","غليزان","تيميمون",
+  "برج باجي مختار","أولاد جلال","بني عباس","عين صالح","عين قزام","تقرت","جانت","المغير","المنيعة"
+];
+
+const PART_TYPES = [
+  "محرك","ناقل الحركة","هيكل / بودي","كهرباء وإلكترونيك","فرامل","نظام التعليق",
+  "إطارات وجنوط","تكييف وتبريد","زجاج ومرايا","إضاءة","عادم","فلاتر وزيوت","أخرى"
+];
+
+const YEARS = Array.from({length: 32}, (_, i) => 2026 - i);
+const COMMISSION = 200; // د.ج — عمولة ثابتة عند كل عملية بيع مؤكدة
+
+/* ------------------------------------------------------------
+   ⚙️ إعدادات التحويل البريدي (CCP) — عدّل هذه المعلومات بمعلوماتك الحقيقية
+------------------------------------------------------------ */
+const CCP_INFO = {
+  accountName: "Issam Azzouz",
+  ccpNumber: "0029098344",
+  rip: "00799999002909834433",
+  note: "اكتب رقم هاتفك في التصريح بالحوالة حتى نتعرف على المرسل بسهولة"
+};
+
+/* ⚠️ لوحة المسيّر أصبحت تعتمد على تسجيل دخول حقيقي عبر Firebase Auth (بريد + كلمة سر)
+   بدل كلمة سر محلية في الكود — لأن كلمة السر المحلية كانت قابلة للتجاوز من أي شخص
+   يفتح Console المتصفح وينادي الدوال مباشرة. اتبع الخطوات التالية:
+   1) Firebase Console → Authentication → Users → Add user → أنشئ حسابًا لنفسك (بريد + كلمة سر)
+   2) انسخ الـ UID الذي يظهر بجانب الحساب
+   3) الصقه هنا مكان القيمة أدناه، وأيضًا في ملف Firestore Security Rules (نفس القيمة بالضبط) */
+const ADMIN_UID = "x6dnIsyHvverCrbBGe0Sy37Vwup2";
+
+/* ------------------------------------------------------------
+   🔥 إعدادات Firebase — عدّلها بمعلومات مشروعك (من Firebase Console)
+   طريقة الحصول عليها موضّحة في شرح منفصل بعد الكود.
+------------------------------------------------------------ */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBtBM81OZODSbDO7rEb1zP6nSt2skjF8gI",
+  authDomain: "lacasse-51f27.firebaseapp.com",
+  projectId: "lacasse-51f27",
+  storageBucket: "lacasse-51f27.firebasestorage.app",
+  messagingSenderId: "10353166133",
+  appId: "1:10353166133:web:a70bfad4576a8ee73fee7c"
+};
+
+let fbApp = null, db = null, auth = null, requestsCol = null, topupsCol = null, sellersCol = null;
+let firebaseReady = false;
+
+/* هوية الجلسة الحالية — المشتري يحصل على هوية صامتة تلقائيًا (بدون تسجيل)،
+   والبائع يحتاج حساب حقيقي (بريد + كلمة سر) */
+let currentUid = null;
+let isSellerLoggedIn = false;
+let currentSellerProfile = null; // { name, email, wallet }
+let unsubSellerProfile = null;
+let unsubTopups = null;
+let isAdminAuthed = false; // يصير true فقط بعد تسجيل دخول Firebase Auth بحساب المسيّر (ADMIN_UID)
+
+function isFirebaseConfigured(){
+  return FIREBASE_CONFIG.apiKey && !FIREBASE_CONFIG.apiKey.includes("ضع_");
+}
+
+async function initFirebase(){
+  if(!isFirebaseConfigured()){
+    showFirebaseWarning("⚠️ الموقع غير مربوط بقاعدة بيانات بعد. الأزرار تشتغل لكن البيانات ما تتحفظش. أضف معلومات Firebase في الكود (FIREBASE_CONFIG).");
+    return;
+  }
+  try{
+    const appMod = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+    const fsMod = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+    const authMod = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js");
+
+    initializeApp = appMod.initializeApp;
+    getFirestore = fsMod.getFirestore;
+    collection = fsMod.collection;
+    doc = fsMod.doc;
+    addDoc = fsMod.addDoc;
+    updateDoc = fsMod.updateDoc;
+    setDoc = fsMod.setDoc;
+    getDoc = fsMod.getDoc;
+    onSnapshot = fsMod.onSnapshot;
+    query = fsMod.query;
+    orderBy = fsMod.orderBy;
+    where = fsMod.where;
+    arrayUnion = fsMod.arrayUnion;
+    increment = fsMod.increment;
+    serverTimestamp = fsMod.serverTimestamp;
+
+    getAuth = authMod.getAuth;
+    onAuthStateChanged = authMod.onAuthStateChanged;
+    signInAnonymously = authMod.signInAnonymously;
+    createUserWithEmailAndPassword = authMod.createUserWithEmailAndPassword;
+    signInWithEmailAndPassword = authMod.signInWithEmailAndPassword;
+    signOut = authMod.signOut;
+
+    fbApp = initializeApp(FIREBASE_CONFIG);
+    db = getFirestore(fbApp);
+    auth = getAuth(fbApp);
+    requestsCol = collection(db, "requests");
+    topupsCol = collection(db, "topups");
+    sellersCol = collection(db, "sellers");
+    firebaseReady = true;
+  }catch(e){
+    showFirebaseWarning("⚠️ تعذّر تحميل قاعدة البيانات (تحقق من اتصال الإنترنت): " + e.message);
+  }
+}
+
+function showFirebaseWarning(msg){
+  const bar = document.createElement("div");
+  bar.style.cssText = "position:sticky; top:64px; z-index:45; background:#fdf3d6; color:#8a6800; font-size:13px; font-weight:700; text-align:center; padding:10px 16px;";
+  bar.textContent = msg;
+  document.body.insertBefore(bar, document.body.children[1]);
+}
+
+/* يترجم أخطاء Firebase التقنية إلى رسائل عربية واضحة ومفيدة */
+function friendlyError(e){
+  const m = ((e && (e.code || e.message)) || "").toString();
+  if(m.includes("permission-denied")) return "تم رفض الوصول لقاعدة البيانات — تأكد أنك فعّلت Firestore Database ووضعتها في وضع Test mode من Firebase Console.";
+  if(m.includes("not-found") || m.includes("failed-precondition")) return "قاعدة البيانات غير مفعّلة بعد — روح لـ Firebase Console → Build → Firestore Database → Create database.";
+  if(m.includes("unavailable") || m.includes("network")) return "تعذّر الاتصال بالإنترنت، تحقق من الشبكة وأعد المحاولة.";
+  return m || "خطأ غير معروف";
+}
+
+function friendlyAuthError(e){
+  const c = (e && e.code) || "";
+  if(c.includes("email-already-in-use")) return "هذا البريد الإلكتروني مسجّل من قبل. جرّب تسجيل الدخول بدل إنشاء حساب.";
+  if(c.includes("weak-password")) return "كلمة السر ضعيفة، اختر كلمة سر لا تقل عن 6 خانات.";
+  if(c.includes("invalid-email")) return "صيغة البريد الإلكتروني غير صحيحة.";
+  if(c.includes("wrong-password") || c.includes("invalid-credential")) return "كلمة السر أو البريد الإلكتروني غير صحيحين.";
+  if(c.includes("user-not-found")) return "لا يوجد حساب بهذا البريد الإلكتروني. جرّب إنشاء حساب جديد.";
+  if(c.includes("operation-not-allowed")) return "تسجيل الدخول بالبريد الإلكتروني غير مفعّل في مشروع Firebase — فعّله من Authentication → Sign-in method.";
+  return e.message || "خطأ غير معروف";
+}
+
+/* ================================================================
+   مرآة محلية للبيانات — تُحدَّث تلقائيًا مع كل تغيير في Firestore
+   (هذا ما يخلي كل الأجهزة تشوف نفس البيانات في نفس اللحظة)
+================================================================ */
+let localRequests = [];
+let localTopups = [];
+let currentView = "home";
+let pendingImage = null;
+
+function startRealtimeSync(){
+  if(!firebaseReady) return;
+  onSnapshot(query(requestsCol, orderBy("createdAt","desc")), snap => {
+    localRequests = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    if(currentView === "buyer") renderBuyer();
+    if(currentView === "seller") renderSeller();
+    if(currentView === "home") renderHomeBrowse();
+  }, err => showFirebaseWarning("⚠️ تعذّر الاتصال بقاعدة البيانات: " + friendlyError(err)));
+
+  startAuthFlow();
+}
+
+/* طلبات الشحن حساسة (تحتوي على مراجع تحويلات بنكية)، فكل بائع يجب أن يرى طلباته
+   الخاصة فقط. لهذا صرنا نفتح مزامنة مختلفة حسب الدور بدل تحميل كل شيء للجميع. */
+function startSellerTopupsSync(uid){
+  if(unsubTopups){ unsubTopups(); unsubTopups = null; }
+  unsubTopups = onSnapshot(
+    query(topupsCol, where("sellerId","==",uid), orderBy("createdAt","desc")),
+    snap => {
+      localTopups = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      if(currentView === "seller") renderSeller();
+    },
+    err => showFirebaseWarning("⚠️ تعذّر تحميل طلبات الشحن: " + friendlyError(err))
+  );
+}
+
+function startAdminTopupsSync(){
+  if(unsubTopups){ unsubTopups(); unsubTopups = null; }
+  unsubTopups = onSnapshot(
+    query(topupsCol, orderBy("createdAt","desc")),
+    snap => {
+      localTopups = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      if(currentView === "admin") renderAdmin();
+    },
+    err => showFirebaseWarning("⚠️ تعذّر تحميل سجل التحويلات: " + friendlyError(err))
+  );
+}
+
+/* يدير جلسة الدخول: المشتري يحصل على هوية صامتة تلقائيًا (بدون أي نموذج تسجيل)،
+   والبائع عند تسجيل دخوله بحساب حقيقي يحصل على ملف تعريف ومحفظة خاصة به فقط */
+function startAuthFlow(){
+  onAuthStateChanged(auth, async user => {
+    if(!user){
+      try{ await signInAnonymously(auth); }
+      catch(e){ showFirebaseWarning("⚠️ تعذّر بدء جلسة تصفح: " + friendlyError(e)); }
+      return; // هذه الدالة تُستدعى تلقائيًا مرة أخرى بعد نجاح تسجيل الدخول الصامت
+    }
+
+    currentUid = user.uid;
+    isSellerLoggedIn = !user.isAnonymous;
+
+    if(unsubSellerProfile){ unsubSellerProfile(); unsubSellerProfile = null; }
+
+    if(isSellerLoggedIn && user.uid !== ADMIN_UID){
+      unsubSellerProfile = onSnapshot(doc(db, "sellers", user.uid), snap => {
+        currentSellerProfile = snap.exists() ? snap.data() : null;
+        if(currentView === "seller") renderSeller();
+      });
+      startSellerTopupsSync(user.uid);
+    } else {
+      currentSellerProfile = null;
+      if(unsubTopups){ unsubTopups(); unsubTopups = null; }
+      localTopups = [];
+    }
+
+    if(currentView === "buyer") renderBuyer();
+    if(currentView === "seller") renderSeller();
+  });
+}
+
+/* ================================================================
+   أدوات عامة — Helpers
+================================================================ */
+function fillSelect(el, options, placeholder){
+  el.innerHTML = `<option value="">${placeholder}</option>` + options.map(o => `<option value="${o}">${o}</option>`).join("");
+}
+function money(n){ return Number(n).toLocaleString("en-US"); }
+function genId(){ return "R-" + Math.floor(1000 + Math.random()*9000); }
+function genCode(){ return String(Math.floor(1000 + Math.random()*9000)); }
+
+function toast(msg, type){
+  const el = document.getElementById("toast");
+  el.textContent = (type === "error" ? "⚠️ " : "✅ ") + msg;
+  el.className = "show" + (type === "error" ? " error" : "");
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => { el.className = el.className.replace("show",""); }, 3200);
+}
+
+/* ================================================================
+   التنقل بين الصفحات — Navigation
+================================================================ */
+function setView(v){
+  currentView = v;
+  ["home","buyer","seller","admin"].forEach(name => {
+    document.getElementById("view-"+name).classList.toggle("hidden", name !== v);
+    const tab = document.getElementById("tab-"+name);
+    if(tab) tab.classList.toggle("active", name === v);
+  });
+  if(v === "home") renderHomeBrowse();
+  if(v === "buyer") renderBuyer();
+  if(v === "seller") renderSeller();
+  if(v === "admin") renderAdmin();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ================================================================
+   تصفح عام للطلبات المفتوحة — يظهر فالصفحة الرئيسية للجميع (بدون تسجيل دخول)
+   ويُفلتر حسب حقول البحث الموجودة فأعلى الصفحة
+================================================================ */
+const HOME_BROWSE_LIMIT = 24;
+function renderHomeBrowse(){
+  const list = document.getElementById("home-browse-list");
+  const countEl = document.getElementById("home-browse-count");
+  if(!list) return;
+
+  const brand = document.getElementById("f-brand").value;
+  const model = document.getElementById("f-model").value.trim().toLowerCase();
+  const year = document.getElementById("f-year").value;
+  const part = document.getElementById("f-part").value;
+  const wilaya = document.getElementById("f-wilaya").value;
+
+  let open = localRequests.filter(r => r.status === "open");
+  if(brand) open = open.filter(r => r.brand === brand);
+  if(year) open = open.filter(r => String(r.year) === String(year));
+  if(part) open = open.filter(r => r.partType === part);
+  if(wilaya) open = open.filter(r => r.wilaya === wilaya);
+  if(model) open = open.filter(r => (r.model||"").toLowerCase().includes(model));
+
+  countEl.textContent = `${open.length} طلب مفتوح`;
+
+  if(open.length === 0){
+    list.innerHTML = `<div class="empty-note">لا توجد طلبات مطابقة حاليًا. جرّب تغيير الفلاتر أو كن أول من ينشر طلبًا.</div>`;
+    return;
+  }
+
+  list.innerHTML = `<div class="how-grid">` + open.slice(0, HOME_BROWSE_LIMIT).map(r => `
+    <div class="card">
+      <div class="tags">
+        <b>${r.brand} ${r.model||""} ${r.year?"· "+r.year:""}</b>
+        <span class="badge b-steel">🔧 ${r.partType}</span>
+        <span class="badge b-green">📍 ${r.wilaya}</span>
+      </div>
+      <p class="desc">${r.details}</p>
+      <div class="flex-end mt14" style="justify-content:space-between; align-items:center;">
+        <span style="font-size:12px; color:var(--text-soft);">${r.offers && r.offers.length ? "💬 "+r.offers.length+" عرض مقدَّم" : "بانتظار أول عرض"}</span>
+        <button class="btn btn-navy btn-sm" onclick="setView('seller')">🏬 عندي هذي القطعة</button>
+      </div>
+    </div>`).join("") + `</div>` +
+    (open.length > HOME_BROWSE_LIMIT ? `<p class="section-sub" style="text-align:center; margin-top:14px;">تُعرض آخر ${HOME_BROWSE_LIMIT} طلبًا فقط. استعمل الفلاتر لتضييق النتائج.</p>` : "");
+}
+
+/* ================================================================
+   تهيئة القوائم المنسدلة — Init dropdowns
+================================================================ */
+function initDropdowns(){
+  fillSelect(document.getElementById("f-brand"), CAR_BRANDS, "الكل");
+  fillSelect(document.getElementById("f-year"), YEARS, "الكل");
+  fillSelect(document.getElementById("f-part"), PART_TYPES, "الكل");
+  fillSelect(document.getElementById("f-wilaya"), WILAYAS, "الكل");
+
+  fillSelect(document.getElementById("nf-brand"), CAR_BRANDS, "اختر الماركة");
+  fillSelect(document.getElementById("nf-year"), YEARS, "اختر السنة");
+  fillSelect(document.getElementById("nf-part"), PART_TYPES, "اختر نوع القطعة");
+  fillSelect(document.getElementById("nf-wilaya"), WILAYAS, "اختر الولاية");
+}
+
+/* ================================================================
+   واجهة المشتري — Buyer logic
+================================================================ */
+function toggleBuyerForm(){
+  const box = document.getElementById("buyer-form");
+  box.classList.toggle("hidden");
+  document.getElementById("btn-toggle-form").textContent = box.classList.contains("hidden") ? "➕ طلب قطعة جديدة" : "✖ إغلاق";
+}
+
+function previewImage(input){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = new Image();
+    img.onload = () => {
+      // نضغط الصورة لأبعاد صغيرة (480px) وجودة متوسطة حتى لا تتجاوز حجم مسموح به في قاعدة البيانات
+      const maxW = 480;
+      const scale = Math.min(1, maxW / img.width);
+      const canvas = document.createElement("canvas");
+      canvas.width = Math.round(img.width * scale);
+      canvas.height = Math.round(img.height * scale);
+      const ctx = canvas.getContext("2d");
+      ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+      pendingImage = canvas.toDataURL("image/jpeg", 0.6);
+      document.getElementById("nf-image-preview").innerHTML = `<img src="${pendingImage}">`;
+    };
+    img.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+async function submitRequest(){
+  if(!firebaseReady){ toast("الموقع غير مربوط بقاعدة بيانات بعد — راجع FIREBASE_CONFIG.", "error"); return; }
+  const brand = document.getElementById("nf-brand").value;
+  const model = document.getElementById("nf-model").value;
+  const year = document.getElementById("nf-year").value;
+  const part = document.getElementById("nf-part").value;
+  const wilaya = document.getElementById("nf-wilaya").value;
+  const details = document.getElementById("nf-details").value.trim();
+
+  if(!brand || !part || !wilaya || !details){
+    toast("يرجى تعبئة الماركة ونوع القطعة والولاية والتفاصيل.", "error");
+    return;
+  }
+
+  try{
+    await addDoc(requestsCol, {
+      brand, model, year, partType: part, wilaya, details,
+      image: pendingImage, status: "open", offers: [],
+      acceptedOfferId: null, confirmationCode: null,
+      buyerId: currentUid,
+      createdAt: serverTimestamp()
+    });
+  }catch(e){ toast("تعذّر نشر الطلب: " + friendlyError(e), "error"); return; }
+
+  document.getElementById("nf-model").value = "";
+  document.getElementById("nf-details").value = "";
+  document.getElementById("nf-image-preview").innerHTML = "📷 اضغط لرفع صورة";
+  pendingImage = null;
+  toggleBuyerForm();
+  toast("تم نشر طلبك بنجاح، بانتظار عروض البائعين.");
+}
+
+async function acceptOffer(reqId, offerId){
+  if(!firebaseReady){ toast("الموقع غير مربوط بقاعدة بيانات بعد.", "error"); return; }
+  try{
+    await updateDoc(doc(db, "requests", reqId), {
+      status: "accepted",
+      acceptedOfferId: offerId,
+      confirmationCode: genCode()
+    });
+    toast("تم قبول العرض! احتفظ بكود التأكيد ولا تشاركه قبل استلام القطعة.");
+  }catch(e){ toast("تعذّر قبول العرض: " + friendlyError(e), "error"); }
+}
+
+function renderBuyer(){
+  const list = document.getElementById("buyer-list");
+  const myRequests = localRequests.filter(r => r.buyerId === currentUid);
+
+  const openCount = myRequests.filter(r => r.status === "open").length;
+  const acceptedCount = myRequests.filter(r => r.status === "accepted").length;
+  const doneCount = myRequests.filter(r => r.status === "completed").length;
+
+  const statsBar = myRequests.length === 0 ? "" : `
+    <div style="display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap;">
+      <span class="badge b-yellow">⏳ ${openCount} بانتظار عروض</span>
+      <span class="badge b-orange">🛡️ ${acceptedCount} بانتظار تأكيد</span>
+      <span class="badge b-green">✅ ${doneCount} مكتملة</span>
+    </div>`;
+
+  if(myRequests.length === 0){
+    list.innerHTML = `<div class="empty-note">لم تنشر أي طلب بعد. اضغط "طلب قطعة جديدة" للبدء.</div>`;
+    return;
+  }
+
+  list.innerHTML = statsBar + myRequests.map(r => {
+    let statusBadge = r.status === "open" ? `<span class="badge b-yellow">بانتظار عروض</span>`
+      : r.status === "accepted" ? `<span class="badge b-orange">بانتظار التأكيد</span>`
+      : `<span class="badge b-green">مكتملة</span>`;
+
+    let body = "";
+    if(r.status === "open"){
+      if(r.offers.length === 0){
+        body = `<div class="divider-dash"><p style="font-size:13px; color:#a3a3a3;">لم يصلك أي عرض بعد.</p></div>`;
+      }else{
+        body = `<div class="divider-dash">
+          <p style="font-size:12px; font-weight:800; color:var(--text-soft); margin-bottom:8px;">⏱ العروض المستلمة (${r.offers.length})</p>
+          ${r.offers.map(o => `
+            <div class="offer-row">
+              <div><b>${o.sellerName}</b><div style="font-size:12px; color:var(--text-soft);">${o.message||""}</div></div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="price">${money(o.price)} د.ج</span>
+                <button class="btn btn-navy btn-sm" onclick="acceptOffer('${r.id}','${o.id}')">قبول العرض</button>
+              </div>
+            </div>`).join("")}
+        </div>`;
+      }
+    } else if(r.status === "accepted"){
+      const offer = r.offers.find(o => o.id === r.acceptedOfferId);
+      body = `<div class="divider-dash">
+        <p style="font-size:13.5px; color:var(--text-soft); margin-bottom:10px;">
+          تم قبول عرض <b style="color:var(--text);">${offer?offer.sellerName:""}</b> بسعر
+          <b style="color:var(--orange-dark);">${offer?money(offer.price):""} د.ج</b>.
+          عند استلام القطعة وتجربتها، سلّم الكود التالي للبائع:
+        </p>
+        <div class="ticket">
+          <div class="top-row"><span class="lbl">🎫 كود التأكيد السري</span><span class="id">${r.id}</span></div>
+          <div class="code">${r.confirmationCode}</div>
+          <p class="hint">سلّم هذا الكود للبائع يدويًا فقط بعد استلام القطعة والتأكد من مطابقتها. لا تشاركه قبل ذلك.</p>
+        </div>
+      </div>`;
+    } else {
+      body = `<div class="divider-dash" style="color:var(--green); font-weight:800; font-size:13.5px;">✅ تمت الصفقة بنجاح</div>`;
+    }
+
+    return `<div class="card">
+      <div class="head-row">
+        <div>
+          <div class="tags">
+            <b>${r.brand} ${r.model||""} ${r.year?"· "+r.year:""}</b>
+            <span class="badge b-steel">🔧 ${r.partType}</span>
+            <span class="badge b-green">📍 ${r.wilaya}</span>
+          </div>
+          <p class="desc">${r.details}</p>
+        </div>
+        ${statusBadge}
+      </div>
+      ${body}
+    </div>`;
+  }).join("");
+}
+
+/* ================================================================
+   واجهة البائع — Seller logic
+================================================================ */
+let currentSellerTab = "requests";
+function setSellerTab(tab){
+  currentSellerTab = tab;
+  ["requests","pending","confirm","wallet"].forEach(t => {
+    document.getElementById("seller-sec-"+t).classList.toggle("hidden", t !== tab);
+    document.getElementById("stab-"+t).classList.toggle("active", t === tab);
+  });
+}
+
+async function submitTopupRequest(){
+  if(!firebaseReady || !isSellerLoggedIn){ toast("سجّل دخولك كبائع أولًا.", "error"); return; }
+  const amount = Number(document.getElementById("topup-amount").value);
+  const ref = document.getElementById("topup-ref").value.trim();
+  const note = document.getElementById("topup-note").value.trim();
+
+  if(!amount || amount <= 0){ toast("أدخل مبلغًا صحيحًا.", "error"); return; }
+  if(!ref){ toast("أدخل رقم وصل التحويل حتى يسهل التحقق منه.", "error"); return; }
+
+  try{
+    await addDoc(topupsCol, {
+      amount, ref, note,
+      sellerId: currentUid,
+      sellerName: currentSellerProfile ? currentSellerProfile.name : "بائع",
+      status: "pending",
+      date: new Date().toLocaleString("ar-DZ"),
+      createdAt: serverTimestamp()
+    });
+  }catch(e){ toast("تعذّر إرسال الطلب: " + friendlyError(e), "error"); return; }
+
+  document.getElementById("topup-amount").value = "";
+  document.getElementById("topup-ref").value = "";
+  document.getElementById("topup-note").value = "";
+  toast("تم إرسال تصريحك، سيُضاف الرصيد بعد التحقق من وصول التحويل.");
+}
+
+/* ---------------- دفع فوري بالبطاقة عبر Chargily ----------------
+   ملاحظة أمنية: مفتاح Chargily السري لا يمكن أن يوضع في هذا الملف لأنه يُقرأ من المتصفح.
+   لهذا ننادي دالة خادم (Netlify Function) هي التي تتواصل مع Chargily فعليًا،
+   وهي موجودة في netlify/functions/create-checkout.js */
+async function payWithChargily(){
+  if(!isSellerLoggedIn){ toast("سجّل دخولك كبائع أولًا.", "error"); return; }
+  const amount = Number(document.getElementById("chargily-amount").value);
+  if(!amount || amount < 100){ toast("أدخل مبلغًا لا يقل عن 100 د.ج.", "error"); return; }
+
+  try{
+    const res = await fetch("/.netlify/functions/create-checkout", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ sellerId: currentUid, amount })
+    });
+    const data = await res.json();
+    if(!res.ok || !data.checkout_url){
+      toast(data.error || "تعذّر بدء عملية الدفع.", "error");
+      return;
+    }
+    window.location.href = data.checkout_url; // تحويل المستخدم لصفحة الدفع الآمنة عند Chargily
+  }catch(e){
+    toast("تعذّر الاتصال بخدمة الدفع: " + e.message, "error");
+  }
+}
+
+/* ---------------- لوحة المسيّر (Admin) ---------------- */
+async function openAdminPanel(){
+  if(!firebaseReady){ toast("الموقع غير مربوط بقاعدة بيانات بعد.", "error"); return; }
+  if(isAdminAuthed){ setView("admin"); return; }
+
+  const email = prompt("البريد الإلكتروني لحساب المسيّر:");
+  if(!email) return;
+  const password = prompt("كلمة السر:");
+  if(!password) return;
+
+  try{
+    const cred = await signInWithEmailAndPassword(auth, email, password);
+    if(cred.user.uid !== ADMIN_UID){
+      await signOut(auth); // ليس حساب المسيّر، نخرج فورًا حتى لا يبقى مسجّلًا كبائع بالخطأ
+      toast("هذا الحساب ليس حساب المسيّر المصرّح به.", "error");
+      return;
+    }
+    isAdminAuthed = true;
+    startAdminTopupsSync();
+    setView("admin");
+  }catch(e){
+    toast("فشل الدخول: " + friendlyAuthError(e), "error");
+  }
+}
+
+async function approveTopup(id){
+  if(!firebaseReady){ toast("الموقع غير مربوط بقاعدة بيانات بعد.", "error"); return; }
+  const t = localTopups.find(x => x.id === id);
+  if(!t || t.status !== "pending") return;
+  try{
+    await updateDoc(doc(db, "topups", id), { status: "approved" });
+    await updateDoc(doc(db, "sellers", t.sellerId), { wallet: increment(t.amount) });
+    toast(`تم قبول التحويل وإضافة ${money(t.amount)} د.ج لرصيد ${t.sellerName||"البائع"}.`);
+  }catch(e){ toast("تعذّر التأكيد: " + friendlyError(e), "error"); }
+}
+
+async function rejectTopup(id){
+  if(!firebaseReady){ toast("الموقع غير مربوط بقاعدة بيانات بعد.", "error"); return; }
+  const t = localTopups.find(x => x.id === id);
+  if(!t || t.status !== "pending") return;
+  try{
+    await updateDoc(doc(db, "topups", id), { status: "rejected" });
+    toast("تم رفض التحويل.", "error");
+  }catch(e){ toast("تعذّر الرفض: " + friendlyError(e), "error"); }
+}
+
+function renderAdmin(){
+  const list = document.getElementById("admin-topups-list");
+  const pending = localTopups.filter(t => t.status === "pending");
+  const done = localTopups.filter(t => t.status !== "pending");
+
+  const row = t => `
+    <div class="offer-row">
+      <div>
+        <b>${money(t.amount)} د.ج</b> — البائع: <b>${t.sellerName||"غير معروف"}</b>
+        <div style="font-size:11.5px; color:var(--text-soft);">مرجع: <span style="font-family:monospace;">${t.ref}</span> · ${t.note||""} · ${t.date}</div>
+      </div>
+      <div style="display:flex; gap:8px;">
+        ${t.status === "pending" ? `
+          <button class="btn btn-navy btn-sm" onclick="approveTopup('${t.id}')">✅ قبول</button>
+          <button class="btn btn-outline btn-sm" onclick="rejectTopup('${t.id}')">✖ رفض</button>
+        ` : t.status === "approved" ? `<span class="badge b-green">مقبول</span>` : `<span class="badge b-red">مرفوض</span>`}
+      </div>
+    </div>`;
+
+  list.innerHTML = `
+    <div class="section-actions">⏳ بانتظار المراجعة (${pending.length})</div>
+    ${pending.length ? pending.map(row).join("") : `<div class="empty-note">لا توجد طلبات شحن جديدة.</div>`}
+    <div class="section-actions mt14" style="margin-top:24px;">📋 السجل</div>
+    ${done.length ? done.map(row).join("") : `<div class="empty-note">لا يوجد سجل بعد.</div>`}
+  `;
+}
+
+async function sendOffer(reqId){
+  if(!firebaseReady || !isSellerLoggedIn){ toast("سجّل دخولك كبائع أولًا.", "error"); return; }
+  const priceEl = document.getElementById("offer-price-"+reqId);
+  const msgEl = document.getElementById("offer-msg-"+reqId);
+  const price = Number(priceEl.value);
+  if(!price){ toast("أدخل السعر المقترح أولًا.", "error"); return; }
+
+  try{
+    await updateDoc(doc(db, "requests", reqId), {
+      offers: arrayUnion({
+        id: "O-"+Date.now(), sellerId: currentUid,
+        sellerName: currentSellerProfile ? currentSellerProfile.name : "بائع",
+        price, message: msgEl.value.trim()
+      })
+    });
+    toast("تم إرسال عرضك للزبون.");
+  }catch(e){ toast("تعذّر إرسال العرض: " + friendlyError(e), "error"); }
+}
+
+async function confirmSale(reqId){
+  if(!firebaseReady || !isSellerLoggedIn){ toast("سجّل دخولك كبائع أولًا.", "error"); return; }
+  const input = document.getElementById("code-"+reqId);
+  const entered = input.value.trim();
+  const req = localRequests.find(r => r.id === reqId);
+  if(!req) return;
+
+  if(entered !== req.confirmationCode){
+    toast("الكود غير صحيح، تحقق منه مع الزبون.", "error");
+    return;
+  }
+  const myWallet = currentSellerProfile ? (currentSellerProfile.wallet || 0) : 0;
+  if(myWallet < COMMISSION){
+    toast("رصيد محفظتك غير كافٍ لدفع العمولة. اشحن رصيدك أولًا.", "error");
+    return;
+  }
+  try{
+    await updateDoc(doc(db, "requests", reqId), { status: "completed" });
+    await updateDoc(doc(db, "sellers", currentUid), { wallet: increment(-COMMISSION) });
+    toast(`تم تأكيد البيع! خُصمت ${COMMISSION} د.ج من محفظتك.`);
+  }catch(e){ toast("تعذّر التأكيد: " + friendlyError(e), "error"); }
+}
+
+function renderSellerAuthGate(){
+  document.getElementById("seller-authed").classList.add("hidden");
+  document.getElementById("seller-auth-gate").classList.remove("hidden");
+}
+
+let sellerAuthMode = "login"; // login | register
+function setSellerAuthMode(mode){
+  sellerAuthMode = mode;
+  document.getElementById("sa-title").textContent = mode === "login" ? "🔑 تسجيل الدخول كبائع" : "📝 إنشاء حساب بائع جديد";
+  document.getElementById("sa-name-field").classList.toggle("hidden", mode === "login");
+  document.getElementById("sa-submit-btn").textContent = mode === "login" ? "دخول" : "إنشاء الحساب";
+  document.getElementById("sa-switch-text").innerHTML = mode === "login"
+    ? `ماعندكش حساب؟ <a href="#" onclick="setSellerAuthMode('register'); return false;" style="color:var(--orange); font-weight:800;">أنشئ حساب جديد</a>`
+    : `عندك حساب من قبل؟ <a href="#" onclick="setSellerAuthMode('login'); return false;" style="color:var(--orange); font-weight:800;">سجّل دخولك</a>`;
+}
+
+async function submitSellerAuth(){
+  if(!firebaseReady){ toast("الموقع غير مربوط بقاعدة بيانات بعد.", "error"); return; }
+  const email = document.getElementById("sa-email").value.trim();
+  const password = document.getElementById("sa-password").value;
+  const name = document.getElementById("sa-name").value.trim();
+
+  if(!email || !password){ toast("أدخل البريد الإلكتروني وكلمة السر.", "error"); return; }
+  if(sellerAuthMode === "register" && !name){ toast("أدخل اسمك أو اسم محلك.", "error"); return; }
+
+  try{
+    if(sellerAuthMode === "register"){
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+      await setDoc(doc(db, "sellers", cred.user.uid), {
+        name, email, wallet: 0, createdAt: serverTimestamp()
+      });
+      toast("تم إنشاء حسابك بنجاح! مرحبًا بك.");
+    } else {
+      await signInWithEmailAndPassword(auth, email, password);
+      toast("تم تسجيل الدخول بنجاح.");
+    }
+  }catch(e){
+    toast((sellerAuthMode === "register" ? "تعذّر إنشاء الحساب: " : "فشل تسجيل الدخول: ") + friendlyAuthError(e), "error");
+  }
+}
+
+async function adminLogout(){
+  try{
+    isAdminAuthed = false;
+    if(unsubTopups){ unsubTopups(); unsubTopups = null; }
+    localTopups = [];
+    await signOut(auth); // يعيد Firebase تسجيل دخول صامت (مجهول) تلقائيًا بعد هذا
+    toast("تم تسجيل خروج المسيّر.");
+    setView("home");
+  }catch(e){ toast("تعذّر تسجيل الخروج: " + friendlyError(e), "error"); }
+}
+
+async function sellerLogout(){
+  try{
+    await signOut(auth);
+    toast("تم تسجيل الخروج.");
+    setSellerAuthMode("login");
+  }catch(e){ toast("تعذّر تسجيل الخروج: " + friendlyError(e), "error"); }
+}
+
+function renderSeller(){
+  if(!isSellerLoggedIn || currentUid === ADMIN_UID){ renderSellerAuthGate(); return; }
+  document.getElementById("seller-authed").classList.remove("hidden");
+  document.getElementById("seller-auth-gate").classList.add("hidden");
+
+  const wallet = currentSellerProfile ? (currentSellerProfile.wallet || 0) : 0;
+  document.getElementById("wallet-amount").innerHTML = `${money(wallet)} <span>د.ج</span>`;
+  document.getElementById("seller-name-tag").textContent = currentSellerProfile ? currentSellerProfile.name : "";
+
+  const openReqs = localRequests.filter(r => r.status === "open" && !r.offers.some(o => o.sellerId === currentUid));
+  const pending = localRequests.filter(r => r.status === "open" && r.offers.some(o => o.sellerId === currentUid));
+  const accepted = localRequests.filter(r => r.status === "accepted" && (() => {
+    const o = r.offers.find(x => x.id === r.acceptedOfferId);
+    return o && o.sellerId === currentUid;
+  })());
+  const myTopups = localTopups.filter(t => t.sellerId === currentUid);
+
+  const summary = r => `<div class="tags">
+      <b>${r.brand} ${r.model||""} ${r.year?"· "+r.year:""}</b>
+      <span class="badge b-steel">🔧 ${r.partType}</span>
+      <span class="badge b-green">📍 ${r.wilaya}</span>
+      <span style="font-size:11px; color:#a3a3a3;">${r.id}</span>
+    </div>`;
+
+  const openList = document.getElementById("seller-open-list");
+  openList.innerHTML = openReqs.length === 0
+    ? `<div class="empty-note">لا توجد طلبات جديدة تطابق تخصصك حاليًا.</div>`
+    : openReqs.map(r => `
+      <div class="card">
+        ${summary(r)}
+        <p class="desc">${r.details}</p>
+        <div class="grid-3 mt14">
+          <div class="field"><label>السعر المقترح (د.ج)</label><input type="number" id="offer-price-${r.id}" placeholder="4500"></div>
+          <div class="field"><label>رسالة قصيرة</label><input id="offer-msg-${r.id}" placeholder="متوفرة وبحالة جيدة"></div>
+          <button class="btn btn-navy" style="align-self:end;" onclick="sendOffer('${r.id}')">📤 إرسال العرض</button>
+        </div>
+      </div>`).join("");
+
+  const pendingList = document.getElementById("seller-pending-list");
+  pendingList.innerHTML = pending.length === 0
+    ? `<div class="empty-note">لا توجد عروض معلّقة حاليًا.</div>`
+    : pending.map(r => {
+        const myOffer = r.offers.find(o => o.sellerId === currentUid);
+        return `<div class="card">
+          ${summary(r)}
+          <span class="note-yellow mt8">عرضك: ${money(myOffer.price)} د.ج — بانتظار قرار الزبون</span>
+        </div>`;
+      }).join("");
+
+  const confirmList = document.getElementById("seller-confirm-list");
+  confirmList.innerHTML = accepted.length === 0
+    ? `<div class="empty-note">لا توجد صفقات مقبولة بانتظار التأكيد حاليًا.</div>`
+    : accepted.map(r => `
+      <div class="card">
+        ${summary(r)}
+        <div style="display:flex; align-items:flex-end; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <div class="field" style="width:140px;"><label>كود التأكيد (4 أرقام)</label><input id="code-${r.id}" placeholder="0000" maxlength="4"></div>
+          <button class="btn btn-orange" onclick="confirmSale('${r.id}')">✅ تأكيد وخصم العمولة (${COMMISSION} د.ج)</button>
+        </div>
+      </div>`).join("");
+
+  const topupsList = document.getElementById("seller-topups-list");
+  topupsList.innerHTML = myTopups.length === 0
+    ? `<div class="empty-note">لم تُرسل أي طلب شحن بعد.</div>`
+    : myTopups.map(t => `
+      <div class="offer-row">
+        <div><b>${money(t.amount)} د.ج</b> — مرجع: <span style="font-family:monospace;">${t.ref}</span>
+          <div style="font-size:11.5px; color:var(--text-soft);">${t.date}</div>
+        </div>
+        ${t.status === "pending" ? `<span class="badge b-yellow">بانتظار المراجعة</span>`
+          : t.status === "approved" ? `<span class="badge b-green">تمت الإضافة للرصيد</span>`
+          : `<span class="badge b-red">مرفوض</span>`}
+      </div>`).join("");
+
+  document.getElementById("cnt-requests").textContent = openReqs.length || "";
+  document.getElementById("cnt-confirm").textContent = accepted.length || "";
+  setSellerTab(currentSellerTab);
+}
+
+/* ================================================================
+   بدء التشغيل — Init
+================================================================ */
+function initCcpInfo(){
+  document.getElementById("ccp-name").textContent = CCP_INFO.accountName;
+  document.getElementById("ccp-number").textContent = CCP_INFO.ccpNumber;
+  document.getElementById("ccp-rip").textContent = CCP_INFO.rip;
+  document.getElementById("ccp-note").textContent = "💡 " + CCP_INFO.note;
+}
+
+/* لأن الملف أصبح ES module، لازم نربط الدوال المستعملة في onclick/onchange بالنطاق العام يدويًا
+   هذا أول شيء ينفّذ حتى لو صار خطأ لاحقًا في Firebase — باش الموقع يبقى قابل للتصفح دائمًا */
+Object.assign(window, {
+  setView, toggleBuyerForm, previewImage, submitRequest, acceptOffer, renderHomeBrowse,
+  setSellerTab, submitTopupRequest, payWithChargily, openAdminPanel, adminLogout, approveTopup, rejectTopup,
+  sendOffer, confirmSale, setSellerAuthMode, submitSellerAuth, sellerLogout
+});
+
+/* رسالة ترحيبية بعد العودة من صفحة دفع Chargily (نجاح أو فشل) */
+(function handleChargilyReturn(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get("topup") === "success"){
+    toast("تم إرسال دفعتك! سيُضاف الرصيد لمحفظتك خلال لحظات بعد تأكيد Chargily.");
+  } else if(params.get("topup") === "failed"){
+    toast("لم تكتمل عملية الدفع أو تم إلغاؤها.", "error");
+  }
+  if(params.has("topup")){
+    params.delete("topup");
+    const clean = window.location.pathname + (params.toString() ? "?"+params.toString() : "");
+    window.history.replaceState({}, "", clean);
+  }
+})();
+
+initDropdowns();
+initCcpInfo();
+setSellerAuthMode("login");
+setView("home");
+
+(async function boot(){
+  try{
+    await initFirebase();
+    startRealtimeSync();
+  }catch(e){
+    showFirebaseWarning("⚠️ خطأ غير متوقع أثناء الاتصال بقاعدة البيانات: " + e.message);
+  }
+})();
+</script>
+</body>
+</html>
