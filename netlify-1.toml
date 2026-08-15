@@ -1,0 +1,8 @@
+# ضع هذا الملف فجذر المشروع (نفس مستوى index.html)
+
+[build]
+  functions = "netlify/functions"
+  # الموقع ملف واحد ثابت (index.html) بلا خطوة build، فما نحتاجو أمر build
+
+[functions]
+  node_bundler = "esbuild"
