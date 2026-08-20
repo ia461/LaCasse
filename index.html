@@ -1,0 +1,3626 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Casse | سوق قطع غيار السيارات في الجزائر</title>
+<meta name="description" content="La Casse — منصة رقمية تربط بين المشترين والبائعين لقطع غيار السيارات في الجزائر. انشر طلبك واستقبل عروض حقيقية من بائعين، بمحفظة آمنة وكود تأكيد سري لكل صفقة.">
+<link rel="canonical" href="https://lacasse-dz.netlify.app/">
+
+<!-- Open Graph / social sharing -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="La Casse">
+<meta property="og:title" content="La Casse | سوق قطع غيار السيارات في الجزائر">
+<meta property="og:description" content="انشر طلبك لقطعة غيار واستقبل عروض من بائعين فالجزائر، بمحفظة آمنة وكود تأكيد سري لكل صفقة.">
+<meta property="og:image" content="https://lacasse-dz.netlify.app/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_DZ">
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="La Casse | سوق قطع غيار السيارات في الجزائر">
+<meta name="twitter:description" content="انشر طلبك لقطعة غيار واستقبل عروض من بائعين فالجزائر، بمحفظة آمنة وكود تأكيد سري لكل صفقة.">
+<meta name="twitter:image" content="https://lacasse-dz.netlify.app/assets/og-image.png">
+
+<!-- Favicon (SVG مدمج، بلا ملف خارجي) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%232c2d31'/%3E%3Ctext x='50' y='68' font-family='Arial, sans-serif' font-size='54' font-weight='900' fill='%23c9a227' text-anchor='middle'%3ELC%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Tajawal:wght@400;500;700;900&display=swap">
+<style>
+  :root{
+    --navy:#2c2d31;
+    --navy-2:#45464b;
+    --ink:#1a1a1c;
+    --text:#22232a;
+    --text-soft:#5c5d64;
+    --bg:#f3f2ef;
+    --card:#ffffff;
+    --line:#e2e0da;
+    --orange:#c9a227;
+    --orange-dark:#a3811a;
+    --amber:#e8c766;
+    --green:#1f7a43;
+    --green-bg:#e6f4ea;
+    --red:#c0392b;
+    --red-bg:#fbe9e7;
+    --yellow-bg:#fdf3d6;
+    --yellow-text:#8a6800;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html, body{overflow-x:hidden; width:100%;}
+  body{
+    font-family:'Tajawal','Cairo',system-ui,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+  }
+  a{color:inherit; text-decoration:none;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  input,select,textarea{font-family:inherit; font-size:14px;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 20px;}
+  .hidden{display:none !important;}
+
+  /* ---------- Header ---------- */
+  header{
+    background:linear-gradient(180deg, #313236 0%, var(--navy) 100%);
+    position:sticky; top:0; z-index:50;
+    box-shadow:0 2px 12px rgba(0,0,0,.15);
+    border-bottom:1px solid rgba(201,162,39,.25);
+  }
+  header .bar{display:flex; flex-direction:column; align-items:center; justify-content:center; padding:12px 0; gap:10px;}
+  .logo{display:flex; align-items:center; gap:9px; color:#fff; font-weight:900; font-size:22px;}
+  .logo .icon{
+    width:38px; height:38px; border-radius:11px;
+    background:linear-gradient(145deg, var(--amber), var(--orange-dark));
+    display:flex; align-items:center; justify-content:center; font-size:19px;
+    box-shadow:0 3px 10px rgba(201,162,39,.45), inset 0 1px 0 rgba(255,255,255,.35);
+    transition:transform .25s ease;
+  }
+  .logo:hover .icon{transform:rotate(-8deg) scale(1.06);}
+  .logo-text{
+    font-family:'Cairo','Tajawal',system-ui,sans-serif;
+    background:linear-gradient(90deg, var(--amber) 0%, #fff 45%, var(--amber) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    letter-spacing:.4px;
+    filter:drop-shadow(0 1px 2px rgba(0,0,0,.35));
+  }
+  .logo span.dot{color:var(--orange); text-shadow:0 0 8px rgba(201,162,39,.6);}
+  .header-nav-row{display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap; width:100%;}
+  nav.tabs{display:flex; gap:4px; background:rgba(255,255,255,.08); padding:4px; border-radius:999px; overflow-x:auto; max-width:100%;}
+  nav.tabs button{
+    padding:8px 18px; border-radius:999px; font-weight:700; font-size:14px;
+    background:transparent; color:rgba(255,255,255,.75); white-space:nowrap; flex-shrink:0;
+  }
+  @media (max-width:420px){
+    nav.tabs button{padding:7px 12px; font-size:12.5px;}
+    .logo{font-size:17px;}
+  }
+  nav.tabs button.active{background:#fff; color:var(--navy);}
+  nav.tabs button:hover:not(.active){color:#fff;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:radial-gradient(1200px 500px at 15% -10%, rgba(201,162,39,.16), transparent 60%), linear-gradient(160deg, #313236 0%, var(--navy) 55%, #1c1d20 100%);
+    color:#fff; padding:56px 0 90px; position:relative; overflow:hidden;
+  }
+  .hero .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(201,162,39,.18); color:#e8c766; border:1px solid rgba(201,162,39,.45);
+    font-weight:700; font-size:12.5px; padding:6px 14px; border-radius:999px;
+  }
+  .hero h1{font-size:34px; font-weight:900; margin:18px 0 14px; max-width:640px; line-height:1.35;}
+  .hero p.lead{color:rgba(255,255,255,.72); max-width:560px; font-size:15px;}
+
+  .search-card{
+    background:#fff; border-radius:18px; padding:22px; margin-top:34px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25); color:var(--text);
+  }
+  .search-card .title{display:flex; align-items:center; gap:6px; color:var(--orange); font-weight:800; font-size:14px; margin-bottom:14px;}
+  .filters-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:10px;}
+  @media (max-width:900px){ .filters-grid{grid-template-columns:repeat(2,1fr);} }
+
+  .field label{display:block; font-size:11px; font-weight:800; color:var(--text-soft); margin-bottom:5px;}
+  .field select, .field input, .field textarea{
+    width:100%; background:var(--bg); border:1.5px solid var(--line); border-radius:10px;
+    padding:9px 11px; color:var(--text); font-weight:600;
+  }
+  .field select:focus, .field input:focus, .field textarea:focus{outline:none; border-color:var(--orange);}
+
+  .btn{
+    display:inline-flex; align-items:center; gap:7px; justify-content:center;
+    font-weight:800; font-size:14px; padding:12px 22px; border-radius:12px;
+    transition:.15s ease;
+  }
+  .btn-orange{background:var(--orange); color:var(--navy); font-weight:900;}
+  .btn-orange:hover{background:var(--orange-dark); color:#fff;}
+  .btn-navy{background:var(--navy); color:#fff;}
+  .btn-navy:hover{background:#081a2c;}
+  .btn-outline{background:#fff; border:1.5px solid var(--line); color:var(--text);}
+  .btn-outline:hover{border-color:var(--orange); color:var(--orange);}
+  .btn-block{width:100%;}
+  .btn-sm{padding:8px 14px; font-size:13px; border-radius:9px;}
+
+  /* ---------- Sections generic ---------- */
+  section.block{padding:56px 0;}
+  h2.section-title{font-size:26px; font-weight:900; text-align:center;}
+  .legal-p{font-size:14px; line-height:1.9; color:var(--text-soft); margin-bottom:14px;}
+  .legal-h3{font-size:15px; font-weight:800; color:var(--text); margin-top:16px; margin-bottom:6px;}
+  .legal-list{margin:0 0 14px; padding-inline-start:22px; font-size:14px; line-height:1.9; color:var(--text-soft);}
+  .legal-list li{margin-bottom:6px;}
+  p.section-sub{text-align:center; color:var(--text-soft); margin-top:6px; font-size:14px;}
+
+  .how-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:36px;}
+  @media (max-width:800px){ .how-grid{grid-template-columns:1fr;} }
+  .how-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:24px;}
+  .how-card h3{display:flex; align-items:center; gap:10px; font-size:17px; font-weight:900; margin-bottom:18px;}
+  .how-card h3 .ic{width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:16px;}
+  .ic-buyer{background:#e7edf3; color:var(--navy-2);}
+  .ic-seller{background:#f6efd6; color:var(--orange-dark);}
+
+  .step{display:flex; gap:12px; margin-bottom:16px;}
+  .step .num{flex-shrink:0; width:26px; height:26px; border-radius:50%; background:var(--navy); color:#fff; font-size:12px; font-weight:900; display:flex; align-items:center; justify-content:center;}
+  .step .txt b{display:block; font-size:14px; font-weight:800;}
+  .step .txt span{font-size:13.5px; color:var(--text-soft);}
+  .note-yellow{font-size:12.5px; color:var(--yellow-text); background:var(--yellow-bg); border-radius:8px; padding:8px 12px; margin-top:6px; display:inline-block;}
+
+  .info-3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:800px){ .info-3{grid-template-columns:1fr;} }
+  .info-card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px;}
+  .info-card .ic{width:42px; height:42px; border-radius:12px; background:var(--navy); color:var(--amber); display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:10px;}
+  .info-card b{font-size:15px;}
+  .info-card p{font-size:13.5px; color:var(--text-soft); margin-top:5px;}
+
+  /* ---------- Badges ---------- */
+  .badge{display:inline-flex; align-items:center; gap:4px; font-size:11.5px; font-weight:800; padding:4px 10px; border-radius:999px;}
+  .b-steel{background:#e7edf3; color:var(--navy-2);}
+  .b-green{background:var(--green-bg); color:var(--green);}
+  .b-orange{background:#f6efd6; color:var(--orange-dark);}
+  .b-yellow{background:var(--yellow-bg); color:var(--yellow-text);}
+  .b-red{background:var(--red-bg); color:var(--red);}
+
+  /* ---------- Views (buyer/seller) ---------- */
+  .view{padding:32px 0 60px;}
+  .view-head{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:22px;}
+  .view-head h1{font-size:20px; font-weight:900;}
+  .view-head p{font-size:13.5px; color:var(--text-soft);}
+
+  .card{background:var(--card); border:1px solid var(--line); border-radius:16px; padding:20px; margin-bottom:14px;}
+  .card .head-row{display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap;}
+  .card .tags{display:flex; align-items:center; gap:6px; flex-wrap:wrap;}
+  .card .desc{font-size:13.5px; color:var(--text-soft); margin-top:8px;}
+  .divider-dash{border-top:1px dashed var(--line); margin-top:14px; padding-top:14px;}
+
+  .grid-3{display:grid; grid-template-columns:1fr 1fr auto; gap:8px;}
+  @media (max-width:700px){ .grid-3{grid-template-columns:1fr;} }
+
+  .offer-row{display:flex; align-items:center; justify-content:space-between; gap:10px; background:var(--bg); border-radius:12px; padding:10px 14px; margin-bottom:8px; flex-wrap:wrap;}
+  .offer-row b{font-size:13.5px;}
+  .offer-row .price{font-weight:900; color:var(--orange-dark);}
+
+  /* Wallet card */
+  .wallet-card{
+    background:var(--navy); color:#fff; border-radius:16px; padding:20px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:26px;
+  }
+  .wallet-card .left{display:flex; align-items:center; gap:12px;}
+  .wallet-card .icon-box{width:46px; height:46px; border-radius:12px; background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; font-size:20px;}
+  .wallet-card .amount{font-size:26px; font-weight:900;}
+  .wallet-card .amount span{font-size:13px; color:rgba(255,255,255,.6); font-weight:700;}
+  .wallet-card small{color:rgba(255,255,255,.6); font-weight:800; font-size:12px;}
+
+  /* Ticket code */
+  .ticket{position:relative; background:var(--navy); color:#fff; border-radius:16px; padding:20px 22px; overflow:hidden;}
+  .ticket::before, .ticket::after{content:""; position:absolute; top:50%; transform:translateY(-50%); width:22px; height:22px; background:var(--bg); border-radius:50%;}
+  .ticket::before{right:-11px;} .ticket::after{left:-11px;}
+  .ticket .top-row{display:flex; align-items:center; justify-content:space-between; border-bottom:1px dashed rgba(255,255,255,.25); padding-bottom:10px; margin-bottom:10px;}
+  .ticket .top-row .lbl{display:flex; align-items:center; gap:6px; font-size:12px; font-weight:800; color:rgba(255,255,255,.7);}
+  .ticket .top-row .id{font-size:11px; color:rgba(255,255,255,.45); font-family:monospace;}
+  .ticket .code{text-align:center; font-family:monospace; font-size:36px; letter-spacing:10px; font-weight:900; color:var(--amber);}
+  .ticket .hint{text-align:center; font-size:12px; color:rgba(255,255,255,.6); margin-top:10px; line-height:1.6;}
+
+  .empty-note{text-align:center; font-size:13.5px; color:#9a9a9a; background:var(--bg); border-radius:12px; padding:22px;}
+
+  .upload-box{border:2px dashed var(--line); border-radius:12px; padding:16px; text-align:center; cursor:pointer;}
+  .upload-box:hover{border-color:var(--orange);}
+  .upload-box img{max-height:96px; border-radius:8px;}
+
+  /* Footer */
+  footer{background:var(--navy); color:rgba(255,255,255,.72); margin-top:20px;}
+  footer .wrap{padding:22px 20px; display:flex; gap:12px; align-items:flex-start; font-size:12.5px; line-height:1.7;}
+  footer b{color:#fff;}
+
+  /* Toast */
+  #toast{
+    position:fixed; bottom:22px; left:50%; transform:translateX(-50%);
+    background:var(--ink); color:#fff; font-weight:800; font-size:14px;
+    padding:12px 20px; border-radius:12px; box-shadow:0 12px 30px rgba(0,0,0,.3);
+    display:none; align-items:center; gap:8px; z-index:200;
+  }
+  #toast.error{background:var(--red);}
+  #toast.show{display:flex;}
+
+  .section-actions{display:flex; align-items:center; gap:8px; margin-bottom:12px; font-weight:900;}
+
+  /* Seller sub-tabs */
+  nav.subtabs{display:flex; gap:6px; overflow-x:auto; background:var(--card); border:1px solid var(--line); padding:5px; border-radius:14px; margin-bottom:18px;}
+  nav.subtabs button{
+    flex:1; white-space:nowrap; padding:10px 14px; border-radius:10px; font-weight:800; font-size:13px;
+    background:transparent; color:var(--text-soft); display:flex; align-items:center; justify-content:center; gap:5px;
+  }
+  nav.subtabs button.active{background:var(--navy); color:#fff;}
+  .count-dot{background:var(--orange); color:var(--navy); font-size:10.5px; font-weight:900; border-radius:999px; padding:1px 6px; min-width:16px; display:inline-block;}
+  nav.subtabs button.active .count-dot{background:var(--amber); color:var(--navy);}
+
+  /* utility */
+  .mt8{margin-top:8px;} .mt14{margin-top:14px;} .mb18{margin-bottom:18px;}
+  .flex-end{display:flex; justify-content:flex-end;}
+
+  .lang-switch{display:flex; gap:3px; background:rgba(255,255,255,.08); padding:3px; border-radius:999px; flex-shrink:0;}
+  .lang-btn{padding:6px 9px; border-radius:999px; font-weight:800; font-size:12px; background:transparent; color:rgba(255,255,255,.75);}
+  .lang-btn.active{background:#fff; color:var(--navy);}
+  .lang-btn:hover:not(.active){color:#fff;}
+  html[dir="ltr"] body{font-family:'Tajawal','Cairo',system-ui,sans-serif;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a href="#" class="logo" onclick="setView('home')">
+      <span class="icon">🔧</span> <span class="logo-text">La Casse</span><span class="dot">.</span>
+    </a>
+    <div class="header-nav-row">
+      <nav class="tabs">
+        <button id="tab-home" onclick="setView('home')" data-i18n>الرئيسية</button>
+        <button id="tab-buyer" onclick="setView('buyer')" data-i18n>مساحة المشتري</button>
+        <button id="tab-seller" onclick="setView('seller')" data-i18n>مساحة البائع</button>
+      </nav>
+      <div class="lang-switch">
+        <button class="lang-btn" data-lang="ar" onclick="setLang('ar')">🇩🇿 ع</button>
+        <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">🇫🇷 FR</button>
+        <button class="lang-btn" data-lang="en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<div id="view-home">
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge" data-i18n>🛡️ وسيط رقمي آمن لقطع الغيار</span>
+      <h1 data-i18n>اطلب قطعة غيار سيارتك، ودع البائعين يتنافسون على أفضل سعر</h1>
+      <p class="lead" data-i18n>منصة تجمع المشترين مع أصحاب محلات ومخازن قطع الغيار عبر كل الولايات، بنظام دفع آمن عبر المحفظة الرقمية وكود تأكيد سري يحميك من الاحتيال.</p>
+
+      <div class="search-card">
+        <div class="title" data-i18n>🔍 ابحث عن قطعة غيار</div>
+        <div class="filters-grid">
+          <div class="field"><label data-i18n>الماركة</label><select id="f-brand" onchange="renderHomeBrowse()"></select></div>
+          <div class="field"><label data-i18n>الموديل</label><input id="f-model" placeholder="مثال: كليو 4" oninput="renderHomeBrowse()"></div>
+          <div class="field"><label data-i18n>السنة</label><select id="f-year" onchange="renderHomeBrowse()"></select></div>
+          <div class="field"><label data-i18n>نوع القطعة</label><select id="f-part" onchange="renderHomeBrowse()"></select></div>
+          <div class="field"><label data-i18n>الولاية</label><select id="f-wilaya" onchange="renderHomeBrowse()"></select></div>
+        </div>
+        <div class="flex-end mt14">
+          <button class="btn btn-orange" onclick="setView('buyer')" data-i18n>📩 انشر طلبك الآن</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="browse-section">
+    <div class="wrap">
+      <div class="view-head">
+        <div><h2 class="section-title" style="margin:0;" data-i18n>📋 طلبات مفتوحة الآن</h2><p class="section-sub" style="margin:4px 0 0;" data-i18n>تصفح آخر الطلبات، أو استعمل فلاتر البحث فوق لتضييقها</p></div>
+        <span class="badge b-yellow" id="home-browse-count"></span>
+      </div>
+      <div id="home-browse-list" class="mt14"></div>
+    </div>
+  </section>
+
+  <section class="block" style="background:#fff; border-top:1px solid var(--line);">
+    <div class="wrap">
+      <div class="view-head">
+        <div><h2 class="section-title" style="margin:0;" data-i18n>🏷️ سلع معروضة للبيع مباشرة</h2><p class="section-sub" style="margin:4px 0 0;" data-i18n>سعر ثابت من البائع — اتصل به مباشرة للاتفاق والاستلام</p></div>
+        <span class="badge b-yellow" id="home-products-count"></span>
+      </div>
+      <div id="home-products-list" class="mt14"></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <h2 class="section-title" data-i18n>كيف تعمل المنصة؟</h2>
+      <p class="section-sub" data-i18n>مسار بسيط وآمن للمشتري والبائع، خطوة بخطوة</p>
+
+      <div class="how-grid">
+        <div class="how-card">
+          <h3><span class="ic ic-buyer">👤</span> <span data-i18n>للمشتري</span></h3>
+          <div class="step"><div class="num">1</div><div class="txt"><b data-i18n>انشر طلبك مجانًا</b><span data-i18n>اذكر الماركة والموديل والسنة ونوع القطعة، وأرفق صورة إن أمكن.</span></div></div>
+          <div class="step"><div class="num">2</div><div class="txt"><b data-i18n>استقبل العروض</b><span data-i18n>يقترح عليك بائعون من ولايتك أو من كل الجزائر أسعارًا متنافسة.</span></div></div>
+          <div class="step"><div class="num">3</div><div class="txt"><b data-i18n>اقبل واستلم</b><span data-i18n>اختر أفضل عرض، جرّب القطعة، ثم سلّم كود التأكيد السري للبائع.</span></div></div>
+          <span class="note-yellow" data-i18n>النشر والاستخدام مجاني بالكامل للمشتري.</span>
+        </div>
+        <div class="how-card">
+          <h3><span class="ic ic-seller">🏬</span> <span data-i18n>للبائع</span></h3>
+          <div class="step"><div class="num">1</div><div class="txt"><b data-i18n>اشحن محفظتك الرقمية</b><span data-i18n>اشحن رصيدًا مسبقًا لتتمكن من تأكيد عمليات البيع.</span></div></div>
+          <div class="step"><div class="num">2</div><div class="txt"><b data-i18n>قدّم عروضك</b><span data-i18n>تصفح طلبات الزبائن في تخصصك وقدّم السعر الأنسب.</span></div></div>
+          <div class="step"><div class="num">3</div><div class="txt"><b data-i18n>أكّد البيع بالكود</b><span data-i18n>بعد التسليم أدخل كود التأكيد، فتُخصم عمولة 200 د.ج فقط من محفظتك.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="info-3">
+        <div class="info-card"><div class="ic">💳</div><b data-i18n>محفظة مسبقة الدفع</b><p data-i18n>البائع يشحن رصيده مسبقًا، والعمولة تُخصم فقط عند تأكيد بيع فعلي.</p></div>
+        <div class="info-card"><div class="ic">🎫</div><b data-i18n>كود تأكيد من 4 أرقام</b><p data-i18n>لا تُحتسب أي عمولة بدون تطابق الكود، ما يحمي البائع من الطلبات الوهمية.</p></div>
+        <div class="info-card"><div class="ic">🛡️</div><b data-i18n>لا دفع مالي عبر المنصة</b><p data-i18n>التعامل المالي بين الطرفين يتم يدًا بيد، والمنصة وسيط تنظيمي فقط.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ BUYER ============ -->
+<div id="view-buyer" class="view hidden">
+  <div class="wrap">
+    <div class="view-head">
+      <div><h1 data-i18n>مساحة المشتري</h1><p data-i18n>انشر ما تحتاجه وتابع عروض البائعين</p></div>
+      <button class="btn btn-orange btn-sm" id="btn-toggle-form" onclick="toggleBuyerForm()" data-i18n>➕ طلب قطعة جديدة</button>
+    </div>
+
+    <div class="card hidden" id="buyer-form">
+      <div class="filters-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="field"><label data-i18n>الماركة</label><select id="nf-brand"></select></div>
+        <div class="field"><label data-i18n>الموديل</label><input id="nf-model" placeholder="مثال: 208" data-i18n-ph></div>
+        <div class="field"><label data-i18n>السنة</label><select id="nf-year"></select></div>
+        <div class="field"><label data-i18n>نوع القطعة</label><select id="nf-part"></select></div>
+        <div class="field" style="grid-column:span 2;"><label data-i18n>الولاية</label><select id="nf-wilaya"></select></div>
+      </div>
+      <div class="field mt14"><label data-i18n>تفاصيل إضافية</label><textarea id="nf-details" rows="3" placeholder="اشرح حالة القطعة المطلوبة أو أي تفاصيل تساعد البائع..." data-i18n-ph></textarea></div>
+      <div class="field mt14">
+        <label data-i18n>صورة القطعة (اختياري)</label>
+        <div class="upload-box" onclick="document.getElementById('nf-image').click()">
+          <input type="file" id="nf-image" accept="image/*" class="hidden" onchange="previewImage(this)">
+          <div id="nf-image-preview" data-i18n>📷 اضغط لرفع صورة</div>
+        </div>
+      </div>
+      <button class="btn btn-navy btn-block mt14" onclick="submitRequest(this)" data-i18n>📩 نشر الطلب</button>
+    </div>
+
+    <div id="buyer-list"></div>
+  </div>
+</div>
+
+<!-- ============ SELLER ============ -->
+<div id="view-seller" class="view hidden">
+  <div class="wrap">
+    <h1 style="font-size:20px; font-weight:900; margin-bottom:4px;" data-i18n>مساحة البائع</h1>
+    <p style="font-size:13.5px; color:var(--text-soft); margin-bottom:22px;" data-i18n>تابع طلبات الزبائن، قدّم عروضك، وأكّد عمليات البيع</p>
+
+    <!-- بوابة الدخول: تبان فقط إذا البائع ماشي مسجّل دخول -->
+    <div id="seller-auth-gate" class="card" style="max-width:420px; margin:0 auto;">
+      <b id="sa-title" style="font-size:16px; display:block; margin-bottom:16px;" data-i18n>🔑 تسجيل الدخول كبائع</b>
+      <div class="field mb18" id="sa-name-field" style="margin-bottom:12px;">
+        <label data-i18n>اسمك أو اسم محلك</label>
+        <input id="sa-name" placeholder="مثال: محل الوحدة لقطع الغيار" data-i18n-ph>
+      </div>
+      <div class="field" style="margin-bottom:12px;"><label data-i18n>البريد الإلكتروني</label><input id="sa-email" type="email" placeholder="example@email.com"></div>
+      <div class="field" style="margin-bottom:14px;"><label data-i18n>كلمة السر</label><input id="sa-password" type="password" placeholder="6 خانات على الأقل" data-i18n-ph></div>
+      <button class="btn btn-navy btn-block" id="sa-submit-btn" onclick="submitSellerAuth(this)" data-i18n>دخول</button>
+      <p style="text-align:center; margin-top:10px;"><a href="#" onclick="sellerForgotPassword(event)" style="font-size:12.5px; color:var(--text-soft); text-decoration:underline;" data-i18n>نسيت كلمة السر؟</a></p>
+      <p id="sa-switch-text" style="text-align:center; font-size:12.5px; margin-top:14px; color:var(--text-soft);"></p>
+    </div>
+
+    <!-- لوحة تحكم البائع: تبان فقط بعد تسجيل الدخول -->
+    <div id="seller-authed" class="hidden">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+        <span style="font-size:13px; color:var(--text-soft); font-weight:700;"><span data-i18n>مرحبًا، </span><b id="seller-name-tag" style="color:var(--text);"></b> 👋 <span id="seller-rating-tag" style="font-size:12px; color:var(--text-soft); font-weight:800;"></span></span>
+        <button class="btn btn-outline btn-sm" onclick="sellerLogout()" data-i18n>🚪 تسجيل الخروج</button>
+      </div>
+
+      <div class="wallet-card">
+        <div class="left">
+          <div class="icon-box">💳</div>
+          <div><small data-i18n>رصيد المحفظة الرقمية</small><div class="amount" id="wallet-amount">0 <span data-i18n>د.ج</span></div></div>
+        </div>
+        <button class="btn btn-orange btn-sm" onclick="setSellerTab('wallet')" data-i18n>➕ شحن الرصيد</button>
+      </div>
+
+      <nav class="tabs subtabs">
+        <button id="stab-requests" onclick="setSellerTab('requests')"><span data-i18n>📦 طلبات جديدة</span> <span class="count-dot" id="cnt-requests"></span></button>
+        <button id="stab-pending" onclick="setSellerTab('pending')" data-i18n>⏳ عروضي</button>
+        <button id="stab-confirm" onclick="setSellerTab('confirm')"><span data-i18n>🛡️ تأكيد البيع</span> <span class="count-dot" id="cnt-confirm"></span></button>
+        <button id="stab-products" onclick="setSellerTab('products')" data-i18n>🏷️ سلعي المعروضة</button>
+        <button id="stab-wallet" onclick="setSellerTab('wallet')" data-i18n>💰 الشحن والمحفظة</button>
+      </nav>
+
+      <div id="seller-sec-requests" class="seller-sec">
+        <div id="seller-open-list"></div>
+      </div>
+
+      <div id="seller-sec-pending" class="seller-sec hidden">
+        <div id="seller-pending-list"></div>
+      </div>
+
+      <div id="seller-sec-confirm" class="seller-sec hidden">
+        <div id="seller-confirm-list"></div>
+      </div>
+
+      <div id="seller-sec-products" class="seller-sec hidden">
+        <div class="view-head">
+          <div><b style="font-size:14px;" data-i18n>عرض سلعة جديدة للبيع المباشر</b><p style="font-size:12.5px; color:var(--text-soft); margin-top:4px;" data-i18n>بلا نظام عروض — سعر ثابت، والمشتري يتصل بيك مباشرة</p></div>
+          <button class="btn btn-orange btn-sm" id="btn-toggle-product-form" onclick="toggleProductForm()" data-i18n>➕ سلعة جديدة</button>
+        </div>
+        <div class="card hidden" id="product-form">
+          <div class="filters-grid" style="grid-template-columns:repeat(3,1fr);">
+            <div class="field"><label data-i18n>الماركة</label><select id="pf-brand"></select></div>
+            <div class="field"><label data-i18n>الموديل</label><input id="pf-model" placeholder="مثال: 208" data-i18n-ph></div>
+            <div class="field"><label data-i18n>نوع القطعة</label><select id="pf-part"></select></div>
+            <div class="field"><label data-i18n>الولاية</label><select id="pf-wilaya"></select></div>
+            <div class="field"><label data-i18n>السعر (د.ج)</label><input type="number" id="pf-price" placeholder="مثال: 15000" min="1" data-i18n-ph></div>
+            <div class="field"><label data-i18n>رقم هاتفك (يظهر للمشتري)</label><input id="pf-phone" type="tel" placeholder="مثال: 0555xxxxxx" data-i18n-ph></div>
+          </div>
+          <div class="field mt14"><label data-i18n>تفاصيل السلعة</label><textarea id="pf-details" rows="3" placeholder="صف حالة القطعة (جديدة/مستعملة)، والضمان إن وجد..." data-i18n-ph></textarea></div>
+          <div class="field mt14">
+            <label data-i18n>صورة السلعة (اختياري)</label>
+            <div class="upload-box" onclick="document.getElementById('pf-image').click()">
+              <input type="file" id="pf-image" accept="image/*" class="hidden" onchange="previewProductImage(this)">
+              <div id="pf-image-preview" data-i18n>📷 اضغط لرفع صورة</div>
+            </div>
+          </div>
+          <button class="btn btn-navy btn-block mt14" onclick="submitProduct(this)" data-i18n>🏷️ عرض السلعة للبيع</button>
+        </div>
+        <div id="seller-products-list" class="mt14"></div>
+      </div>
+
+      <div id="seller-sec-wallet" class="seller-sec hidden">
+        <div class="card" id="chargily-box" style="margin-bottom:14px;">
+          <b style="font-size:14px;" data-i18n>💳 شحن فوري بالبطاقة (EDAHABIA / CIB)</b>
+          <p style="font-size:12.5px; color:var(--text-soft); margin:8px 0 12px;" data-i18n>يُضاف الرصيد لمحفظتك تلقائيًا وفوريًا بعد نجاح الدفع، بدون انتظار مراجعة يدوية.</p>
+          <div class="filters-grid" style="grid-template-columns:1fr 1fr;">
+            <div class="field"><label data-i18n>المبلغ (د.ج)</label><input type="number" id="chargily-amount" placeholder="1000" min="100"></div>
+            <button class="btn btn-orange" style="align-self:end;" onclick="payWithChargily(this)" data-i18n>💳 ادفع الآن</button>
+          </div>
+        </div>
+        <div class="card" id="topup-box">
+          <b style="font-size:14px;" data-i18n>🏦 شحن الرصيد عبر تحويل بريدي (CCP)</b>
+          <div class="card" style="background:var(--bg); margin-top:12px; margin-bottom:14px;">
+            <p style="font-size:12.5px; color:var(--text-soft); margin-bottom:8px;" data-i18n>حوّل المبلغ إلى الحساب البريدي التالي، ثم صرّح بالتحويل في الأسفل:</p>
+            <p style="font-size:13.5px;"><b data-i18n>الاسم:</b> <span id="ccp-name"></span></p>
+            <p style="font-size:13.5px;"><b data-i18n>رقم CCP:</b> <span id="ccp-number" style="font-family:monospace;"></span></p>
+            <p style="font-size:13.5px;"><b data-i18n>مفتاح RIP:</b> <span id="ccp-rip" style="font-family:monospace;"></span></p>
+            <p style="font-size:12px; color:var(--yellow-text); background:var(--yellow-bg); border-radius:8px; padding:6px 10px; margin-top:8px; display:inline-block;" id="ccp-note"></p>
+          </div>
+          <div class="filters-grid" style="grid-template-columns:1fr 1fr;">
+            <div class="field"><label data-i18n>المبلغ المحوَّل (د.ج)</label><input type="number" id="topup-amount" placeholder="1000"></div>
+            <div class="field"><label data-i18n>رقم وصل التحويل / المرجع</label><input id="topup-ref" placeholder="رقم الوصل كما يظهر في تصريح التحويل" data-i18n-ph></div>
+          </div>
+          <div class="field mt14"><label data-i18n>ملاحظة (اختياري)</label><input id="topup-note" placeholder="مثال: حوّلت من مكتب بريد بلدية..." data-i18n-ph></div>
+          <button class="btn btn-navy btn-block mt14" onclick="submitTopupRequest(this)" data-i18n>📨 تأكيد أنّي حوّلت المبلغ</button>
+          <p style="font-size:11.5px; color:#9a9a9a; margin-top:10px;" data-i18n>* بعد إرسال التصريح، تتم مراجعة التحويل يدويًا، ويُضاف المبلغ لرصيدك بمجرد التحقق منه فعليًا.</p>
+        </div>
+        <div class="section-actions mt14" data-i18n>💰 سجل طلبات الشحن</div>
+        <div id="seller-topups-list"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ ADMIN (مراجعة يدوية لتحويلات CCP) ============ -->
+<div id="view-admin" class="view hidden">
+  <div class="wrap">
+    <!-- بوابة الدخول: تبان فقط إذا المسيّر ماشي مسجّل دخول -->
+    <div id="admin-auth-gate" class="card" style="max-width:420px; margin:0 auto;">
+      <b style="font-size:16px; display:block; margin-bottom:16px;" data-i18n>🔑 تسجيل دخول المسيّر</b>
+      <div class="field" style="margin-bottom:12px;"><label data-i18n>البريد الإلكتروني</label><input id="aa-email" type="email" placeholder="example@email.com"></div>
+      <div class="field" style="margin-bottom:14px;"><label data-i18n>كلمة السر</label><input id="aa-password" type="password" placeholder="كلمة سر حساب المسيّر" data-i18n-ph></div>
+      <button class="btn btn-navy btn-block" id="aa-submit-btn" onclick="submitAdminAuth(this)" data-i18n>دخول</button>
+    </div>
+
+    <!-- لوحة تحكم المسيّر: تبان فقط بعد تسجيل الدخول -->
+    <div id="admin-authed" class="hidden">
+      <div class="view-head">
+        <div><h1 data-i18n>🔑 لوحة المسيّر — مراجعة تحويلات CCP</h1><p data-i18n>تحقق من وصول التحويل فعليًا في حسابك البريدي قبل القبول</p></div>
+        <button class="btn btn-outline btn-sm" onclick="adminLogout()" data-i18n>✖ تسجيل خروج المسيّر</button>
+      </div>
+      <div id="admin-topups-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LEGAL (من نحن + شروط الاستخدام + سياسة الخصوصية) ============ -->
+<div id="view-legal" class="view hidden">
+  <div class="wrap" style="max-width:820px; padding-top:26px; padding-bottom:40px;">
+
+    <h1 data-i18n style="font-size:24px; margin-bottom:4px;">من نحن، شروط الاستخدام، وسياسة الخصوصية</h1>
+    <p style="font-size:12.5px; color:var(--text-soft); margin-bottom:24px;" data-i18n>آخر تحديث: أوت 2026</p>
+
+    <!-- من نحن -->
+    <h2 class="section-title" style="text-align:right; font-size:19px; margin-top:28px; margin-bottom:10px;" data-i18n>1. من نحن</h2>
+    <p class="legal-p" data-i18n>"La Casse" منصة رقمية جزائرية تربط بين الأشخاص الباحثين عن قطع غيار السيارات والبائعين (محلات، مخازن، وأفراد) عبر كل ولايات الجزائر. المنصة تعمل كوسيط تقني فقط: تنشر طلبات المشترين، تجمع عروض البائعين، وتوفّر آلية تأكيد آمنة بكود سري لكل صفقة. المنصة لا تبيع قطع الغيار بنفسها، ولا تملكها، ولا تتدخل في نقلها أو شحنها.</p>
+
+    <!-- شروط الاستخدام -->
+    <h2 class="section-title" style="text-align:right; font-size:19px; margin-top:28px; margin-bottom:10px;" data-i18n>2. شروط الاستخدام</h2>
+
+    <h3 class="legal-h3" data-i18n>2.1 أهلية الاستخدام</h3>
+    <p class="legal-p" data-i18n>استعمال المنصة مخصص للأشخاص البالغين (18 سنة فما فوق) المتمتعين بالأهلية القانونية الكاملة للتعاقد. بإنشائك حسابًا أو نشرك لطلب أو عرض، فأنت تقرّ بأنك تستوفي هذا الشرط.</p>
+
+    <h3 class="legal-h3" data-i18n>2.2 كيف تعمل المنصة</h3>
+    <ul class="legal-list">
+      <li data-i18n>المشتري ينشر طلب قطعة غيار مجانًا (ماركة، موديل، نوع القطعة، تفاصيل، صورة اختيارية).</li>
+      <li data-i18n>البائعون (حسابات مسجّلة بمعلومات حقيقية) يقدّمون عروض أسعار على الطلبات المفتوحة.</li>
+      <li data-i18n>المشتري يختار العرض المناسب ويقبله، فيحصل على كود تأكيد سري من 4 أرقام.</li>
+      <li data-i18n>الاتفاق على السعر والتسليم واستلام القطعة يتم مباشرة بين المشتري والبائع، خارج المنصة تمامًا. المنصة لا تحوّل أي أموال بين الطرفين ولا تضمن السعر أو جودة القطعة.</li>
+      <li data-i18n>بعد استلام القطعة والتأكد من مطابقتها، يسلّم المشتري الكود السري للبائع يدويًا. البائع يُدخل الكود فتطبيقه لتأكيد إتمام الصفقة.</li>
+      <li data-i18n>عند التأكيد، تُخصم عمولة ثابتة (200 د.ج حاليًا) من محفظة البائع الرقمية داخل المنصة، وهي مقابل خدمة الوساطة والربط فقط — لا علاقة لها بسعر القطعة نفسه.</li>
+    </ul>
+
+    <h3 class="legal-h3" data-i18n>2.3 المحفظة الرقمية والدفع</h3>
+    <p class="legal-p" data-i18n>المحفظة الرقمية داخل المنصة مخصصة حصريًا لدفع عمولة الوساطة من طرف البائعين، عبر الشحن اليدوي (تحويل CCP يُراجَع يدويًا) أو بوابة دفع إلكتروني. هذه المحفظة لا تُستعمل لتحويل أو تخزين أموال تخص المشترين أو ثمن القطع، ولا تُعتبر حساب دفع أو خدمة مالية بالمعنى القانوني. المنصة تحتفظ بحقها في تعديل قيمة العمولة أو طريقة الشحن بإشعار مسبق للمستخدمين.</p>
+
+    <h3 class="legal-h3" data-i18n>2.4 الإلغاء</h3>
+    <p class="legal-p" data-i18n>يمكن للمشتري إلغاء طلبه في أي وقت طالما لم تُؤكَّد الصفقة بعد (حالة "مفتوح" أو "بانتظار التأكيد"). بعد تأكيد الصفقة (حالة "مكتملة")، يُعتبر التبادل منتهيًا ولا يمكن التراجع عنه عبر المنصة.</p>
+
+    <h3 class="legal-h3" data-i18n>2.5 التقييمات</h3>
+    <p class="legal-p" data-i18n>يمكن للمشتري تقييم البائع بعد إتمام صفقة حقيقية فقط (نجوم من 1 إلى 5 وتعليق اختياري). التقييمات نهائية ولا يمكن تعديلها أو حذفها، وتُعرض علنًا لمساعدة المستخدمين الآخرين على اتخاذ قرار مستنير.</p>
+
+    <h3 class="legal-h3" data-i18n>2.6 سلوكيات محظورة</h3>
+    <ul class="legal-list">
+      <li data-i18n>نشر طلبات أو عروض وهمية، أو معلومات كاذبة عن القطعة أو السعر.</li>
+      <li data-i18n>عرض أو طلب قطع غيار مسروقة أو غير قانونية.</li>
+      <li data-i18n>انتحال هوية شخص آخر، أو استعمال بيانات بائع/مشتري آخر بدون إذن.</li>
+      <li data-i18n>محاولة التحايل على نظام الكود السري أو استغلال ثغرات تقنية في المنصة.</li>
+      <li data-i18n>أي مضايقة أو سلوك مسيء تجاه مستخدمين آخرين.</li>
+    </ul>
+    <p class="legal-p" data-i18n>المنصة تحتفظ بحقها في تعليق أو حذف أي حساب يخالف هذه الشروط، بدون إشعار مسبق إذا اقتضت الضرورة.</p>
+
+    <h3 class="legal-h3" data-i18n>2.7 حدود المسؤولية</h3>
+    <p class="legal-p" data-i18n>"La Casse" وسيط رقمي فقط. لا تتحمل المنصة أي مسؤولية عن: جودة القطعة أو مطابقتها للوصف، تأخر أو فشل عملية التسليم أو الشحن، أي نزاع مالي أو تجاري يحدث خارج آلية المحفظة الرقمية المعتمدة، أو أي ضرر ناتج عن تعامل مباشر بين مستخدمين. يُنصح المستخدمون دائمًا بفحص القطعة جيدًا قبل تسليم كود التأكيد، والتعامل بحذر كما في أي معاملة بين أفراد.</p>
+
+    <h3 class="legal-h3" data-i18n>2.8 تعديل الشروط</h3>
+    <p class="legal-p" data-i18n>قد تُحدَّث هذه الشروط من وقت لآخر لمواكبة تطور المنصة أو المتطلبات القانونية. الاستمرار في استعمال المنصة بعد أي تحديث يُعتبر موافقة على الشروط الجديدة.</p>
+
+    <!-- سياسة الخصوصية -->
+    <h2 class="section-title" style="text-align:right; font-size:19px; margin-top:32px; margin-bottom:10px;" data-i18n>3. سياسة الخصوصية</h2>
+
+    <h3 class="legal-h3" data-i18n>3.1 المعطيات التي نجمعها</h3>
+    <ul class="legal-list">
+      <li data-i18n>معلومات الحساب: اسم، بريد إلكتروني، رقم هاتف (للبائعين المسجّلين).</li>
+      <li data-i18n>محتوى الطلبات والعروض: تفاصيل القطعة، الأسعار، الرسائل، الصور المرفقة (اختياري).</li>
+      <li data-i18n>سجل المعاملات: حالة الطلبات، شحنات المحفظة، التقييمات المرسلة.</li>
+      <li data-i18n>هوية تقنية مجهولة (Anonymous) تلقائية للمشترين غير المسجّلين، بدون معلومات شخصية إجبارية.</li>
+    </ul>
+
+    <h3 class="legal-h3" data-i18n>3.2 لماذا نجمع هذه المعطيات</h3>
+    <p class="legal-p" data-i18n>نستعمل هذه المعطيات فقط لتشغيل خدمة المنصة: ربط المشترين بالبائعين، عرض الطلبات والعروض، إدارة المحفظة الرقمية، ومعالجة تحويلات CCP يدويًا للتحقق من صحتها. لا نبيع ولا نشارك معطياتك مع أي طرف ثالث لأغراض تجارية أو إعلانية.</p>
+
+    <h3 class="legal-h3" data-i18n>3.3 أين تُخزَّن معطياتك</h3>
+    <p class="legal-p" data-i18n>تُخزَّن معطيات المنصة عبر خدمة Firebase (التابعة لـ Google)، على سيرفرات موجودة خارج التراب الجزائري. نتخذ إجراءات أمنية تقنية (قواعد وصول صارمة على مستوى قاعدة البيانات) لحماية معطياتك من الوصول غير المصرح به. إذا كانت لديك تحفظات بخصوص هذه النقطة، تواصل معنا عبر البريد أدناه.</p>
+
+    <h3 class="legal-h3" data-i18n>3.4 حقوقك</h3>
+    <p class="legal-p" data-i18n>يمكنك في أي وقت طلب الاطلاع على معطياتك، تصحيحها، أو حذف حسابك ومعطياتك المرتبطة به، بالتواصل معنا عبر البريد الإلكتروني أدناه. سنستجيب لطلبك في أقرب وقت ممكن.</p>
+
+    <h3 class="legal-h3" data-i18n>3.5 ملفات تعريف الارتباط والتخزين المحلي</h3>
+    <p class="legal-p" data-i18n>تستعمل المنصة التخزين المحلي لمتصفحك (localStorage) لحفظ تفضيلاتك (اللغة المختارة) وضبط فاصل زمني بسيط بين نشر الطلبات لمنع السبام. لا نستعمل ملفات تعريف ارتباط لأغراض إعلانية أو تتبعية.</p>
+
+    <!-- التواصل -->
+    <h2 class="section-title" style="text-align:right; font-size:19px; margin-top:32px; margin-bottom:10px;" data-i18n>4. التواصل</h2>
+    <p class="legal-p" data-i18n>لأي سؤال، شكوى، أو طلب متعلق بمعطياتك الشخصية، تواصل معنا عبر البريد الإلكتروني: <a href="mailto:issamazzouz333@gmail.com" style="color:var(--navy); font-weight:800;">issamazzouz333@gmail.com</a></p>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap" style="flex-direction:column;">
+    <div style="display:flex; gap:12px; align-items:flex-start;">
+      <span>⚠️</span>
+      <p><b data-i18n>تنويه هام:</b> <span data-i18n>منصة "La Casse" وسيط رقمي فقط يهدف لتسهيل التواصل بين المشترين والبائعين، ولا تتحمل أي مسؤولية عن عملية الشحن أو أي تعامل مالي يتم خارج آلية المحفظة الرقمية المعتمدة داخل المنصة. يُنصح دائمًا بفحص القطعة جيدًا قبل تسليم كود التأكيد.</span></p>
+    </div>
+    <div style="margin-top:8px; padding-top:8px; border-top:1px solid rgba(255,255,255,.15); font-size:12.5px; display:flex; gap:14px; flex-wrap:wrap; align-items:center;">
+      <span><span data-i18n>للتواصل والدعم:</span> <a href="mailto:issamazzouz333@gmail.com" style="color:#fff; text-decoration:underline;">issamazzouz333@gmail.com</a></span>
+      <a href="#" onclick="setView('legal'); return false;" style="color:#fff; text-decoration:underline;" data-i18n>من نحن · شروط الاستخدام · سياسة الخصوصية</a>
+    </div>
+  </div>
+</footer>
+
+<div id="toast"></div>
+
+<script type="module">
+/* ملاحظة: نتجنب "import" الثابت في أول الملف عمدًا — لأنه إذا فشل (مثلًا لا اتصال بالإنترنت
+   أو حجب من المتصفح) فإنه يوقف تنفيذ السكريبت كاملًا، حتى قبل ربط الأزرار.
+   بدلها نستعمل "dynamic import" داخل initFirebase() لاحقًا، وهذا قابل للالتقاط بـ try/catch. */
+let initializeApp, getFirestore, collection, doc, addDoc, updateDoc, setDoc, getDoc, getDocs, deleteDoc,
+    onSnapshot, query, orderBy, where, arrayUnion, increment, serverTimestamp, runTransaction,
+    enableIndexedDbPersistence;
+let getAuth, onAuthStateChanged, signInAnonymously, createUserWithEmailAndPassword,
+    signInWithEmailAndPassword, signOut, sendPasswordResetEmail;
+/* ================================================================
+   بيانات مرجعية — Reference data
+================================================================ */
+const TRANSLATIONS = {
+  "الرئيسية": [
+    "Accueil",
+    "Home"
+  ],
+  "مساحة المشتري": [
+    "Espace acheteur",
+    "Buyer space"
+  ],
+  "مساحة البائع": [
+    "Espace vendeur",
+    "Seller space"
+  ],
+  "🛡️ وسيط رقمي آمن لقطع الغيار": [
+    "🛡️ Intermédiaire numérique sécurisé pour pièces auto",
+    "🛡️ Secure digital broker for car parts"
+  ],
+  "اطلب قطعة غيار سيارتك، ودع البائعين يتنافسون على أفضل سعر": [
+    "Demandez la pièce de votre voiture, et laissez les vendeurs se faire concurrence pour le meilleur prix",
+    "Request your car part, and let sellers compete for the best price"
+  ],
+  "منصة تجمع المشترين مع أصحاب محلات ومخازن قطع الغيار عبر كل الولايات، بنظام دفع آمن عبر المحفظة الرقمية وكود تأكيد سري يحميك من الاحتيال.": [
+    "Une plateforme qui met en relation les acheteurs avec les magasins et dépôts de pièces détachées dans toutes les wilayas, avec un paiement sécurisé via portefeuille numérique et un code de confirmation secret qui vous protège de la fraude.",
+    "A platform connecting buyers with spare-parts shops and warehouses across all wilayas, with a secure digital-wallet payment system and a secret confirmation code that protects you from fraud."
+  ],
+  "🔍 ابحث عن قطعة غيار": [
+    "🔍 Rechercher une pièce",
+    "🔍 Search for a part"
+  ],
+  "الماركة": [
+    "Marque",
+    "Brand"
+  ],
+  "الموديل": [
+    "Modèle",
+    "Model"
+  ],
+  "السنة": [
+    "Année",
+    "Year"
+  ],
+  "نوع القطعة": [
+    "Type de pièce",
+    "Part type"
+  ],
+  "الولاية": [
+    "Wilaya",
+    "Wilaya"
+  ],
+  "📩 انشر طلبك الآن": [
+    "📩 Publiez votre demande maintenant",
+    "📩 Post your request now"
+  ],
+  "📋 طلبات مفتوحة الآن": [
+    "📋 Demandes ouvertes actuellement",
+    "📋 Currently open requests"
+  ],
+  "تصفح آخر الطلبات، أو استعمل فلاتر البحث فوق لتضييقها": [
+    "Parcourez les dernières demandes, ou utilisez les filtres ci-dessus pour affiner.",
+    "Browse the latest requests, or use the filters above to narrow them down."
+  ],
+  "🏷️ سلع معروضة للبيع مباشرة": [
+    "🏷️ Articles en vente directe",
+    "🏷️ Items listed for direct sale"
+  ],
+  "سعر ثابت من البائع — اتصل به مباشرة للاتفاق والاستلام": [
+    "Prix fixe du vendeur — contactez-le directement pour vous accorder et récupérer l'article.",
+    "Fixed price from the seller — contact them directly to agree and collect."
+  ],
+  "كيف تعمل المنصة؟": [
+    "Comment fonctionne la plateforme ?",
+    "How does the platform work?"
+  ],
+  "مسار بسيط وآمن للمشتري والبائع، خطوة بخطوة": [
+    "Un parcours simple et sécurisé pour l'acheteur et le vendeur, étape par étape",
+    "A simple, secure path for buyer and seller, step by step"
+  ],
+  "للمشتري": [
+    "Pour l'acheteur",
+    "For the buyer"
+  ],
+  "للبائع": [
+    "Pour le vendeur",
+    "For the seller"
+  ],
+  "انشر طلبك مجانًا": [
+    "Publiez votre demande gratuitement",
+    "Post your request for free"
+  ],
+  "اذكر الماركة والموديل والسنة ونوع القطعة، وأرفق صورة إن أمكن.": [
+    "Indiquez la marque, le modèle, l'année et le type de pièce, et joignez une photo si possible.",
+    "State the brand, model, year and part type, and attach a photo if possible."
+  ],
+  "استقبل العروض": [
+    "Recevez les offres",
+    "Receive offers"
+  ],
+  "يقترح عليك بائعون من ولايتك أو من كل الجزائر أسعارًا متنافسة.": [
+    "Des vendeurs de votre wilaya ou de toute l'Algérie vous proposent des prix compétitifs.",
+    "Sellers from your wilaya or across Algeria offer you competitive prices."
+  ],
+  "اقبل واستلم": [
+    "Acceptez et récupérez",
+    "Accept and receive"
+  ],
+  "اختر أفضل عرض، جرّب القطعة، ثم سلّم كود التأكيد السري للبائع.": [
+    "Choisissez la meilleure offre, testez la pièce, puis remettez le code de confirmation secret au vendeur.",
+    "Choose the best offer, test the part, then hand the secret confirmation code to the seller."
+  ],
+  "النشر والاستخدام مجاني بالكامل للمشتري.": [
+    "La publication et l'utilisation sont entièrement gratuites pour l'acheteur.",
+    "Posting and use are completely free for the buyer."
+  ],
+  "اشحن محفظتك الرقمية": [
+    "Rechargez votre portefeuille numérique",
+    "Top up your digital wallet"
+  ],
+  "اشحن رصيدًا مسبقًا لتتمكن من تأكيد عمليات البيع.": [
+    "Rechargez un solde à l'avance pour pouvoir confirmer vos ventes.",
+    "Top up a balance in advance so you can confirm sales."
+  ],
+  "قدّم عروضك": [
+    "Faites vos offres",
+    "Submit your offers"
+  ],
+  "تصفح طلبات الزبائن في تخصصك وقدّم السعر الأنسب.": [
+    "Parcourez les demandes des clients dans votre spécialité et proposez le meilleur prix.",
+    "Browse customer requests in your specialty and offer the best price."
+  ],
+  "أكّد البيع بالكود": [
+    "Confirmez la vente avec le code",
+    "Confirm the sale with the code"
+  ],
+  "بعد التسليم أدخل كود التأكيد، فتُخصم عمولة 200 د.ج فقط من محفظتك.": [
+    "Après la livraison, saisissez le code de confirmation ; seule une commission de 200 DA est déduite de votre portefeuille.",
+    "After delivery, enter the confirmation code; only a 200 DZD commission is deducted from your wallet."
+  ],
+  "محفظة مسبقة الدفع": [
+    "Portefeuille prépayé",
+    "Prepaid wallet"
+  ],
+  "البائع يشحن رصيده مسبقًا، والعمولة تُخصم فقط عند تأكيد بيع فعلي.": [
+    "Le vendeur recharge son solde à l'avance, et la commission n'est déduite qu'à la confirmation effective d'une vente.",
+    "The seller tops up their balance in advance, and the commission is only deducted upon actual sale confirmation."
+  ],
+  "كود تأكيد من 4 أرقام": [
+    "Code de confirmation à 4 chiffres",
+    "4-digit confirmation code"
+  ],
+  "لا تُحتسب أي عمولة بدون تطابق الكود، ما يحمي البائع من الطلبات الوهمية.": [
+    "Aucune commission n'est prélevée sans correspondance du code, ce qui protège le vendeur des fausses demandes.",
+    "No commission is charged without the code matching, which protects the seller from fake requests."
+  ],
+  "لا دفع مالي عبر المنصة": [
+    "Aucun paiement financier via la plateforme",
+    "No financial payment through the platform"
+  ],
+  "التعامل المالي بين الطرفين يتم يدًا بيد، والمنصة وسيط تنظيمي فقط.": [
+    "La transaction financière entre les deux parties se fait de la main à la main ; la plateforme n'est qu'un intermédiaire organisationnel.",
+    "The financial transaction between the two parties happens hand to hand; the platform is only an organizational intermediary."
+  ],
+  "انشر ما تحتاجه وتابع عروض البائعين": [
+    "Publiez ce dont vous avez besoin et suivez les offres des vendeurs",
+    "Post what you need and track sellers' offers"
+  ],
+  "➕ طلب قطعة جديدة": [
+    "➕ Nouvelle demande de pièce",
+    "➕ New part request"
+  ],
+  "✖ إغلاق": [
+    "✖ Fermer",
+    "✖ Close"
+  ],
+  "مثال: 208": [
+    "Exemple : 208",
+    "Example: 208"
+  ],
+  "تفاصيل إضافية": [
+    "Détails supplémentaires",
+    "Additional details"
+  ],
+  "اشرح حالة القطعة المطلوبة أو أي تفاصيل تساعد البائع...": [
+    "Décrivez l'état de la pièce recherchée ou tout détail utile au vendeur...",
+    "Describe the condition of the requested part or any details that help the seller..."
+  ],
+  "صورة القطعة (اختياري)": [
+    "Photo de la pièce (optionnel)",
+    "Part photo (optional)"
+  ],
+  "📷 اضغط لرفع صورة": [
+    "📷 Cliquez pour ajouter une photo",
+    "📷 Click to upload a photo"
+  ],
+  "📩 نشر الطلب": [
+    "📩 Publier la demande",
+    "📩 Post the request"
+  ],
+  "تابع طلبات الزبائن، قدّم عروضك، وأكّد عمليات البيع": [
+    "Suivez les demandes des clients, faites vos offres et confirmez vos ventes",
+    "Track customer requests, submit your offers, and confirm sales"
+  ],
+  "🔑 تسجيل الدخول كبائع": [
+    "🔑 Connexion en tant que vendeur",
+    "🔑 Log in as seller"
+  ],
+  "اسمك أو اسم محلك": [
+    "Votre nom ou le nom de votre magasin",
+    "Your name or shop name"
+  ],
+  "مثال: محل الوحدة لقطع الغيار": [
+    "Exemple : Magasin El Wahda Pièces Auto",
+    "Example: El Wahda Auto Parts Store"
+  ],
+  "البريد الإلكتروني": [
+    "E-mail",
+    "Email"
+  ],
+  "كلمة السر": [
+    "Mot de passe",
+    "Password"
+  ],
+  "6 خانات على الأقل": [
+    "6 caractères minimum",
+    "At least 6 characters"
+  ],
+  "دخول": [
+    "Connexion",
+    "Log in"
+  ],
+  "نسيت كلمة السر؟": [
+    "Mot de passe oublié ?",
+    "Forgot password?"
+  ],
+  "مرحبًا، ": [
+    "Bienvenue, ",
+    "Welcome, "
+  ],
+  "🚪 تسجيل الخروج": [
+    "🚪 Se déconnecter",
+    "🚪 Log out"
+  ],
+  "رصيد المحفظة الرقمية": [
+    "Solde du portefeuille numérique",
+    "Digital wallet balance"
+  ],
+  "➕ شحن الرصيد": [
+    "➕ Recharger le solde",
+    "➕ Top up balance"
+  ],
+  "📦 طلبات جديدة": [
+    "📦 Nouvelles demandes",
+    "📦 New requests"
+  ],
+  "⏳ عروضي": [
+    "⏳ Mes offres",
+    "⏳ My offers"
+  ],
+  "🛡️ تأكيد البيع": [
+    "🛡️ Confirmer la vente",
+    "🛡️ Confirm sale"
+  ],
+  "🏷️ سلعي المعروضة": [
+    "🏷️ Mes articles en vente",
+    "🏷️ My listed items"
+  ],
+  "💰 الشحن والمحفظة": [
+    "💰 Recharge et portefeuille",
+    "💰 Top-up and wallet"
+  ],
+  "عرض سلعة جديدة للبيع المباشر": [
+    "Publier un nouvel article en vente directe",
+    "List a new item for direct sale"
+  ],
+  "بلا نظام عروض — سعر ثابت، والمشتري يتصل بيك مباشرة": [
+    "Sans système d'offres — prix fixe, l'acheteur vous contacte directement",
+    "No offer system — fixed price, the buyer contacts you directly"
+  ],
+  "➕ سلعة جديدة": [
+    "➕ Nouvel article",
+    "➕ New item"
+  ],
+  "السعر (د.ج)": [
+    "Prix (DA)",
+    "Price (DZD)"
+  ],
+  "مثال: 15000": [
+    "Exemple : 15000",
+    "Example: 15000"
+  ],
+  "رقم هاتفك (يظهر للمشتري)": [
+    "Votre numéro de téléphone (visible par l'acheteur)",
+    "Your phone number (visible to the buyer)"
+  ],
+  "مثال: 0555xxxxxx": [
+    "Exemple : 0555xxxxxx",
+    "Example: 0555xxxxxx"
+  ],
+  "تفاصيل السلعة": [
+    "Détails de l'article",
+    "Item details"
+  ],
+  "صف حالة القطعة (جديدة/مستعملة)، والضمان إن وجد...": [
+    "Décrivez l'état de la pièce (neuve/occasion), et la garantie le cas échéant...",
+    "Describe the part's condition (new/used), and warranty if any..."
+  ],
+  "صورة السلعة (اختياري)": [
+    "Photo de l'article (optionnel)",
+    "Item photo (optional)"
+  ],
+  "🏷️ عرض السلعة للبيع": [
+    "🏷️ Mettre l'article en vente",
+    "🏷️ List item for sale"
+  ],
+  "💳 شحن فوري بالبطاقة (EDAHABIA / CIB)": [
+    "💳 Recharge instantanée par carte (EDAHABIA / CIB)",
+    "💳 Instant card top-up (EDAHABIA / CIB)"
+  ],
+  "يُضاف الرصيد لمحفظتك تلقائيًا وفوريًا بعد نجاح الدفع، بدون انتظار مراجعة يدوية.": [
+    "Le solde est ajouté automatiquement et instantanément à votre portefeuille après un paiement réussi, sans attente de vérification manuelle.",
+    "The balance is added to your wallet automatically and instantly after successful payment, with no manual review wait."
+  ],
+  "المبلغ (د.ج)": [
+    "Montant (DA)",
+    "Amount (DZD)"
+  ],
+  "💳 ادفع الآن": [
+    "💳 Payer maintenant",
+    "💳 Pay now"
+  ],
+  "🏦 شحن الرصيد عبر تحويل بريدي (CCP)": [
+    "🏦 Recharge par virement postal (CCP)",
+    "🏦 Top up via postal transfer (CCP)"
+  ],
+  "حوّل المبلغ إلى الحساب البريدي التالي، ثم صرّح بالتحويل في الأسفل:": [
+    "Virez le montant sur le compte postal suivant, puis déclarez le virement ci-dessous :",
+    "Transfer the amount to the following postal account, then declare the transfer below:"
+  ],
+  "الاسم:": [
+    "Nom :",
+    "Name:"
+  ],
+  "رقم CCP:": [
+    "N° CCP :",
+    "CCP number:"
+  ],
+  "مفتاح RIP:": [
+    "Clé RIP :",
+    "RIP key:"
+  ],
+  "المبلغ المحوَّل (د.ج)": [
+    "Montant transféré (DA)",
+    "Transferred amount (DZD)"
+  ],
+  "رقم وصل التحويل / المرجع": [
+    "N° du reçu de virement / référence",
+    "Transfer receipt no. / reference"
+  ],
+  "رقم الوصل كما يظهر في تصريح التحويل": [
+    "Numéro du reçu tel qu'il apparaît sur la déclaration de virement",
+    "Receipt number as shown on the transfer slip"
+  ],
+  "ملاحظة (اختياري)": [
+    "Remarque (optionnel)",
+    "Note (optional)"
+  ],
+  "مثال: حوّلت من مكتب بريد بلدية...": [
+    "Exemple : viré depuis le bureau de poste de la commune...",
+    "Example: transferred from the municipal post office..."
+  ],
+  "📨 تأكيد أنّي حوّلت المبلغ": [
+    "📨 Confirmer que j'ai effectué le virement",
+    "📨 Confirm I made the transfer"
+  ],
+  "* بعد إرسال التصريح، تتم مراجعة التحويل يدويًا، ويُضاف المبلغ لرصيدك بمجرد التحقق منه فعليًا.": [
+    "* Après l'envoi de la déclaration, le virement est vérifié manuellement, et le montant est ajouté à votre solde dès sa confirmation effective.",
+    "* After submitting the declaration, the transfer is reviewed manually, and the amount is added to your balance once actually verified."
+  ],
+  "💰 سجل طلبات الشحن": [
+    "💰 Historique des demandes de recharge",
+    "💰 Top-up request history"
+  ],
+  "🔑 تسجيل دخول المسيّر": [
+    "🔑 Connexion administrateur",
+    "🔑 Admin login"
+  ],
+  "كلمة سر حساب المسيّر": [
+    "Mot de passe du compte administrateur",
+    "Admin account password"
+  ],
+  "🔑 لوحة المسيّر — مراجعة تحويلات CCP": [
+    "🔑 Tableau de bord administrateur — Vérification des virements CCP",
+    "🔑 Admin panel — CCP transfer review"
+  ],
+  "تحقق من وصول التحويل فعليًا في حسابك البريدي قبل القبول": [
+    "Vérifiez que le virement est bien arrivé sur votre compte postal avant d'accepter",
+    "Verify the transfer has actually arrived in your postal account before accepting"
+  ],
+  "✖ تسجيل خروج المسيّر": [
+    "✖ Déconnexion administrateur",
+    "✖ Admin logout"
+  ],
+  "تنويه هام:": [
+    "Avis important :",
+    "Important notice:"
+  ],
+  "منصة \"La Casse\" وسيط رقمي فقط يهدف لتسهيل التواصل بين المشترين والبائعين، ولا تتحمل أي مسؤولية عن عملية الشحن أو أي تعامل مالي يتم خارج آلية المحفظة الرقمية المعتمدة داخل المنصة. يُنصح دائمًا بفحص القطعة جيدًا قبل تسليم كود التأكيد.": [
+    "La plateforme « La Casse » est uniquement un intermédiaire numérique visant à faciliter la communication entre acheteurs et vendeurs ; elle décline toute responsabilité concernant la recharge ou toute transaction financière effectuée en dehors du portefeuille numérique de la plateforme. Il est toujours recommandé de bien vérifier la pièce avant de remettre le code de confirmation.",
+    "The \"La Casse\" platform is only a digital intermediary aimed at facilitating communication between buyers and sellers, and bears no responsibility for top-ups or any financial dealings conducted outside the platform's approved digital wallet mechanism. It is always advised to inspect the part carefully before handing over the confirmation code."
+  ],
+  "للتواصل والدعم:": [
+    "Contact et support :",
+    "Contact & support:"
+  ],
+  "ملغى": [
+    "Annulée",
+    "Cancelled"
+  ],
+  "إلغاء الطلب": [
+    "Annuler la demande",
+    "Cancel request"
+  ],
+  "متأكد أنك تريد إلغاء هذا الطلب؟ لن يقدر أي بائع بعدها إرسال عروض أو إتمام الصفقة.": [
+    "Confirmez-vous l'annulation de cette demande ? Aucun vendeur ne pourra plus faire d'offre ni finaliser la transaction.",
+    "Are you sure you want to cancel this request? No seller will be able to make offers or complete the deal afterward."
+  ],
+  "تم إلغاء الطلب.": [
+    "La demande a été annulée.",
+    "The request has been cancelled."
+  ],
+  "تعذّر إلغاء الطلب: ": [
+    "Impossible d'annuler la demande : ",
+    "Couldn't cancel the request: "
+  ],
+  "تم إلغاء هذا الطلب.": [
+    "Cette demande a été annulée.",
+    "This request has been cancelled."
+  ],
+  "قيّم البائع (اختياري لكن يساعد المشترين الآخرين):": [
+    "Notez le vendeur (facultatif mais utile aux autres acheteurs) :",
+    "Rate the seller (optional but helps other buyers):"
+  ],
+  "تعليق قصير (اختياري)": [
+    "Commentaire court (facultatif)",
+    "Short comment (optional)"
+  ],
+  "إرسال التقييم": [
+    "Envoyer l'évaluation",
+    "Submit rating"
+  ],
+  "تعذّر العثور على البائع.": [
+    "Vendeur introuvable.",
+    "Seller not found."
+  ],
+  "اختر عدد النجوم أولًا.": [
+    "Choisissez d'abord un nombre d'étoiles.",
+    "Please pick a star rating first."
+  ],
+  "شكرًا على تقييمك!": [
+    "Merci pour votre évaluation !",
+    "Thanks for your rating!"
+  ],
+  "تعذّر إرسال التقييم: ": [
+    "Impossible d'envoyer l'évaluation : ",
+    "Couldn't submit the rating: "
+  ],
+  "لقد قيّمت هذا البائع بالفعل. شكرًا!": [
+    "Vous avez déjà évalué ce vendeur. Merci !",
+    "You've already rated this seller. Thanks!"
+  ],
+  "لا يوجد تقييم بعد": [
+    "Aucune évaluation pour le moment",
+    "No ratings yet"
+  ],
+  "يرجى الانتظار {n} ثانية قبل نشر طلب آخر.": [
+    "Veuillez attendre {n} secondes avant de publier une autre demande.",
+    "Please wait {n} seconds before posting another request."
+  ],
+  "أدخل كودًا مكوّنًا من 4 أرقام.": [
+    "Entrez un code à 4 chiffres.",
+    "Enter a 4-digit code."
+  ],
+  "محاولات كثيرة خاطئة. انتظر {n} ثانية قبل إعادة المحاولة.": [
+    "Trop de tentatives échouées. Attendez {n} secondes avant de réessayer.",
+    "Too many failed attempts. Wait {n} seconds before trying again."
+  ],
+  "تقييم": [
+    "évaluation(s)",
+    "rating(s)"
+  ],
+  "الكل": [
+    "Tous",
+    "All"
+  ],
+  "اختر الماركة": [
+    "Choisir la marque",
+    "Choose brand"
+  ],
+  "اختر السنة": [
+    "Choisir l'année",
+    "Choose year"
+  ],
+  "اختر نوع القطعة": [
+    "Choisir le type de pièce",
+    "Choose part type"
+  ],
+  "اختر الولاية": [
+    "Choisir la wilaya",
+    "Choose wilaya"
+  ],
+  "الموقع غير مربوط بقاعدة بيانات بعد — راجع FIREBASE_CONFIG.": [
+    "Le site n'est pas encore connecté à la base de données — vérifiez FIREBASE_CONFIG.",
+    "The site isn't connected to a database yet — check FIREBASE_CONFIG."
+  ],
+  "الموقع غير مربوط بقاعدة بيانات بعد.": [
+    "Le site n'est pas encore connecté à la base de données.",
+    "The site isn't connected to a database yet."
+  ],
+  "يرجى تعبئة الماركة ونوع القطعة والولاية والتفاصيل.": [
+    "Veuillez renseigner la marque, le type de pièce, la wilaya et les détails.",
+    "Please fill in the brand, part type, wilaya, and details."
+  ],
+  "التفاصيل قصيرة جدًا، زد وصفًا أدق للقطعة.": [
+    "La description est trop courte, ajoutez plus de détails sur la pièce.",
+    "Details are too short, add a more precise description of the part."
+  ],
+  "التفاصيل طويلة جدًا (الحد الأقصى 800 حرف).": [
+    "La description est trop longue (800 caractères maximum).",
+    "Details are too long (maximum 800 characters)."
+  ],
+  "تعذّر نشر الطلب: ": [
+    "Impossible de publier la demande : ",
+    "Could not post the request: "
+  ],
+  "تم نشر طلبك بنجاح، بانتظار عروض البائعين.": [
+    "Votre demande a été publiée avec succès, en attente des offres des vendeurs.",
+    "Your request was posted successfully, awaiting sellers' offers."
+  ],
+  "تعذّر العثور على هذا العرض.": [
+    "Impossible de trouver cette offre.",
+    "This offer could not be found."
+  ],
+  "تم قبول العرض! احتفظ بكود التأكيد ولا تشاركه قبل استلام القطعة.": [
+    "Offre acceptée ! Conservez le code de confirmation et ne le partagez pas avant d'avoir reçu la pièce.",
+    "Offer accepted! Keep the confirmation code and don't share it before receiving the part."
+  ],
+  "تعذّر قبول العرض: ": [
+    "Impossible d'accepter l'offre : ",
+    "Could not accept the offer: "
+  ],
+  "بانتظار عروض": [
+    "En attente d'offres",
+    "Awaiting offers"
+  ],
+  "بانتظار التأكيد": [
+    "En attente de confirmation",
+    "Awaiting confirmation"
+  ],
+  "مكتملة": [
+    "Terminée",
+    "Completed"
+  ],
+  "لم تنشر أي طلب بعد. اضغط \"طلب قطعة جديدة\" للبدء.": [
+    "Vous n'avez publié aucune demande. Cliquez sur « Nouvelle demande de pièce » pour commencer.",
+    "You haven't posted any request yet. Click \"New part request\" to start."
+  ],
+  "لم يصلك أي عرض بعد.": [
+    "Vous n'avez reçu aucune offre pour le moment.",
+    "You haven't received any offers yet."
+  ],
+  "⏱ العروض المستلمة": [
+    "⏱ Offres reçues",
+    "⏱ Offers received"
+  ],
+  "قبول العرض": [
+    "Accepter l'offre",
+    "Accept offer"
+  ],
+  "تم قبول عرض": [
+    "Offre acceptée de",
+    "Offer accepted from"
+  ],
+  "بسعر": [
+    "au prix de",
+    "at the price of"
+  ],
+  "عند استلام القطعة وتجربتها، سلّم الكود التالي للبائع:": [
+    "Une fois la pièce reçue et testée, remettez le code suivant au vendeur :",
+    "Once you receive and test the part, hand the following code to the seller:"
+  ],
+  "🎫 كود التأكيد السري": [
+    "🎫 Code de confirmation secret",
+    "🎫 Secret confirmation code"
+  ],
+  "سلّم هذا الكود للبائع يدويًا فقط بعد استلام القطعة والتأكد من مطابقتها. لا تشاركه قبل ذلك.": [
+    "Ne remettez ce code au vendeur qu'après avoir reçu la pièce et vérifié sa conformité. Ne le partagez pas avant cela.",
+    "Only hand this code to the seller after receiving the part and confirming it matches. Don't share it before then."
+  ],
+  "✅ تمت الصفقة بنجاح": [
+    "✅ Transaction réussie",
+    "✅ Deal completed successfully"
+  ],
+  "طلب مفتوح": [
+    "demande(s) ouverte(s)",
+    "open request(s)"
+  ],
+  "لا توجد طلبات مطابقة حاليًا. جرّب تغيير الفلاتر أو كن أول من ينشر طلبًا.": [
+    "Aucune demande correspondante pour le moment. Essayez de modifier les filtres ou soyez le premier à publier une demande.",
+    "No matching requests right now. Try changing the filters or be the first to post a request."
+  ],
+  "بانتظار أول عرض": [
+    "En attente de la première offre",
+    "Awaiting first offer"
+  ],
+  "عرض مقدَّم": [
+    "offre(s) soumise(s)",
+    "offer(s) submitted"
+  ],
+  "🏬 عندي هذي القطعة": [
+    "🏬 J'ai cette pièce",
+    "🏬 I have this part"
+  ],
+  "تُعرض آخر {n} طلبًا فقط. استعمل الفلاتر لتضييق النتائج.": [
+    "Seules les {n} dernières demandes sont affichées. Utilisez les filtres pour affiner les résultats.",
+    "Only the last {n} requests are shown. Use the filters to narrow the results."
+  ],
+  "سلعة": [
+    "article(s)",
+    "item(s)"
+  ],
+  "لا توجد سلع معروضة حاليًا. كن أول بائع يعرض سلعة!": [
+    "Aucun article en vente pour le moment. Soyez le premier vendeur à en proposer un !",
+    "No items listed for sale yet. Be the first seller to list one!"
+  ],
+  "📞 اتصل بالبائع": [
+    "📞 Appeler le vendeur",
+    "📞 Call the seller"
+  ],
+  "تُعرض آخر {n} سلعة فقط.": [
+    "Seuls les {n} derniers articles sont affichés.",
+    "Only the last {n} items are shown."
+  ],
+  "تباعت": [
+    "Vendu",
+    "Sold"
+  ],
+  "متاحة": [
+    "Disponible",
+    "Available"
+  ],
+  "✔️ تعليم كمباعة": [
+    "✔️ Marquer comme vendu",
+    "✔️ Mark as sold"
+  ],
+  "↩️ إرجاعها متاحة": [
+    "↩️ Remettre en disponible",
+    "↩️ Mark as available again"
+  ],
+  "🗑️ حذف": [
+    "🗑️ Supprimer",
+    "🗑️ Delete"
+  ],
+  "ما عندكش سلع معروضة بعد.": [
+    "Vous n'avez encore aucun article en vente.",
+    "You don't have any listed items yet."
+  ],
+  "متأكد تبغي تحذف هذي السلعة نهائيًا؟": [
+    "Voulez-vous vraiment supprimer définitivement cet article ?",
+    "Are you sure you want to permanently delete this item?"
+  ],
+  "تم حذف السلعة.": [
+    "L'article a été supprimé.",
+    "Item deleted."
+  ],
+  "تعذّر الحذف: ": [
+    "Suppression impossible : ",
+    "Could not delete: "
+  ],
+  "تعذّر التحديث: ": [
+    "Mise à jour impossible : ",
+    "Could not update: "
+  ],
+  "سجّل دخولك كبائع أولًا.": [
+    "Connectez-vous d'abord en tant que vendeur.",
+    "Log in as a seller first."
+  ],
+  "التفاصيل قصيرة جدًا، زد وصفًا أدق للسلعة.": [
+    "La description est trop courte, ajoutez plus de détails sur l'article.",
+    "Details are too short, add a more precise description of the item."
+  ],
+  "أدخل سعرًا صحيحًا.": [
+    "Entrez un prix valide.",
+    "Enter a valid price."
+  ],
+  "أدخل رقم هاتف صحيح حتى يقدر المشتري يتصل بيك.": [
+    "Entrez un numéro de téléphone valide pour que l'acheteur puisse vous joindre.",
+    "Enter a valid phone number so the buyer can reach you."
+  ],
+  "تعذّر عرض السلعة: ": [
+    "Impossible de publier l'article : ",
+    "Could not list the item: "
+  ],
+  "تم عرض سلعتك بنجاح، وتبان الآن فالصفحة الرئيسية.": [
+    "Votre article a été publié avec succès et apparaît maintenant sur la page d'accueil.",
+    "Your item was listed successfully and now appears on the home page."
+  ],
+  "بائع": [
+    "Vendeur",
+    "Seller"
+  ],
+  "أدخل مبلغًا صحيحًا.": [
+    "Entrez un montant valide.",
+    "Enter a valid amount."
+  ],
+  "المبلغ كبير بشكل غير معتاد، تحقق من الرقم أو تواصل مع المسيّر مباشرة.": [
+    "Le montant est inhabituellement élevé, vérifiez le chiffre ou contactez directement l'administrateur.",
+    "The amount is unusually large, check the figure or contact the admin directly."
+  ],
+  "أدخل رقم وصل التحويل حتى يسهل التحقق منه.": [
+    "Entrez le numéro du reçu de virement pour faciliter la vérification.",
+    "Enter the transfer receipt number to make verification easier."
+  ],
+  "النص المدخل طويل جدًا.": [
+    "Le texte saisi est trop long.",
+    "The entered text is too long."
+  ],
+  "تعذّر إرسال الطلب: ": [
+    "Impossible d'envoyer la demande : ",
+    "Could not send the request: "
+  ],
+  "تم إرسال تصريحك، سيُضاف الرصيد بعد التحقق من وصول التحويل.": [
+    "Votre déclaration a été envoyée, le solde sera ajouté après vérification de l'arrivée du virement.",
+    "Your declaration has been sent; the balance will be added after the transfer is verified."
+  ],
+  "أدخل مبلغًا لا يقل عن 100 د.ج.": [
+    "Entrez un montant d'au moins 100 DA.",
+    "Enter an amount of at least 100 DZD."
+  ],
+  "المبلغ الأقصى المسموح به لكل عملية هو 500000 د.ج.": [
+    "Le montant maximum autorisé par opération est de 500 000 DA.",
+    "The maximum allowed amount per transaction is 500,000 DZD."
+  ],
+  "تعذّر بدء عملية الدفع.": [
+    "Impossible de démarrer le paiement.",
+    "Could not start the payment."
+  ],
+  "لا يوجد اتصال بالإنترنت. تحقق من الشبكة وحاول مجددًا.": [
+    "Pas de connexion Internet. Vérifiez le réseau et réessayez.",
+    "No internet connection. Check the network and try again."
+  ],
+  "تعذّر الاتصال بخدمة الدفع: ": [
+    "Impossible de contacter le service de paiement : ",
+    "Could not reach the payment service: "
+  ],
+  "أدخل البريد الإلكتروني وكلمة السر.": [
+    "Entrez l'e-mail et le mot de passe.",
+    "Enter the email and password."
+  ],
+  "هذا الحساب ليس حساب المسيّر المصرّح به.": [
+    "Ce compte n'est pas le compte administrateur autorisé.",
+    "This account is not the authorized admin account."
+  ],
+  "تم تسجيل دخول المسيّر بنجاح.": [
+    "Connexion administrateur réussie.",
+    "Admin login successful."
+  ],
+  "فشل الدخول: ": [
+    "Échec de la connexion : ",
+    "Login failed: "
+  ],
+  "تأكّد أنّك تحقّقت فعليًا من وصول {amount} د.ج في حسابك البريدي قبل القبول.\n\nهل تريد قبول هذا التحويل وإضافة الرصيد لـ{name}؟": [
+    "Assurez-vous d'avoir vérifié que {amount} DA sont bien arrivés sur votre compte postal avant d'accepter.\n\nVoulez-vous accepter ce virement et ajouter le solde à {name} ?",
+    "Make sure you've actually verified that {amount} DZD arrived in your postal account before accepting.\n\nDo you want to accept this transfer and add the balance to {name}?"
+  ],
+  "هذا الطلب لم يعد قابلًا للمراجعة (ربما رُوجع بالفعل).": [
+    "Cette demande n'est plus modifiable (elle a peut-être déjà été traitée).",
+    "This request can no longer be reviewed (it may have already been processed)."
+  ],
+  "تم قبول التحويل وإضافة {amount} د.ج لرصيد {name}.": [
+    "Virement accepté, {amount} DA ajoutés au solde de {name}.",
+    "Transfer accepted, {amount} DZD added to {name}'s balance."
+  ],
+  "تعذّر التأكيد: ": [
+    "Confirmation impossible : ",
+    "Could not confirm: "
+  ],
+  "متأكد تبغي ترفض هذا التحويل ({amount} د.ج من {name})؟ هذا الإجراء لا يمكن التراجع عنه.": [
+    "Voulez-vous vraiment rejeter ce virement ({amount} DA de {name}) ? Cette action est irréversible.",
+    "Are you sure you want to reject this transfer ({amount} DZD from {name})? This action cannot be undone."
+  ],
+  "تم رفض التحويل.": [
+    "Le virement a été rejeté.",
+    "The transfer was rejected."
+  ],
+  "تعذّر الرفض: ": [
+    "Rejet impossible : ",
+    "Could not reject: "
+  ],
+  "غير معروف": [
+    "Inconnu",
+    "Unknown"
+  ],
+  "البائع:": [
+    "Vendeur :",
+    "Seller:"
+  ],
+  "مرجع:": [
+    "Référence :",
+    "Reference:"
+  ],
+  "✅ قبول": [
+    "✅ Accepter",
+    "✅ Accept"
+  ],
+  "✖ رفض": [
+    "✖ Rejeter",
+    "✖ Reject"
+  ],
+  "مقبول": [
+    "Accepté",
+    "Accepted"
+  ],
+  "مرفوض": [
+    "Rejeté",
+    "Rejected"
+  ],
+  "⏳ بانتظار المراجعة": [
+    "⏳ En attente de vérification",
+    "⏳ Awaiting review"
+  ],
+  "لا توجد طلبات شحن جديدة.": [
+    "Aucune nouvelle demande de recharge.",
+    "No new top-up requests."
+  ],
+  "📋 السجل": [
+    "📋 Historique",
+    "📋 History"
+  ],
+  "لا يوجد سجل بعد.": [
+    "Aucun historique pour le moment.",
+    "No history yet."
+  ],
+  "أدخل السعر المقترح أولًا.": [
+    "Entrez d'abord le prix proposé.",
+    "Enter the proposed price first."
+  ],
+  "السعر المدخل غير منطقي، تحقق منه.": [
+    "Le prix saisi n'est pas réaliste, vérifiez-le.",
+    "The entered price seems unrealistic, double-check it."
+  ],
+  "الرسالة طويلة جدًا (الحد الأقصى 300 حرف).": [
+    "Le message est trop long (300 caractères maximum).",
+    "The message is too long (maximum 300 characters)."
+  ],
+  "تم إرسال عرضك للزبون.": [
+    "Votre offre a été envoyée au client.",
+    "Your offer has been sent to the customer."
+  ],
+  "تعذّر إرسال العرض: ": [
+    "Impossible d'envoyer l'offre : ",
+    "Could not send the offer: "
+  ],
+  "هذا الطلب لم يعد موجودًا.": [
+    "Cette demande n'existe plus.",
+    "This request no longer exists."
+  ],
+  "هذه الصفقة لم تعد قابلة للتأكيد (ربما أُكِّدت بالفعل).": [
+    "Cette transaction ne peut plus être confirmée (elle a peut-être déjà été confirmée).",
+    "This deal can no longer be confirmed (it may have already been confirmed)."
+  ],
+  "الكود غير صحيح، تحقق منه مع الزبون.": [
+    "Le code est incorrect, vérifiez-le avec le client.",
+    "The code is incorrect, check it with the customer."
+  ],
+  "رصيد محفظتك غير كافٍ لدفع العمولة. اشحن رصيدك أولًا.": [
+    "Le solde de votre portefeuille est insuffisant pour payer la commission. Rechargez d'abord votre solde.",
+    "Your wallet balance is insufficient to pay the commission. Top up your balance first."
+  ],
+  "تم تأكيد البيع! خُصمت {n} د.ج من محفظتك.": [
+    "Vente confirmée ! {n} DA ont été déduits de votre portefeuille.",
+    "Sale confirmed! {n} DZD were deducted from your wallet."
+  ],
+  "📝 إنشاء حساب بائع جديد": [
+    "📝 Créer un nouveau compte vendeur",
+    "📝 Create a new seller account"
+  ],
+  "إنشاء الحساب": [
+    "Créer le compte",
+    "Create account"
+  ],
+  "ماعندكش حساب؟ ": [
+    "Pas de compte ? ",
+    "No account? "
+  ],
+  "أنشئ حساب جديد": [
+    "Créer un nouveau compte",
+    "Create a new account"
+  ],
+  "عندك حساب من قبل؟ ": [
+    "Vous avez déjà un compte ? ",
+    "Already have an account? "
+  ],
+  "سجّل دخولك": [
+    "Connectez-vous",
+    "Log in"
+  ],
+  "اكتب بريدك الإلكتروني فوق أولًا، ثم دوس على هذا الرابط.": [
+    "Saisissez d'abord votre e-mail ci-dessus, puis cliquez sur ce lien.",
+    "Enter your email above first, then click this link."
+  ],
+  "أُرسل رابط لإعادة تعيين كلمة السر إلى بريدك. تحقق من صندوق الوارد (والبريد المزعج).": [
+    "Un lien de réinitialisation du mot de passe a été envoyé à votre e-mail. Vérifiez votre boîte de réception (et les spams).",
+    "A password reset link has been sent to your email. Check your inbox (and spam folder)."
+  ],
+  "تعذّر الإرسال: ": [
+    "Envoi impossible : ",
+    "Could not send: "
+  ],
+  "كلمة السر يجب أن تكون 6 أحرف على الأقل.": [
+    "Le mot de passe doit contenir au moins 6 caractères.",
+    "The password must be at least 6 characters."
+  ],
+  "أدخل اسمك أو اسم محلك.": [
+    "Entrez votre nom ou le nom de votre magasin.",
+    "Enter your name or shop name."
+  ],
+  "الاسم طويل جدًا.": [
+    "Le nom est trop long.",
+    "The name is too long."
+  ],
+  "🎁 تم إنشاء حسابك بنجاح! هدية ترحيبية {n} د.ج أضيفت لمحفظتك.": [
+    "🎁 Votre compte a été créé avec succès ! Un bonus de bienvenue de {n} DA a été ajouté à votre portefeuille.",
+    "🎁 Your account was created successfully! A welcome bonus of {n} DZD was added to your wallet."
+  ],
+  "تم تسجيل الدخول بنجاح.": [
+    "Connexion réussie.",
+    "Login successful."
+  ],
+  "⚠️ هذا الحساب مخصص للوحة المسيّر. استعمل زر 🔑 دخول كمسيّر بالأعلى، أو أنشئ حساب بائع ببريد مختلف.": [
+    "⚠️ Ce compte est réservé au tableau de bord administrateur. Utilisez le bouton 🔑 Connexion admin en haut, ou créez un compte vendeur avec un e-mail différent.",
+    "⚠️ This account is reserved for the admin panel. Use the 🔑 Admin login button above, or create a seller account with a different email."
+  ],
+  "تعذّر إنشاء الحساب: ": [
+    "Création du compte impossible : ",
+    "Could not create the account: "
+  ],
+  "فشل تسجيل الدخول: ": [
+    "Échec de la connexion : ",
+    "Login failed: "
+  ],
+  "تم تسجيل خروج المسيّر.": [
+    "Déconnexion administrateur effectuée.",
+    "Admin logged out."
+  ],
+  "تعذّر تسجيل الخروج: ": [
+    "Déconnexion impossible : ",
+    "Could not log out: "
+  ],
+  "تم تسجيل الخروج.": [
+    "Déconnexion effectuée.",
+    "Logged out."
+  ],
+  "لا يوجد اتصال بالإنترنت حاليًا. تحقق من الشبكة وأعد المحاولة.": [
+    "Pas de connexion Internet actuellement. Vérifiez le réseau et réessayez.",
+    "No internet connection right now. Check the network and try again."
+  ],
+  "تم رفض الوصول لقاعدة البيانات — تأكد أنك فعّلت Firestore Database ووضعتها في وضع Test mode من Firebase Console.": [
+    "Accès à la base de données refusé — assurez-vous d'avoir activé Firestore Database et de l'avoir mis en mode Test depuis la Firebase Console.",
+    "Database access denied — make sure you've enabled Firestore Database and set it to Test mode in the Firebase Console."
+  ],
+  "قاعدة البيانات تحتاج فهرسًا (index) لهذا الاستعلام. افتح Console المتصفح (F12) وابحث عن رابط أزرق من Firebase يبدأ بإنشاء الفهرس تلقائيًا بضغطة واحدة.": [
+    "La base de données a besoin d'un index pour cette requête. Ouvrez la console du navigateur (F12) et cherchez un lien bleu de Firebase qui crée l'index automatiquement en un clic.",
+    "The database needs an index for this query. Open the browser console (F12) and look for a blue Firebase link that creates the index automatically with one click."
+  ],
+  "قاعدة البيانات غير مفعّلة بعد — روح لـ Firebase Console → Build → Firestore Database → Create database.": [
+    "La base de données n'est pas encore activée — allez dans Firebase Console → Build → Firestore Database → Create database.",
+    "The database isn't enabled yet — go to Firebase Console → Build → Firestore Database → Create database."
+  ],
+  "تعذّر الاتصال بالخادم، تحقق من الشبكة وأعد المحاولة.": [
+    "Impossible de contacter le serveur, vérifiez le réseau et réessayez.",
+    "Could not reach the server, check the network and try again."
+  ],
+  "خطأ غير معروف": [
+    "Erreur inconnue",
+    "Unknown error"
+  ],
+  "هذا البريد الإلكتروني مسجّل من قبل. جرّب تسجيل الدخول بدل إنشاء حساب.": [
+    "Cet e-mail est déjà enregistré. Essayez de vous connecter au lieu de créer un compte.",
+    "This email is already registered. Try logging in instead of creating an account."
+  ],
+  "كلمة السر ضعيفة، اختر كلمة سر لا تقل عن 6 خانات.": [
+    "Mot de passe trop faible, choisissez au moins 6 caractères.",
+    "Weak password, choose at least 6 characters."
+  ],
+  "صيغة البريد الإلكتروني غير صحيحة.": [
+    "Format d'e-mail invalide.",
+    "Invalid email format."
+  ],
+  "كلمة السر أو البريد الإلكتروني غير صحيحين.": [
+    "Mot de passe ou e-mail incorrect.",
+    "Incorrect password or email."
+  ],
+  "لا يوجد حساب بهذا البريد الإلكتروني. جرّب إنشاء حساب جديد.": [
+    "Aucun compte avec cet e-mail. Essayez de créer un nouveau compte.",
+    "No account with this email. Try creating a new account."
+  ],
+  "محاولات كثيرة متتالية، انتظر شوية قبل ما تعاود المحاولة.": [
+    "Trop de tentatives, attendez un moment avant de réessayer.",
+    "Too many attempts, wait a moment before trying again."
+  ],
+  "هذا الحساب موقوف. تواصل مع إدارة الموقع.": [
+    "Ce compte est suspendu. Contactez l'administration du site.",
+    "This account is disabled. Contact the site administration."
+  ],
+  "تسجيل الدخول بالبريد الإلكتروني غير مفعّل في مشروع Firebase — فعّله من Authentication → Sign-in method.": [
+    "La connexion par e-mail n'est pas activée dans le projet Firebase — activez-la depuis Authentication → Sign-in method.",
+    "Email sign-in is not enabled in the Firebase project — enable it from Authentication → Sign-in method."
+  ],
+  "⚠️ الموقع غير مربوط بقاعدة بيانات بعد. الأزرار تشتغل لكن البيانات ما تتحفظش. أضف معلومات Firebase في الكود (FIREBASE_CONFIG).": [
+    "⚠️ Le site n'est pas encore connecté à une base de données. Les boutons fonctionnent mais les données ne sont pas sauvegardées. Ajoutez les informations Firebase dans le code (FIREBASE_CONFIG).",
+    "⚠️ The site isn't connected to a database yet. Buttons work but data isn't saved. Add Firebase info in the code (FIREBASE_CONFIG)."
+  ],
+  "⚠️ تعذّر تحميل قاعدة البيانات (تحقق من اتصال الإنترنت): ": [
+    "⚠️ Impossible de charger la base de données (vérifiez la connexion Internet) : ",
+    "⚠️ Could not load the database (check your internet connection): "
+  ],
+  "⚠️ لا يوجد اتصال بالإنترنت — بعض العمليات (نشر طلب، دفع، تأكيد بيع) قد لا تعمل حاليًا.": [
+    "⚠️ Pas de connexion Internet — certaines opérations (publier une demande, payer, confirmer une vente) peuvent ne pas fonctionner actuellement.",
+    "⚠️ No internet connection — some operations (posting a request, paying, confirming a sale) may not work right now."
+  ],
+  "⚠️ تعذّر الاتصال بقاعدة البيانات: ": [
+    "⚠️ Impossible de se connecter à la base de données : ",
+    "⚠️ Could not connect to the database: "
+  ],
+  "⚠️ تعذّر تحميل السلع المعروضة: ": [
+    "⚠️ Impossible de charger les articles en vente : ",
+    "⚠️ Could not load listed items: "
+  ],
+  "⚠️ تعذّر تحميل سلعك: ": [
+    "⚠️ Impossible de charger vos articles : ",
+    "⚠️ Could not load your items: "
+  ],
+  "⚠️ تعذّر تحميل طلبات الشحن: ": [
+    "⚠️ Impossible de charger les demandes de recharge : ",
+    "⚠️ Could not load top-up requests: "
+  ],
+  "⚠️ تعذّر تحميل سجل التحويلات: ": [
+    "⚠️ Impossible de charger l'historique des virements : ",
+    "⚠️ Could not load the transfer history: "
+  ],
+  "⚠️ تعذّر بدء جلسة تصفح: ": [
+    "⚠️ Impossible de démarrer une session de navigation : ",
+    "⚠️ Could not start a browsing session: "
+  ],
+  "⚠️ خطأ غير متوقع أثناء الاتصال بقاعدة البيانات: ": [
+    "⚠️ Erreur inattendue lors de la connexion à la base de données : ",
+    "⚠️ Unexpected error while connecting to the database: "
+  ],
+  "تم إرسال دفعتك! سيُضاف الرصيد لمحفظتك خلال لحظات بعد تأكيد Chargily.": [
+    "Votre paiement a été envoyé ! Le solde sera ajouté à votre portefeuille sous peu après confirmation de Chargily.",
+    "Your payment was sent! The balance will be added to your wallet shortly after Chargily confirms."
+  ],
+  "لم تكتمل عملية الدفع أو تم إلغاؤها.": [
+    "Le paiement n'a pas été finalisé ou a été annulé.",
+    "The payment wasn't completed or was cancelled."
+  ],
+  "⏳ جارٍ...": [
+    "⏳ En cours...",
+    "⏳ Processing..."
+  ],
+  "د.ج": [
+    "DA",
+    "DZD"
+  ],
+  "رونو": [
+    "Renault",
+    "Renault"
+  ],
+  "بيجو": [
+    "Peugeot",
+    "Peugeot"
+  ],
+  "دايسيا": [
+    "Dacia",
+    "Dacia"
+  ],
+  "فولكسفاغن": [
+    "Volkswagen",
+    "Volkswagen"
+  ],
+  "هيونداي": [
+    "Hyundai",
+    "Hyundai"
+  ],
+  "كيا": [
+    "Kia",
+    "Kia"
+  ],
+  "تويوتا": [
+    "Toyota",
+    "Toyota"
+  ],
+  "نيسان": [
+    "Nissan",
+    "Nissan"
+  ],
+  "شيفروليت": [
+    "Chevrolet",
+    "Chevrolet"
+  ],
+  "فيات": [
+    "Fiat",
+    "Fiat"
+  ],
+  "سيات": [
+    "Seat",
+    "Seat"
+  ],
+  "سكودا": [
+    "Škoda",
+    "Škoda"
+  ],
+  "سيتروين": [
+    "Citroën",
+    "Citroën"
+  ],
+  "أوبل": [
+    "Opel",
+    "Opel"
+  ],
+  "فورد": [
+    "Ford",
+    "Ford"
+  ],
+  "مرسيدس-بنز": [
+    "Mercedes-Benz",
+    "Mercedes-Benz"
+  ],
+  "بي إم دبليو": [
+    "BMW",
+    "BMW"
+  ],
+  "أودي": [
+    "Audi",
+    "Audi"
+  ],
+  "سوزوكي": [
+    "Suzuki",
+    "Suzuki"
+  ],
+  "ميتسوبيشي": [
+    "Mitsubishi",
+    "Mitsubishi"
+  ],
+  "مازدا": [
+    "Mazda",
+    "Mazda"
+  ],
+  "هوندا": [
+    "Honda",
+    "Honda"
+  ],
+  "جيلي": [
+    "Geely",
+    "Geely"
+  ],
+  "شيري": [
+    "Chery",
+    "Chery"
+  ],
+  "هافال / جريت وول": [
+    "Haval / Great Wall",
+    "Haval / Great Wall"
+  ],
+  "جاك (JAC)": [
+    "JAC",
+    "JAC"
+  ],
+  "تشانغان": [
+    "Changan",
+    "Changan"
+  ],
+  "فولفو": [
+    "Volvo",
+    "Volvo"
+  ],
+  "لادا": [
+    "Lada",
+    "Lada"
+  ],
+  "إم جي (MG)": [
+    "MG",
+    "MG"
+  ],
+  "بي واي دي (BYD)": [
+    "BYD",
+    "BYD"
+  ],
+  "جيتور (Jetour)": [
+    "Jetour",
+    "Jetour"
+  ],
+  "دونغفنغ": [
+    "Dongfeng",
+    "Dongfeng"
+  ],
+  "لكزس": [
+    "Lexus",
+    "Lexus"
+  ],
+  "جيب": [
+    "Jeep",
+    "Jeep"
+  ],
+  "لاند روفر": [
+    "Land Rover",
+    "Land Rover"
+  ],
+  "ميني": [
+    "Mini",
+    "Mini"
+  ],
+  "بورش": [
+    "Porsche",
+    "Porsche"
+  ],
+  "سانغ يونغ": [
+    "SsangYong",
+    "SsangYong"
+  ],
+  "سوبارو": [
+    "Subaru",
+    "Subaru"
+  ],
+  "إيفيكو (شاحنات)": [
+    "Iveco (camions)",
+    "Iveco (trucks)"
+  ],
+  "مان (شاحنات)": [
+    "MAN (camions)",
+    "MAN (trucks)"
+  ],
+  "إيسوزو": [
+    "Isuzu",
+    "Isuzu"
+  ],
+  "فوتون (شاحنات)": [
+    "Foton (camions)",
+    "Foton (trucks)"
+  ],
+  "أخرى": [
+    "Autre",
+    "Other"
+  ],
+  "أدرار": [
+    "Adrar",
+    "Adrar"
+  ],
+  "الشلف": [
+    "Chlef",
+    "Chlef"
+  ],
+  "الأغواط": [
+    "Laghouat",
+    "Laghouat"
+  ],
+  "أم البواقي": [
+    "Oum El Bouaghi",
+    "Oum El Bouaghi"
+  ],
+  "باتنة": [
+    "Batna",
+    "Batna"
+  ],
+  "بجاية": [
+    "Béjaïa",
+    "Bejaia"
+  ],
+  "بسكرة": [
+    "Biskra",
+    "Biskra"
+  ],
+  "بشار": [
+    "Béchar",
+    "Bechar"
+  ],
+  "البليدة": [
+    "Blida",
+    "Blida"
+  ],
+  "البويرة": [
+    "Bouira",
+    "Bouira"
+  ],
+  "تمنراست": [
+    "Tamanrasset",
+    "Tamanrasset"
+  ],
+  "تبسة": [
+    "Tébessa",
+    "Tebessa"
+  ],
+  "تلمسان": [
+    "Tlemcen",
+    "Tlemcen"
+  ],
+  "تيارت": [
+    "Tiaret",
+    "Tiaret"
+  ],
+  "تيزي وزو": [
+    "Tizi Ouzou",
+    "Tizi Ouzou"
+  ],
+  "الجزائر": [
+    "Alger",
+    "Algiers"
+  ],
+  "الجلفة": [
+    "Djelfa",
+    "Djelfa"
+  ],
+  "جيجل": [
+    "Jijel",
+    "Jijel"
+  ],
+  "سطيف": [
+    "Sétif",
+    "Setif"
+  ],
+  "سعيدة": [
+    "Saïda",
+    "Saida"
+  ],
+  "سكيكدة": [
+    "Skikda",
+    "Skikda"
+  ],
+  "سيدي بلعباس": [
+    "Sidi Bel Abbès",
+    "Sidi Bel Abbes"
+  ],
+  "عنابة": [
+    "Annaba",
+    "Annaba"
+  ],
+  "قالمة": [
+    "Guelma",
+    "Guelma"
+  ],
+  "قسنطينة": [
+    "Constantine",
+    "Constantine"
+  ],
+  "المدية": [
+    "Médéa",
+    "Medea"
+  ],
+  "مستغانم": [
+    "Mostaganem",
+    "Mostaganem"
+  ],
+  "المسيلة": [
+    "M'Sila",
+    "M'Sila"
+  ],
+  "معسكر": [
+    "Mascara",
+    "Mascara"
+  ],
+  "ورقلة": [
+    "Ouargla",
+    "Ouargla"
+  ],
+  "وهران": [
+    "Oran",
+    "Oran"
+  ],
+  "البيض": [
+    "El Bayadh",
+    "El Bayadh"
+  ],
+  "إليزي": [
+    "Illizi",
+    "Illizi"
+  ],
+  "برج بوعريريج": [
+    "Bordj Bou Arréridj",
+    "Bordj Bou Arreridj"
+  ],
+  "بومرداس": [
+    "Boumerdès",
+    "Boumerdes"
+  ],
+  "الطارف": [
+    "El Tarf",
+    "El Tarf"
+  ],
+  "تندوف": [
+    "Tindouf",
+    "Tindouf"
+  ],
+  "تيسمسيلت": [
+    "Tissemsilt",
+    "Tissemsilt"
+  ],
+  "الوادي": [
+    "El Oued",
+    "El Oued"
+  ],
+  "خنشلة": [
+    "Khenchela",
+    "Khenchela"
+  ],
+  "سوق أهراس": [
+    "Souk Ahras",
+    "Souk Ahras"
+  ],
+  "تيبازة": [
+    "Tipaza",
+    "Tipaza"
+  ],
+  "ميلة": [
+    "Mila",
+    "Mila"
+  ],
+  "عين الدفلى": [
+    "Aïn Defla",
+    "Ain Defla"
+  ],
+  "النعامة": [
+    "Naâma",
+    "Naama"
+  ],
+  "عين تموشنت": [
+    "Aïn Témouchent",
+    "Ain Temouchent"
+  ],
+  "غرداية": [
+    "Ghardaïa",
+    "Ghardaia"
+  ],
+  "غليزان": [
+    "Relizane",
+    "Relizane"
+  ],
+  "تيميمون": [
+    "Timimoun",
+    "Timimoun"
+  ],
+  "برج باجي مختار": [
+    "Bordj Badji Mokhtar",
+    "Bordj Badji Mokhtar"
+  ],
+  "أولاد جلال": [
+    "Ouled Djellal",
+    "Ouled Djellal"
+  ],
+  "بني عباس": [
+    "Béni Abbès",
+    "Beni Abbes"
+  ],
+  "عين صالح": [
+    "In Salah",
+    "In Salah"
+  ],
+  "عين قزام": [
+    "In Guezzam",
+    "In Guezzam"
+  ],
+  "تقرت": [
+    "Touggourt",
+    "Touggourt"
+  ],
+  "جانت": [
+    "Djanet",
+    "Djanet"
+  ],
+  "المغير": [
+    "El M'Ghair",
+    "El M'Ghair"
+  ],
+  "المنيعة": [
+    "El Meniaa",
+    "El Meniaa"
+  ],
+  "محرك": [
+    "Moteur",
+    "Engine"
+  ],
+  "ناقل الحركة": [
+    "Boîte de vitesses",
+    "Transmission"
+  ],
+  "هيكل / بودي": [
+    "Carrosserie",
+    "Body"
+  ],
+  "كهرباء وإلكترونيك": [
+    "Électricité et électronique",
+    "Electrical & electronics"
+  ],
+  "فرامل": [
+    "Freins",
+    "Brakes"
+  ],
+  "نظام التعليق": [
+    "Suspension",
+    "Suspension"
+  ],
+  "إطارات وجنوط": [
+    "Pneus et jantes",
+    "Tires & rims"
+  ],
+  "تكييف وتبريد": [
+    "Climatisation et refroidissement",
+    "AC & cooling"
+  ],
+  "زجاج ومرايا": [
+    "Vitres et rétroviseurs",
+    "Glass & mirrors"
+  ],
+  "إضاءة": [
+    "Éclairage",
+    "Lighting"
+  ],
+  "عادم": [
+    "Échappement",
+    "Exhaust"
+  ],
+  "فلاتر وزيوت": [
+    "Filtres et huiles",
+    "Filters & oils"
+  ],
+  "اكتب رقم هاتفك في التصريح بالحوالة حتى نتعرف على المرسل بسهولة": [
+    "Indiquez votre numéro de téléphone dans la déclaration de virement pour que nous identifiions facilement l'expéditeur",
+    "Write your phone number in the transfer declaration so we can easily identify the sender"
+  ],
+  "لا توجد طلبات جديدة تطابق تخصصك حاليًا.": ["Aucune nouvelle demande ne correspond à votre spécialité actuellement.", "No new requests currently match your specialty."],
+  "السعر المقترح (د.ج)": ["Prix proposé (DA)", "Proposed price (DZD)"],
+  "رسالة قصيرة": ["Message court", "Short message"],
+  "متوفرة وبحالة جيدة": ["Disponible et en bon état", "Available and in good condition"],
+  "📤 إرسال العرض": ["📤 Envoyer l'offre", "📤 Send offer"],
+  "لا توجد عروض معلّقة حاليًا.": ["Aucune offre en attente actuellement.", "No pending offers right now."],
+  "عرضك: ": ["Votre offre : ", "Your offer: "],
+  " — بانتظار قرار الزبون": [" — en attente de la décision du client", " — awaiting the customer's decision"],
+  "لا توجد صفقات مقبولة بانتظار التأكيد حاليًا.": ["Aucune transaction acceptée en attente de confirmation actuellement.", "No accepted deals awaiting confirmation right now."],
+  "كود التأكيد (4 أرقام)": ["Code de confirmation (4 chiffres)", "Confirmation code (4 digits)"],
+  "✅ تأكيد وخصم العمولة ({n} د.ج)": ["✅ Confirmer et déduire la commission ({n} DA)", "✅ Confirm and deduct commission ({n} DZD)"],
+  "لم تُرسل أي طلب شحن بعد.": ["Vous n'avez envoyé aucune demande de recharge.", "You haven't sent any top-up request yet."],
+  "بانتظار المراجعة": ["En attente de vérification", "Awaiting review"],
+  "تمت الإضافة للرصيد": ["Ajouté au solde", "Added to balance"],
+  "تعذّر تحميل الصورة، جرّب صورة أخرى.": ["Impossible de charger l'image, essayez-en une autre.", "Could not load the image, try another one."],
+  "تعذّر رفع الصورة، تم نشر الطلب بدونها. جرّب رفعها لاحقًا إذا لزم.": ["Impossible d'envoyer l'image, la demande a été publiée sans elle. Réessayez plus tard si besoin.", "Could not upload the image, the request was posted without it. Try again later if needed."],
+  "تعذّر رفع الصورة، تم نشر السلعة بدونها. جرّب رفعها لاحقًا إذا لزم.": ["Impossible d'envoyer l'image, l'article a été publié sans elle. Réessayez plus tard si besoin.", "Could not upload the image, the item was listed without it. Try again later if needed."]
+};
+
+/* ================================================================
+   i18n — نظام تعدد اللغات (عربي / فرنسي / إنجليزي)
+================================================================ */
+let currentLang = localStorage.getItem("lc_lang") || "ar";
+
+function t(key){
+  if(currentLang === "ar") return key;
+  const entry = TRANSLATIONS[key];
+  if(!entry) return key;
+  return currentLang === "fr" ? entry[0] : entry[1];
+}
+
+function tf(key, vars){
+  let s = t(key);
+  if(vars) for(const k in vars) s = s.split("{"+k+"}").join(vars[k]);
+  return s;
+}
+
+function applyStaticI18n(){
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    if(el.dataset.i18nSrc === undefined) el.dataset.i18nSrc = el.textContent;
+    el.textContent = t(el.dataset.i18nSrc);
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => {
+    if(el.dataset.i18nPhSrc === undefined) el.dataset.i18nPhSrc = el.getAttribute("placeholder") || "";
+    el.setAttribute("placeholder", t(el.dataset.i18nPhSrc));
+  });
+  document.querySelectorAll(".lang-btn").forEach(b => b.classList.toggle("active", b.dataset.lang === currentLang));
+}
+
+function setLang(lang){
+  currentLang = lang;
+  localStorage.setItem("lc_lang", lang);
+  applyStaticI18n();
+  initDropdowns();
+  if(currentView === "home"){ renderHomeBrowse(); renderHomeProducts(); }
+  if(currentView === "buyer") renderBuyer();
+  if(currentView === "seller"){ renderSeller(); if(currentSellerTab === "products") renderSellerProducts(); }
+  if(currentView === "admin" && isAdminAuthed) renderAdmin();
+  initCcpInfo();
+  setSellerAuthMode(typeof sellerAuthMode !== "undefined" ? sellerAuthMode : "login");
+}
+Object.assign(window, { setLang });
+
+const CAR_BRANDS = [
+  "رونو","بيجو","دايسيا","فولكسفاغن","هيونداي","كيا","تويوتا","نيسان","شيفروليت",
+  "فيات","سيات","سكودا","سيتروين","أوبل","فورد","مرسيدس-بنز","بي إم دبليو","أودي",
+  "سوزوكي","ميتسوبيشي","مازدا","هوندا","جيلي","شيري","هافال / جريت وول","جاك (JAC)",
+  "تشانغان","فولفو","لادا","إم جي (MG)","بي واي دي (BYD)","جيتور (Jetour)","دونغفنغ",
+  "لكزس","جيب","لاند روفر","ميني","بورش","سانغ يونغ","سوبارو","إيفيكو (شاحنات)",
+  "مان (شاحنات)","إيسوزو","فوتون (شاحنات)","أخرى"
+];
+
+const WILAYAS = [
+  "أدرار","الشلف","الأغواط","أم البواقي","باتنة","بجاية","بسكرة","بشار","البليدة","البويرة",
+  "تمنراست","تبسة","تلمسان","تيارت","تيزي وزو","الجزائر","الجلفة","جيجل","سطيف","سعيدة",
+  "سكيكدة","سيدي بلعباس","عنابة","قالمة","قسنطينة","المدية","مستغانم","المسيلة","معسكر","ورقلة",
+  "وهران","البيض","إليزي","برج بوعريريج","بومرداس","الطارف","تندوف","تيسمسيلت","الوادي","خنشلة",
+  "سوق أهراس","تيبازة","ميلة","عين الدفلى","النعامة","عين تموشنت","غرداية","غليزان","تيميمون",
+  "برج باجي مختار","أولاد جلال","بني عباس","عين صالح","عين قزام","تقرت","جانت","المغير","المنيعة"
+];
+
+const PART_TYPES = [
+  "محرك","ناقل الحركة","هيكل / بودي","كهرباء وإلكترونيك","فرامل","نظام التعليق",
+  "إطارات وجنوط","تكييف وتبريد","زجاج ومرايا","إضاءة","عادم","فلاتر وزيوت","أخرى"
+];
+
+const YEARS = Array.from({length: 32}, (_, i) => 2026 - i);
+const COMMISSION = 200; // د.ج — عمولة ثابتة عند كل عملية بيع مؤكدة
+const WELCOME_BONUS = 500; // د.ج — هدية ترحيبية تُضاف تلقائيًا عند إنشاء حساب بائع جديد
+                            // ⚠️ يجب أن تكون نفس القيمة بالضبط مكتوبة في firestore.rules (سطر التحقق من wallet == 500)
+
+/* ------------------------------------------------------------
+   ⚙️ إعدادات التحويل البريدي (CCP) — عدّل هذه المعلومات بمعلوماتك الحقيقية
+------------------------------------------------------------ */
+const CCP_INFO = {
+  accountName: "Issam Azzouz",
+  ccpNumber: "0029098344",
+  rip: "00799999002909834433",
+  note: "اكتب رقم هاتفك في التصريح بالحوالة حتى نتعرف على المرسل بسهولة"
+};
+
+/* ⚠️ لوحة المسيّر أصبحت تعتمد على تسجيل دخول حقيقي عبر Firebase Auth (بريد + كلمة سر)
+   بدل كلمة سر محلية في الكود — لأن كلمة السر المحلية كانت قابلة للتجاوز من أي شخص
+   يفتح Console المتصفح وينادي الدوال مباشرة. اتبع الخطوات التالية:
+   1) Firebase Console → Authentication → Users → Add user → أنشئ حسابًا لنفسك (بريد + كلمة سر)
+   2) انسخ الـ UID الذي يظهر بجانب الحساب
+   3) الصقه هنا مكان القيمة أدناه، وأيضًا في ملف Firestore Security Rules (نفس القيمة بالضبط) */
+const ADMIN_UID = "x6dnIsyHvverCrbBGe0Sy37Vwup2";
+
+/* ------------------------------------------------------------
+   🔥 إعدادات Firebase — عدّلها بمعلومات مشروعك (من Firebase Console)
+   طريقة الحصول عليها موضّحة في شرح منفصل بعد الكود.
+------------------------------------------------------------ */
+const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyBtBM81OZODSbDO7rEb1zP6nSt2skjF8gI",
+  authDomain: "lacasse-51f27.firebaseapp.com",
+  projectId: "lacasse-51f27",
+  storageBucket: "lacasse-51f27.firebasestorage.app",
+  messagingSenderId: "10353166133",
+  appId: "1:10353166133:web:a70bfad4576a8ee73fee7c"
+};
+
+let fbApp = null, db = null, auth = null, requestsCol = null, topupsCol = null, sellersCol = null, productsCol = null;
+let firebaseReady = false;
+
+/* هوية الجلسة الحالية — المشتري يحصل على هوية صامتة تلقائيًا (بدون تسجيل)،
+   والبائع يحتاج حساب حقيقي (بريد + كلمة سر) */
+let currentUid = null;
+let isSellerLoggedIn = false;
+let currentSellerProfile = null; // { name, email, wallet }
+let unsubSellerProfile = null;
+let unsubTopups = null;
+let isAdminAuthed = false; // يصير true فقط بعد تسجيل دخول Firebase Auth بحساب المسيّر (ADMIN_UID)
+
+/* حماية من الضغط المزدوج/المتكرر على أي عملية حساسة (نشر طلب، قبول عرض، دفع...).
+   بدون هذا، ضغطة سريعة مرتين على "قبول العرض" مثلاً قد تُنشئ عملية مزدوجة قبل
+   ما يوصل الرد الأول من الخادم. */
+const busyActions = new Set();
+function withBusyGuard(key, btn, fn){
+  if(busyActions.has(key)){ return; } // عملية جارية بالفعل، نتجاهل الضغطة الزائدة
+  busyActions.add(key);
+  if(btn){ btn.disabled = true; btn.dataset.origText = btn.dataset.origText || btn.textContent; btn.textContent = t("⏳ جارٍ..."); }
+  const done = () => {
+    busyActions.delete(key);
+    if(btn){ btn.disabled = false; if(btn.dataset.origText) btn.textContent = btn.dataset.origText; }
+  };
+  Promise.resolve(fn()).finally(done);
+}
+
+function isFirebaseConfigured(){
+  return FIREBASE_CONFIG.apiKey && !FIREBASE_CONFIG.apiKey.includes("ضع_");
+}
+
+async function initFirebase(){
+  if(!isFirebaseConfigured()){
+    showFirebaseWarning(t("⚠️ الموقع غير مربوط بقاعدة بيانات بعد. الأزرار تشتغل لكن البيانات ما تتحفظش. أضف معلومات Firebase في الكود (FIREBASE_CONFIG)."));
+    return;
+  }
+  try{
+    const appMod = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+    const fsMod = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+    const authMod = await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js");
+
+    initializeApp = appMod.initializeApp;
+    getFirestore = fsMod.getFirestore;
+    collection = fsMod.collection;
+    doc = fsMod.doc;
+    addDoc = fsMod.addDoc;
+    updateDoc = fsMod.updateDoc;
+    setDoc = fsMod.setDoc;
+    getDoc = fsMod.getDoc;
+    getDocs = fsMod.getDocs;
+    deleteDoc = fsMod.deleteDoc;
+    onSnapshot = fsMod.onSnapshot;
+    query = fsMod.query;
+    orderBy = fsMod.orderBy;
+    where = fsMod.where;
+    arrayUnion = fsMod.arrayUnion;
+    increment = fsMod.increment;
+    serverTimestamp = fsMod.serverTimestamp;
+    runTransaction = fsMod.runTransaction;
+    enableIndexedDbPersistence = fsMod.enableIndexedDbPersistence;
+
+    getAuth = authMod.getAuth;
+    onAuthStateChanged = authMod.onAuthStateChanged;
+    signInAnonymously = authMod.signInAnonymously;
+    createUserWithEmailAndPassword = authMod.createUserWithEmailAndPassword;
+    signInWithEmailAndPassword = authMod.signInWithEmailAndPassword;
+    signOut = authMod.signOut;
+    sendPasswordResetEmail = authMod.sendPasswordResetEmail;
+
+    fbApp = initializeApp(FIREBASE_CONFIG);
+    db = getFirestore(fbApp);
+    auth = getAuth(fbApp);
+
+    // تفعيل التخزين المحلي (IndexedDB) حتى تشتغل القراءة من الكاش وقت انقطاع الإنترنت،
+    // وتُرسل الكتابات تلقائيًا بمجرد عودة الاتصال. قد يفشل إذا كان الموقع مفتوحًا
+    // في عدة تبويبات بنفس الوقت — في هذي الحالة نكمل عادي بدون كاش محلي.
+    try{
+      await enableIndexedDbPersistence(db);
+    }catch(persErr){
+      console.warn("IndexedDB persistence not enabled:", persErr.code || persErr.message);
+    }
+
+    requestsCol = collection(db, "requests");
+    topupsCol = collection(db, "topups");
+    sellersCol = collection(db, "sellers");
+    productsCol = collection(db, "products");
+    firebaseReady = true;
+  }catch(e){
+    showFirebaseWarning(t("⚠️ تعذّر تحميل قاعدة البيانات (تحقق من اتصال الإنترنت): ") + e.message);
+  }
+}
+
+let fbWarningBar = null;
+function showFirebaseWarning(msg){
+  if(fbWarningBar && document.body.contains(fbWarningBar)){
+    fbWarningBar.textContent = msg; // نبدّل نفس الشريط بدل ما نكدّس شريط فوق شريط
+    return;
+  }
+  fbWarningBar = document.createElement("div");
+  fbWarningBar.style.cssText = "position:sticky; top:64px; z-index:45; background:#fdf3d6; color:#8a6800; font-size:13px; font-weight:700; text-align:center; padding:10px 16px;";
+  fbWarningBar.textContent = msg;
+  document.body.insertBefore(fbWarningBar, document.body.children[1]);
+}
+
+/* بانر ثابت يظهر تلقائيًا عند فقدان الاتصال بالإنترنت، ويختفي فور عودته.
+   هذا يمنع المستخدم من محاولة نشر طلب أو تأكيد بيع وهو غير متصل أصلًا،
+   بدل ما يكتشف الخطأ فقط بعد الضغط على الزر. */
+let offlineBar = null;
+function updateConnectionBanner(){
+  if(!navigator.onLine){
+    if(!offlineBar){
+      offlineBar = document.createElement("div");
+      offlineBar.style.cssText = "position:sticky; top:0; z-index:60; background:#7a1f1f; color:#fff; font-size:13px; font-weight:800; text-align:center; padding:10px 16px;";
+      offlineBar.textContent = t("⚠️ لا يوجد اتصال بالإنترنت — بعض العمليات (نشر طلب، دفع، تأكيد بيع) قد لا تعمل حاليًا.");
+      document.body.insertBefore(offlineBar, document.body.firstChild);
+    }
+  } else if(offlineBar){
+    offlineBar.remove();
+    offlineBar = null;
+  }
+}
+window.addEventListener("online", updateConnectionBanner);
+window.addEventListener("offline", updateConnectionBanner);
+document.addEventListener("DOMContentLoaded", updateConnectionBanner);
+
+/* يترجم أخطاء Firebase التقنية إلى رسائل عربية واضحة ومفيدة */
+function friendlyError(e){
+  if(!navigator.onLine) return t("لا يوجد اتصال بالإنترنت حاليًا. تحقق من الشبكة وأعد المحاولة.");
+  const m = ((e && (e.code || e.message)) || "").toString();
+  if(m.includes("permission-denied")) return t("تم رفض الوصول لقاعدة البيانات — تأكد أنك فعّلت Firestore Database ووضعتها في وضع Test mode من Firebase Console.");
+  // ⚠️ "index" و"not-found/failed-precondition" يشتركان في نفس رمز الخطأ التقني، لكنهما
+  // مشكلتين مختلفتين تمامًا: الأولى تحتاج إنشاء فهرس مركّب (رابط جاهز فـ Console المتصفح
+  // نفسه)، والثانية تعني القاعدة أصلًا غير موجودة. خلطهما كان يعطي نصيحة خاطئة للمستخدم.
+  if(m.toLowerCase().includes("index")) return t("قاعدة البيانات تحتاج فهرسًا (index) لهذا الاستعلام. افتح Console المتصفح (F12) وابحث عن رابط أزرق من Firebase يبدأ بإنشاء الفهرس تلقائيًا بضغطة واحدة.");
+  if(m.includes("not-found") || m.includes("failed-precondition")) return t("قاعدة البيانات غير مفعّلة بعد — روح لـ Firebase Console → Build → Firestore Database → Create database.");
+  if(m.includes("unavailable") || m.includes("network") || m.includes("deadline-exceeded")) return t("تعذّر الاتصال بالخادم، تحقق من الشبكة وأعد المحاولة.");
+  return m || t("خطأ غير معروف");
+}
+
+function friendlyAuthError(e){
+  const c = (e && e.code) || "";
+  if(c.includes("email-already-in-use")) return t("هذا البريد الإلكتروني مسجّل من قبل. جرّب تسجيل الدخول بدل إنشاء حساب.");
+  if(c.includes("weak-password")) return t("كلمة السر ضعيفة، اختر كلمة سر لا تقل عن 6 خانات.");
+  if(c.includes("invalid-email")) return t("صيغة البريد الإلكتروني غير صحيحة.");
+  if(c.includes("wrong-password") || c.includes("invalid-credential")) return t("كلمة السر أو البريد الإلكتروني غير صحيحين.");
+  if(c.includes("user-not-found")) return t("لا يوجد حساب بهذا البريد الإلكتروني. جرّب إنشاء حساب جديد.");
+  if(c.includes("too-many-requests")) return t("محاولات كثيرة متتالية، انتظر شوية قبل ما تعاود المحاولة.");
+  if(c.includes("user-disabled")) return t("هذا الحساب موقوف. تواصل مع إدارة الموقع.");
+  if(c.includes("operation-not-allowed")) return t("تسجيل الدخول بالبريد الإلكتروني غير مفعّل في مشروع Firebase — فعّله من Authentication → Sign-in method.");
+  return e.message || t("خطأ غير معروف");
+}
+
+/* ================================================================
+   مرآة محلية للبيانات — تُحدَّث تلقائيًا مع كل تغيير في Firestore
+   (هذا ما يخلي كل الأجهزة تشوف نفس البيانات في نفس اللحظة)
+================================================================ */
+let localRequests = [];
+let localTopups = [];
+let localProducts = []; // كل السلع المتاحة (للتصفح العام فالصفحة الرئيسية)
+let mySellerProducts = []; // سلع البائع الحالي فقط (كل الحالات: متاحة/تباعت) لعرضها فمساحته
+let unsubMyProducts = null;
+let currentView = "home";
+let pendingImage = null;      // Base64 dataURL مضغوطة، بانتظار إرفاقها مع الطلب عند النشر
+let pendingProductImage = null;
+
+/* نضغط الصورة لأبعاد صغيرة (480px) وجودة متوسطة (0.6) لتصبح Base64 dataURL صغيرة بما يكفي
+   لتُخزَّن مباشرة داخل مستند Firestore (الحد الأقصى للمستند 1 ميغابايت؛ الصورة المضغوطة
+   عادة أقل من 100 كيلوبايت). نتفادى بهذا الحاجة لباقة Blaze المدفوعة الخاصة بـ Firebase Storage. */
+function compressImageToDataUrl(file, maxDim){
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      const img = new Image();
+      img.onload = () => {
+        const scale = Math.min(1, maxDim / Math.max(img.width, img.height));
+        const canvas = document.createElement("canvas");
+        canvas.width = Math.round(img.width * scale);
+        canvas.height = Math.round(img.height * scale);
+        const ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        resolve(canvas.toDataURL("image/jpeg", 0.6));
+      };
+      img.onerror = reject;
+      img.src = e.target.result;
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function startRealtimeSync(){
+  if(!firebaseReady) return;
+  onSnapshot(query(requestsCol, orderBy("createdAt","desc")), snap => {
+    localRequests = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    if(currentView === "buyer") renderBuyer();
+    if(currentView === "seller") renderSeller();
+    if(currentView === "home") renderHomeBrowse();
+  }, err => showFirebaseWarning(t("⚠️ تعذّر الاتصال بقاعدة البيانات: ") + friendlyError(err)));
+
+  onSnapshot(query(productsCol, where("status","==","available"), orderBy("createdAt","desc")), snap => {
+    localProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+    if(currentView === "home") renderHomeProducts();
+  }, err => showFirebaseWarning(t("⚠️ تعذّر تحميل السلع المعروضة: ") + friendlyError(err)));
+
+  startAuthFlow();
+}
+
+/* سلع البائع (بكل حالاتها) خاصة به فقط فمساحته — مزامنة منفصلة عند تسجيل الدخول */
+function startMyProductsSync(uid){
+  if(unsubMyProducts){ unsubMyProducts(); unsubMyProducts = null; }
+  unsubMyProducts = onSnapshot(
+    query(productsCol, where("sellerId","==",uid), orderBy("createdAt","desc")),
+    snap => {
+      mySellerProducts = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      if(currentView === "seller") renderSeller();
+    },
+    err => showFirebaseWarning(t("⚠️ تعذّر تحميل سلعك: ") + friendlyError(err))
+  );
+}
+
+/* طلبات الشحن حساسة (تحتوي على مراجع تحويلات بنكية)، فكل بائع يجب أن يرى طلباته
+   الخاصة فقط. لهذا صرنا نفتح مزامنة مختلفة حسب الدور بدل تحميل كل شيء للجميع. */
+function startSellerTopupsSync(uid){
+  if(unsubTopups){ unsubTopups(); unsubTopups = null; }
+  unsubTopups = onSnapshot(
+    query(topupsCol, where("sellerId","==",uid), orderBy("createdAt","desc")),
+    snap => {
+      localTopups = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      if(currentView === "seller") renderSeller();
+    },
+    err => showFirebaseWarning(t("⚠️ تعذّر تحميل طلبات الشحن: ") + friendlyError(err))
+  );
+}
+
+let unsubSellerRatings = null;
+let mySellerRatingStats = { avg: 0, count: 0 };
+function startSellerRatingsSync(uid){
+  if(unsubSellerRatings){ unsubSellerRatings(); unsubSellerRatings = null; }
+  unsubSellerRatings = onSnapshot(
+    query(collection(db, "ratings"), where("sellerId","==",uid)),
+    snap => {
+      let sum = 0, count = 0;
+      snap.forEach(d => { sum += (d.data().stars || 0); count++; });
+      mySellerRatingStats = { avg: count ? (sum / count) : 0, count };
+      if(currentView === "seller") renderSeller();
+    },
+    () => {}
+  );
+}
+
+function startAdminTopupsSync(){
+  if(unsubTopups){ unsubTopups(); unsubTopups = null; }
+  unsubTopups = onSnapshot(
+    query(topupsCol, orderBy("createdAt","desc")),
+    snap => {
+      localTopups = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+      if(currentView === "admin") renderAdmin();
+    },
+    err => showFirebaseWarning(t("⚠️ تعذّر تحميل سجل التحويلات: ") + friendlyError(err))
+  );
+}
+
+/* يدير جلسة الدخول: المشتري يحصل على هوية صامتة تلقائيًا (بدون أي نموذج تسجيل)،
+   والبائع عند تسجيل دخوله بحساب حقيقي يحصل على ملف تعريف ومحفظة خاصة به فقط */
+function startAuthFlow(){
+  onAuthStateChanged(auth, async user => {
+    if(!user){
+      try{ await signInAnonymously(auth); }
+      catch(e){ showFirebaseWarning(t("⚠️ تعذّر بدء جلسة تصفح: ") + friendlyError(e)); }
+      return; // هذه الدالة تُستدعى تلقائيًا مرة أخرى بعد نجاح تسجيل الدخول الصامت
+    }
+
+    currentUid = user.uid;
+    isSellerLoggedIn = !user.isAnonymous;
+
+    if(unsubSellerProfile){ unsubSellerProfile(); unsubSellerProfile = null; }
+
+    if(isSellerLoggedIn && user.uid !== ADMIN_UID){
+      unsubSellerProfile = onSnapshot(doc(db, "sellers", user.uid), snap => {
+        currentSellerProfile = snap.exists() ? snap.data() : null;
+        if(currentView === "seller") renderSeller();
+      });
+      startSellerTopupsSync(user.uid);
+      startMyProductsSync(user.uid);
+      startSellerRatingsSync(user.uid);
+    } else {
+      currentSellerProfile = null;
+      if(unsubTopups){ unsubTopups(); unsubTopups = null; }
+      if(unsubMyProducts){ unsubMyProducts(); unsubMyProducts = null; }
+      if(unsubSellerRatings){ unsubSellerRatings(); unsubSellerRatings = null; }
+      localTopups = [];
+      mySellerProducts = [];
+      mySellerRatingStats = { avg: 0, count: 0 };
+    }
+
+    watchMyRatings();
+
+    if(currentView === "buyer") renderBuyer();
+    if(currentView === "seller") renderSeller();
+  });
+}
+
+/* ================================================================
+   أدوات عامة — Helpers
+================================================================ */
+function fillSelect(el, options, placeholder){
+  el.innerHTML = `<option value="">${t(placeholder)}</option>` + options.map(o => `<option value="${o}">${t(o)}</option>`).join("");
+}
+function money(n){ return Number(n).toLocaleString("en-US"); }
+function genId(){ return "R-" + Math.floor(1000 + Math.random()*9000); }
+function genCode(){ return String(Math.floor(1000 + Math.random()*9000)); }
+
+/* ⚠️ أمان: أي نص يكتبه مستخدم (تفاصيل الطلب، رسالة العرض، اسم البائع...) لازم يمر من هنا
+   قبل إدراجه في innerHTML. بدون هذا، شخص يقدر يكتب <script> أو <img onerror=...> في
+   حقل "تفاصيل الطلب" وينفّذ كود ضار عند أي شخص آخر يشوف الطلب (XSS). */
+function esc(s){
+  return String(s ?? "").replace(/[&<>"']/g, c => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;"
+  }[c]));
+}
+
+function toast(msg, type){
+  const el = document.getElementById("toast");
+  el.textContent = (type === "error" ? "⚠️ " : "✅ ") + msg;
+  el.className = "show" + (type === "error" ? " error" : "");
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(() => { el.className = el.className.replace("show",""); }, 3200);
+}
+
+/* ================================================================
+   التنقل بين الصفحات — Navigation
+================================================================ */
+function setView(v){
+  currentView = v;
+  ["home","buyer","seller","admin","legal"].forEach(name => {
+    document.getElementById("view-"+name).classList.toggle("hidden", name !== v);
+    const tab = document.getElementById("tab-"+name);
+    if(tab) tab.classList.toggle("active", name === v);
+  });
+  if(v === "home"){ renderHomeBrowse(); renderHomeProducts(); }
+  if(v === "buyer") renderBuyer();
+  if(v === "seller") renderSeller();
+  if(v === "admin") renderAdmin();
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+/* ================================================================
+   تصفح عام للطلبات المفتوحة — يظهر فالصفحة الرئيسية للجميع (بدون تسجيل دخول)
+   ويُفلتر حسب حقول البحث الموجودة فأعلى الصفحة
+================================================================ */
+const HOME_BROWSE_LIMIT = 24;
+function renderHomeBrowse(){
+  const list = document.getElementById("home-browse-list");
+  const countEl = document.getElementById("home-browse-count");
+  if(!list) return;
+
+  const brand = document.getElementById("f-brand").value;
+  const model = document.getElementById("f-model").value.trim().toLowerCase();
+  const year = document.getElementById("f-year").value;
+  const part = document.getElementById("f-part").value;
+  const wilaya = document.getElementById("f-wilaya").value;
+
+  let open = localRequests.filter(r => r.status === "open");
+  if(brand) open = open.filter(r => r.brand === brand);
+  if(year) open = open.filter(r => String(r.year) === String(year));
+  if(part) open = open.filter(r => r.partType === part);
+  if(wilaya) open = open.filter(r => r.wilaya === wilaya);
+  if(model) open = open.filter(r => (r.model||"").toLowerCase().includes(model));
+
+  countEl.textContent = `${open.length} ${t("طلب مفتوح")}`;
+
+  if(open.length === 0){
+    list.innerHTML = `<div class="empty-note">${t("لا توجد طلبات مطابقة حاليًا. جرّب تغيير الفلاتر أو كن أول من ينشر طلبًا.")}</div>`;
+    return;
+  }
+
+  list.innerHTML = `<div class="how-grid">` + open.slice(0, HOME_BROWSE_LIMIT).map(r => `
+    <div class="card">
+      <div class="tags">
+        <b>${esc(t(r.brand))} ${esc(r.model)||""} ${r.year?"· "+esc(r.year):""}</b>
+        <span class="badge b-steel">🔧 ${esc(t(r.partType))}</span>
+        <span class="badge b-green">📍 ${esc(t(r.wilaya))}</span>
+      </div>
+      <p class="desc">${esc(r.details)}</p>
+      <div class="flex-end mt14" style="justify-content:space-between; align-items:center;">
+        <span style="font-size:12px; color:var(--text-soft);">${r.offers && r.offers.length ? "💬 "+r.offers.length+" "+t("عرض مقدَّم") : t("بانتظار أول عرض")}</span>
+        <button class="btn btn-navy btn-sm" onclick="setView('seller')">${t("🏬 عندي هذي القطعة")}</button>
+      </div>
+    </div>`).join("") + `</div>` +
+    (open.length > HOME_BROWSE_LIMIT ? `<p class="section-sub" style="text-align:center; margin-top:14px;">${tf("تُعرض آخر {n} طلبًا فقط. استعمل الفلاتر لتضييق النتائج.", {n:HOME_BROWSE_LIMIT})}</p>` : "");
+}
+
+/* ================================================================
+   تهيئة القوائم المنسدلة — Init dropdowns
+================================================================ */
+function initDropdowns(){
+  fillSelect(document.getElementById("f-brand"), CAR_BRANDS, "الكل");
+  fillSelect(document.getElementById("f-year"), YEARS, "الكل");
+  fillSelect(document.getElementById("f-part"), PART_TYPES, "الكل");
+  fillSelect(document.getElementById("f-wilaya"), WILAYAS, "الكل");
+
+  fillSelect(document.getElementById("nf-brand"), CAR_BRANDS, "اختر الماركة");
+  fillSelect(document.getElementById("nf-year"), YEARS, "اختر السنة");
+  fillSelect(document.getElementById("nf-part"), PART_TYPES, "اختر نوع القطعة");
+  fillSelect(document.getElementById("nf-wilaya"), WILAYAS, "اختر الولاية");
+
+  fillSelect(document.getElementById("pf-brand"), CAR_BRANDS, "اختر الماركة");
+  fillSelect(document.getElementById("pf-part"), PART_TYPES, "اختر نوع القطعة");
+  fillSelect(document.getElementById("pf-wilaya"), WILAYAS, "اختر الولاية");
+}
+
+/* ================================================================
+   تصفح عام للسلع الجاهزة (سعر ثابت، بلا نظام عروض) — الصفحة الرئيسية
+================================================================ */
+const HOME_PRODUCTS_LIMIT = 24;
+function renderHomeProducts(){
+  const list = document.getElementById("home-products-list");
+  const countEl = document.getElementById("home-products-count");
+  if(!list) return;
+
+  countEl.textContent = `${localProducts.length} ${t("سلعة")}`;
+
+  if(localProducts.length === 0){
+    list.innerHTML = `<div class="empty-note">${t("لا توجد سلع معروضة حاليًا. كن أول بائع يعرض سلعة!")}</div>`;
+    return;
+  }
+
+  list.innerHTML = `<div class="how-grid">` + localProducts.slice(0, HOME_PRODUCTS_LIMIT).map(p => `
+    <div class="card">
+      <div class="tags">
+        <b>${esc(t(p.brand))} ${esc(p.model)||""}</b>
+        <span class="badge b-steel">🔧 ${esc(t(p.partType))}</span>
+        <span class="badge b-green">📍 ${esc(t(p.wilaya))}</span>
+      </div>
+      <p class="desc">${esc(p.details)}</p>
+      <div class="flex-end mt14" style="justify-content:space-between; align-items:center;">
+        <b style="font-size:16px; color:var(--navy);">${money(p.price)} ${t("د.ج")}</b>
+        <a class="btn btn-navy btn-sm" href="tel:${esc(p.sellerPhone)}">${t("📞 اتصل بالبائع")}</a>
+      </div>
+    </div>`).join("") + `</div>` +
+    (localProducts.length > HOME_PRODUCTS_LIMIT ? `<p class="section-sub" style="text-align:center; margin-top:14px;">${tf("تُعرض آخر {n} سلعة فقط.", {n:HOME_PRODUCTS_LIMIT})}</p>` : "");
+}
+
+/* ================================================================
+   واجهة المشتري — Buyer logic
+================================================================ */
+function toggleBuyerForm(){
+  const box = document.getElementById("buyer-form");
+  box.classList.toggle("hidden");
+  document.getElementById("btn-toggle-form").textContent = box.classList.contains("hidden") ? t("➕ طلب قطعة جديدة") : t("✖ إغلاق");
+}
+
+function previewImage(input){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  compressImageToDataUrl(file, 480).then(dataUrl => {
+    pendingImage = dataUrl;
+    document.getElementById("nf-image-preview").innerHTML = `<img src="${dataUrl}">`;
+  }).catch(() => toast(t("تعذّر تحميل الصورة، جرّب صورة أخرى."), "error"));
+}
+
+async function submitRequest(btn){
+  if(!firebaseReady){ toast(t("الموقع غير مربوط بقاعدة بيانات بعد — راجع FIREBASE_CONFIG."), "error"); return; }
+
+  // حماية بسيطة من السبام: نمنع نشر طلب جديد قبل مرور 30 ثانية على آخر طلب من نفس الجهاز
+  const lastPostKey = "lc_last_request_ts";
+  const lastPost = Number(localStorage.getItem(lastPostKey) || 0);
+  const secondsSince = (Date.now() - lastPost) / 1000;
+  if(lastPost && secondsSince < 30){
+    toast(tf("يرجى الانتظار {n} ثانية قبل نشر طلب آخر.", {n: Math.ceil(30 - secondsSince)}), "error");
+    return;
+  }
+
+  const brand = document.getElementById("nf-brand").value;
+  const model = document.getElementById("nf-model").value;
+  const year = document.getElementById("nf-year").value;
+  const part = document.getElementById("nf-part").value;
+  const wilaya = document.getElementById("nf-wilaya").value;
+  const details = document.getElementById("nf-details").value.trim();
+
+  if(!brand || !part || !wilaya || !details){
+    toast(t("يرجى تعبئة الماركة ونوع القطعة والولاية والتفاصيل."), "error");
+    return;
+  }
+  if(details.length < 5){ toast(t("التفاصيل قصيرة جدًا، زد وصفًا أدق للقطعة."), "error"); return; }
+  if(details.length > 800){ toast(t("التفاصيل طويلة جدًا (الحد الأقصى 800 حرف)."), "error"); return; }
+
+  withBusyGuard("submitRequest", btn, async () => {
+    try{
+      await addDoc(requestsCol, {
+        brand, model, year, partType: part, wilaya, details,
+        image: pendingImage, status: "open", offers: [],
+        acceptedOfferId: null,
+        buyerId: currentUid,
+        createdAt: serverTimestamp()
+      });
+    }catch(e){ toast(t("تعذّر نشر الطلب: ") + friendlyError(e), "error"); return; }
+
+    localStorage.setItem(lastPostKey, String(Date.now()));
+
+    document.getElementById("nf-model").value = "";
+    document.getElementById("nf-details").value = "";
+    document.getElementById("nf-image-preview").textContent = t("📷 اضغط لرفع صورة");
+    pendingImage = null;
+    toggleBuyerForm();
+    toast(t("تم نشر طلبك بنجاح، بانتظار عروض البائعين."));
+  });
+}
+
+async function acceptOffer(reqId, offerId, btn){
+  if(!firebaseReady){ toast(t("الموقع غير مربوط بقاعدة بيانات بعد."), "error"); return; }
+  const req = localRequests.find(r => r.id === reqId);
+  const offer = req && req.offers.find(o => o.id === offerId);
+  if(!offer){ toast(t("تعذّر العثور على هذا العرض."), "error"); return; }
+  withBusyGuard("accept-"+reqId, btn, async () => {
+    try{
+      // ⚠️ نكتب حالة الطلب والكود السري في نفس المعاملة الذرية، حتى لا يصير سيناريو
+      // "طلب مقبول بلا كود سري" إذا انقطع النت بينهما. الكود يُخزَّن في وثيقة فرعية
+      // منفصلة (requests/{id}/secret/code) لا يقدر يقرأها إلا المشتري نفسه.
+      const code = genCode();
+      await runTransaction(db, async (tx) => {
+        tx.update(doc(db, "requests", reqId), {
+          status: "accepted",
+          acceptedOfferId: offerId,
+          acceptedSellerId: offer.sellerId // ⚠️ أمان: يمنع أي بائع آخر غير صاحب العرض من تأكيد هذه الصفقة
+        });
+        tx.set(doc(db, "requests", reqId, "secret", "code"), { value: code });
+      });
+      toast(t("تم قبول العرض! احتفظ بكود التأكيد ولا تشاركه قبل استلام القطعة."));
+    }catch(e){ toast(t("تعذّر قبول العرض: ") + friendlyError(e), "error"); }
+  });
+}
+
+function cancelRequest(reqId, btn){
+  const req = localRequests.find(r => r.id === reqId);
+  if(!req){ toast(t("تعذّر العثور على هذا الطلب."), "error"); return; }
+  if(!confirm(t("متأكد أنك تريد إلغاء هذا الطلب؟ لن يقدر أي بائع بعدها إرسال عروض أو إتمام الصفقة."))) return;
+  withBusyGuard("cancel-"+reqId, btn, async () => {
+    try{
+      await updateDoc(doc(db, "requests", reqId), {
+        status: "cancelled",
+        cancelledAt: serverTimestamp()
+      });
+      toast(t("تم إلغاء الطلب."));
+    }catch(e){ toast(t("تعذّر إلغاء الطلب: ") + friendlyError(e), "error"); }
+  });
+}
+
+/* ---------------- تقييم البائعين — Seller ratings ---------------- */
+let myRatedRequestIds = new Set();
+let unsubMyRatings = null;
+function watchMyRatings(){
+  if(unsubMyRatings){ unsubMyRatings(); unsubMyRatings = null; }
+  myRatedRequestIds = new Set();
+  if(!currentUid) return;
+  unsubMyRatings = onSnapshot(
+    query(collection(db, "ratings"), where("buyerId", "==", currentUid)),
+    snap => {
+      myRatedRequestIds = new Set(snap.docs.map(d => d.id));
+      if(currentView === "buyer") renderBuyer();
+    },
+    () => {}
+  );
+}
+
+function starsPickerHtml(reqId){
+  return `<div class="divider-dash" id="rate-box-${reqId}">
+    <p style="font-size:12.5px; font-weight:800; color:var(--text-soft); margin-bottom:8px;">${t("قيّم البائع (اختياري لكن يساعد المشترين الآخرين):")}</p>
+    <div class="stars-pick" id="stars-${reqId}" style="font-size:22px; letter-spacing:2px; cursor:pointer; margin-bottom:8px;">
+      ${[1,2,3,4,5].map(n => `<span data-n="${n}" onclick="setStarPick('${reqId}',${n})" style="opacity:.35;">★</span>`).join("")}
+    </div>
+    <textarea id="rate-comment-${reqId}" maxlength="300" placeholder="${t('تعليق قصير (اختياري)')}" style="width:100%; min-height:50px; margin-bottom:8px; font:inherit; padding:8px; border-radius:8px; border:1px solid #ddd;"></textarea>
+    <button class="btn btn-navy btn-sm" onclick="submitRating('${reqId}', this)">${t("إرسال التقييم")}</button>
+  </div>`;
+}
+window.currentStarPick = window.currentStarPick || {};
+function setStarPick(reqId, n){
+  window.currentStarPick[reqId] = n;
+  const box = document.getElementById("stars-"+reqId);
+  if(!box) return;
+  [...box.children].forEach(s => { s.style.opacity = Number(s.dataset.n) <= n ? "1" : ".35"; });
+}
+function submitRating(reqId, btn){
+  const req = localRequests.find(r => r.id === reqId);
+  const stars = window.currentStarPick[reqId];
+  if(!req || !req.acceptedSellerId){ toast(t("تعذّر العثور على البائع."), "error"); return; }
+  if(!stars){ toast(t("اختر عدد النجوم أولًا."), "error"); return; }
+  const comment = (document.getElementById("rate-comment-"+reqId)?.value || "").trim();
+  withBusyGuard("rate-"+reqId, btn, async () => {
+    try{
+      await setDoc(doc(db, "ratings", reqId), {
+        requestId: reqId,
+        buyerId: currentUid,
+        sellerId: req.acceptedSellerId,
+        stars: stars,
+        comment: comment ? comment.slice(0, 300) : "",
+        createdAt: serverTimestamp()
+      });
+      toast(t("شكرًا على تقييمك!"));
+    }catch(e){ toast(t("تعذّر إرسال التقييم: ") + friendlyError(e), "error"); }
+  });
+}
+
+/* جلب الكود السري من الوثيقة الفرعية المحمية (فقط صاحب الطلب يقدر يقرأها) */
+const confirmationCodeCache = new Map();
+async function fetchConfirmationCode(reqId, targetElId){
+  try{
+    let code = confirmationCodeCache.get(reqId);
+    if(!code){
+      const snap = await getDoc(doc(db, "requests", reqId, "secret", "code"));
+      code = snap.exists() ? snap.data().value : null;
+      if(code) confirmationCodeCache.set(reqId, code);
+    }
+    const el = document.getElementById(targetElId);
+    if(el && code) el.textContent = code;
+  }catch(e){ /* بلا ما نعطل الواجهة إذا فشل الاستعلام */ }
+}
+
+/* كاش بسيط لتقييمات البائعين حتى لا نكرر نفس الاستعلام أكثر من مرة */
+const sellerRatingCache = new Map();
+async function fetchSellerRatingBadge(sellerId, targetElId){
+  try{
+    let stats = sellerRatingCache.get(sellerId);
+    if(!stats){
+      const snap = await getDocs(query(collection(db, "ratings"), where("sellerId", "==", sellerId)));
+      let sum = 0, count = 0;
+      snap.forEach(d => { sum += (d.data().stars || 0); count++; });
+      stats = { avg: count ? (sum / count) : 0, count };
+      sellerRatingCache.set(sellerId, stats);
+    }
+    const el = document.getElementById(targetElId);
+    if(!el) return;
+    el.textContent = stats.count ? `⭐ ${stats.avg.toFixed(1)} (${stats.count})` : t("لا يوجد تقييم بعد");
+  }catch(e){ /* بلا ما نعطل الواجهة إذا فشل الاستعلام */ }
+}
+
+function renderBuyer(){
+  const list = document.getElementById("buyer-list");
+  const myRequests = localRequests.filter(r => r.buyerId === currentUid);
+
+  const openCount = myRequests.filter(r => r.status === "open").length;
+  const acceptedCount = myRequests.filter(r => r.status === "accepted").length;
+  const doneCount = myRequests.filter(r => r.status === "completed").length;
+
+  const statsBar = myRequests.length === 0 ? "" : `
+    <div style="display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap;">
+      <span class="badge b-yellow">⏳ ${openCount} ${t("بانتظار عروض")}</span>
+      <span class="badge b-orange">🛡️ ${acceptedCount} ${t("بانتظار التأكيد")}</span>
+      <span class="badge b-green">✅ ${doneCount} ${t("مكتملة")}</span>
+    </div>`;
+
+  if(myRequests.length === 0){
+    list.innerHTML = `<div class="empty-note">${t('لم تنشر أي طلب بعد. اضغط "طلب قطعة جديدة" للبدء.')}</div>`;
+    return;
+  }
+
+  list.innerHTML = statsBar + myRequests.map(r => {
+    let statusBadge = r.status === "open" ? `<span class="badge b-yellow">${t("بانتظار عروض")}</span>`
+      : r.status === "accepted" ? `<span class="badge b-orange">${t("بانتظار التأكيد")}</span>`
+      : r.status === "cancelled" ? `<span class="badge b-steel">${t("ملغى")}</span>`
+      : `<span class="badge b-green">${t("مكتملة")}</span>`;
+
+    let body = "";
+    const cancelBtn = `<div style="margin-top:10px;"><button class="btn btn-outline btn-sm" onclick="cancelRequest('${r.id}', this)">${t("إلغاء الطلب")}</button></div>`;
+
+    if(r.status === "open"){
+      if(r.offers.length === 0){
+        body = `<div class="divider-dash"><p style="font-size:13px; color:#a3a3a3;">${t("لم يصلك أي عرض بعد.")}</p></div>${cancelBtn}`;
+      }else{
+        const offerRows = r.offers.map((o, idx) => {
+          const badgeId = `srate-${r.id}-${idx}`;
+          setTimeout(() => fetchSellerRatingBadge(o.sellerId, badgeId), 0);
+          return `
+            <div class="offer-row">
+              <div><b>${esc(o.sellerName)}</b> <span id="${badgeId}" style="font-size:11.5px; color:var(--text-soft);">…</span><div style="font-size:12px; color:var(--text-soft);">${esc(o.message)||""}</div></div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span class="price">${money(o.price)} ${t("د.ج")}</span>
+                <button class="btn btn-navy btn-sm" onclick="acceptOffer('${r.id}','${o.id}', this)">${t("قبول العرض")}</button>
+              </div>
+            </div>`;
+        }).join("");
+        body = `<div class="divider-dash">
+          <p style="font-size:12px; font-weight:800; color:var(--text-soft); margin-bottom:8px;">⏱ ${t("العروض المستلمة")} (${r.offers.length})</p>
+          ${offerRows}
+        </div>${cancelBtn}`;
+      }
+    } else if(r.status === "accepted"){
+      const offer = r.offers.find(o => o.id === r.acceptedOfferId);
+      const codeElId = `code-value-${r.id}`;
+      setTimeout(() => fetchConfirmationCode(r.id, codeElId), 0);
+      body = `<div class="divider-dash">
+        <p style="font-size:13.5px; color:var(--text-soft); margin-bottom:10px;">
+          ${t("تم قبول عرض")} <b style="color:var(--text);">${offer?esc(offer.sellerName):""}</b> ${t("بسعر")}
+          <b style="color:var(--orange-dark);">${offer?money(offer.price):""} ${t("د.ج")}</b>.
+          ${t("عند استلام القطعة وتجربتها، سلّم الكود التالي للبائع:")}
+        </p>
+        <div class="ticket">
+          <div class="top-row"><span class="lbl">🎫 ${t("كود التأكيد السري")}</span><span class="id">${r.id}</span></div>
+          <div class="code" id="${codeElId}">••••</div>
+          <p class="hint">${t("سلّم هذا الكود للبائع يدويًا فقط بعد استلام القطعة والتأكد من مطابقتها. لا تشاركه قبل ذلك.")}</p>
+        </div>
+      </div>${cancelBtn}`;
+    } else if(r.status === "cancelled"){
+      body = `<div class="divider-dash" style="color:var(--text-soft); font-weight:700; font-size:13.5px;">${t("تم إلغاء هذا الطلب.")}</div>`;
+    } else {
+      const already = myRatedRequestIds.has(r.id);
+      body = `<div class="divider-dash" style="color:var(--green); font-weight:800; font-size:13.5px;">${t("✅ تمت الصفقة بنجاح")}</div>
+        ${already
+          ? `<div class="divider-dash" style="font-size:12.5px; color:var(--text-soft);">${t("لقد قيّمت هذا البائع بالفعل. شكرًا!")}</div>`
+          : starsPickerHtml(r.id)}`;
+    }
+
+    return `<div class="card">
+      <div class="head-row">
+        <div>
+          <div class="tags">
+            <b>${esc(t(r.brand))} ${esc(r.model)||""} ${r.year?"· "+esc(r.year):""}</b>
+            <span class="badge b-steel">🔧 ${esc(t(r.partType))}</span>
+            <span class="badge b-green">📍 ${esc(t(r.wilaya))}</span>
+          </div>
+          <p class="desc">${esc(r.details)}</p>
+        </div>
+        ${statusBadge}
+      </div>
+      ${body}
+    </div>`;
+  }).join("");
+}
+
+/* ================================================================
+   واجهة البائع — Seller logic
+================================================================ */
+let currentSellerTab = "requests";
+function setSellerTab(tab){
+  currentSellerTab = tab;
+  ["requests","pending","confirm","products","wallet"].forEach(tabId => {
+    document.getElementById("seller-sec-"+tabId).classList.toggle("hidden", tabId !== tab);
+    document.getElementById("stab-"+tabId).classList.toggle("active", tabId === tab);
+  });
+  if(tab === "products") renderSellerProducts();
+}
+
+function toggleProductForm(){
+  const box = document.getElementById("product-form");
+  box.classList.toggle("hidden");
+  document.getElementById("btn-toggle-product-form").textContent = box.classList.contains("hidden") ? t("➕ سلعة جديدة") : t("✖ إغلاق");
+}
+
+function previewProductImage(input){
+  const file = input.files && input.files[0];
+  if(!file) return;
+  compressImageToDataUrl(file, 480).then(dataUrl => {
+    pendingProductImage = dataUrl;
+    document.getElementById("pf-image-preview").innerHTML = `<img src="${dataUrl}">`;
+  }).catch(() => toast(t("تعذّر تحميل الصورة، جرّب صورة أخرى."), "error"));
+}
+
+async function submitProduct(btn){
+  if(!firebaseReady || !isSellerLoggedIn){ toast(t("سجّل دخولك كبائع أولًا."), "error"); return; }
+  const brand = document.getElementById("pf-brand").value;
+  const model = document.getElementById("pf-model").value.trim();
+  const part = document.getElementById("pf-part").value;
+  const wilaya = document.getElementById("pf-wilaya").value;
+  const price = Number(document.getElementById("pf-price").value);
+  const phone = document.getElementById("pf-phone").value.trim();
+  const details = document.getElementById("pf-details").value.trim();
+
+  if(!brand || !part || !wilaya || !details){
+    toast(t("يرجى تعبئة الماركة ونوع القطعة والولاية والتفاصيل."), "error");
+    return;
+  }
+  if(details.length < 5){ toast(t("التفاصيل قصيرة جدًا، زد وصفًا أدق للسلعة."), "error"); return; }
+  if(details.length > 800){ toast(t("التفاصيل طويلة جدًا (الحد الأقصى 800 حرف)."), "error"); return; }
+  if(!price || price <= 0){ toast(t("أدخل سعرًا صحيحًا."), "error"); return; }
+  if(!phone || phone.length < 8){ toast(t("أدخل رقم هاتف صحيح حتى يقدر المشتري يتصل بيك."), "error"); return; }
+
+  withBusyGuard("submitProduct", btn, async () => {
+    try{
+      await addDoc(productsCol, {
+        brand, model, partType: part, wilaya, details, price,
+        sellerId: currentUid,
+        sellerName: currentSellerProfile ? currentSellerProfile.name : t("بائع"),
+        sellerPhone: phone,
+        image: pendingProductImage, status: "available",
+        createdAt: serverTimestamp()
+      });
+    }catch(e){ toast(t("تعذّر عرض السلعة: ") + friendlyError(e), "error"); return; }
+
+    document.getElementById("pf-model").value = "";
+    document.getElementById("pf-price").value = "";
+    document.getElementById("pf-phone").value = "";
+    document.getElementById("pf-details").value = "";
+    document.getElementById("pf-image-preview").textContent = t("📷 اضغط لرفع صورة");
+    pendingProductImage = null;
+    toggleProductForm();
+    toast(t("تم عرض سلعتك بنجاح، وتبان الآن فالصفحة الرئيسية."));
+  });
+}
+
+function renderSellerProducts(){
+  const list = document.getElementById("seller-products-list");
+  if(!list) return;
+  if(mySellerProducts.length === 0){
+    list.innerHTML = `<div class="empty-note">${t("ما عندكش سلع معروضة بعد.")}</div>`;
+    return;
+  }
+  list.innerHTML = mySellerProducts.map(p => `
+    <div class="card">
+      <div class="tags">
+        <b>${esc(t(p.brand))} ${esc(p.model)||""}</b>
+        <span class="badge b-steel">🔧 ${esc(t(p.partType))}</span>
+        <span class="badge b-green">📍 ${esc(t(p.wilaya))}</span>
+        ${p.status === "sold" ? `<span class="badge b-red">${t("تباعت")}</span>` : `<span class="badge b-yellow">${t("متاحة")}</span>`}
+      </div>
+      <p class="desc">${esc(p.details)}</p>
+      <div class="flex-end mt14" style="justify-content:space-between; align-items:center; gap:8px; flex-wrap:wrap;">
+        <b style="font-size:15px;">${money(p.price)} ${t("د.ج")}</b>
+        <div style="display:flex; gap:8px;">
+          ${p.status === "available"
+            ? `<button class="btn btn-outline btn-sm" onclick="toggleProductStatus('${p.id}','sold', this)">${t("✔️ تعليم كمباعة")}</button>`
+            : `<button class="btn btn-outline btn-sm" onclick="toggleProductStatus('${p.id}','available', this)">${t("↩️ إرجاعها متاحة")}</button>`}
+          <button class="btn btn-outline btn-sm" onclick="deleteProduct('${p.id}', this)">${t("🗑️ حذف")}</button>
+        </div>
+      </div>
+    </div>`).join("");
+}
+
+async function toggleProductStatus(id, newStatus, btn){
+  if(!firebaseReady) return;
+  withBusyGuard("prodstatus-"+id, btn, async () => {
+    try{
+      await updateDoc(doc(db, "products", id), { status: newStatus });
+    }catch(e){ toast(t("تعذّر التحديث: ") + friendlyError(e), "error"); }
+  });
+}
+
+async function deleteProduct(id, btn){
+  if(!firebaseReady) return;
+  if(!confirm(t("متأكد تبغي تحذف هذي السلعة نهائيًا؟"))) return;
+  withBusyGuard("proddelete-"+id, btn, async () => {
+    try{
+      await deleteDoc(doc(db, "products", id));
+      toast(t("تم حذف السلعة."));
+    }catch(e){ toast(t("تعذّر الحذف: ") + friendlyError(e), "error"); }
+  });
+}
+
+async function submitTopupRequest(btn){
+  if(!firebaseReady || !isSellerLoggedIn){ toast(t("سجّل دخولك كبائع أولًا."), "error"); return; }
+  const amount = Number(document.getElementById("topup-amount").value);
+  const ref = document.getElementById("topup-ref").value.trim();
+  const note = document.getElementById("topup-note").value.trim();
+
+  if(!amount || amount <= 0){ toast(t("أدخل مبلغًا صحيحًا."), "error"); return; }
+  if(amount > 1000000){ toast(t("المبلغ كبير بشكل غير معتاد، تحقق من الرقم أو تواصل مع المسيّر مباشرة."), "error"); return; }
+  if(!ref){ toast(t("أدخل رقم وصل التحويل حتى يسهل التحقق منه."), "error"); return; }
+  if(ref.length > 100 || note.length > 300){ toast(t("النص المدخل طويل جدًا."), "error"); return; }
+
+  withBusyGuard("topup", btn, async () => {
+    try{
+      await addDoc(topupsCol, {
+        amount, ref, note,
+        sellerId: currentUid,
+        sellerName: currentSellerProfile ? currentSellerProfile.name : t("بائع"),
+        status: "pending",
+        date: new Date().toLocaleString("ar-DZ"),
+        createdAt: serverTimestamp()
+      });
+    }catch(e){ toast(t("تعذّر إرسال الطلب: ") + friendlyError(e), "error"); return; }
+
+    document.getElementById("topup-amount").value = "";
+    document.getElementById("topup-ref").value = "";
+    document.getElementById("topup-note").value = "";
+    toast(t("تم إرسال تصريحك، سيُضاف الرصيد بعد التحقق من وصول التحويل."));
+  });
+}
+
+/* ---------------- دفع فوري بالبطاقة عبر Chargily ----------------
+   ملاحظة أمنية: مفتاح Chargily السري لا يمكن أن يوضع في هذا الملف لأنه يُقرأ من المتصفح.
+   لهذا ننادي دالة خادم (Netlify Function) هي التي تتواصل مع Chargily فعليًا،
+   وهي موجودة في netlify/functions/create-checkout.js */
+async function payWithChargily(btn){
+  if(!isSellerLoggedIn){ toast(t("سجّل دخولك كبائع أولًا."), "error"); return; }
+  const amount = Number(document.getElementById("chargily-amount").value);
+  if(!amount || amount < 100){ toast(t("أدخل مبلغًا لا يقل عن 100 د.ج."), "error"); return; }
+  if(amount > 500000){ toast(t("المبلغ الأقصى المسموح به لكل عملية هو 500000 د.ج."), "error"); return; }
+
+  withBusyGuard("chargily", btn, async () => {
+    try{
+      const res = await fetch("/.netlify/functions/create-checkout", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ sellerId: currentUid, amount })
+      });
+      const data = await res.json();
+      if(!res.ok || !data.checkout_url){
+        toast(data.error || t("تعذّر بدء عملية الدفع."), "error");
+        return;
+      }
+      window.location.href = data.checkout_url; // تحويل المستخدم لصفحة الدفع الآمنة عند Chargily
+    }catch(e){
+      const msg = (!navigator.onLine) ? t("لا يوجد اتصال بالإنترنت. تحقق من الشبكة وحاول مجددًا.") : t("تعذّر الاتصال بخدمة الدفع: ") + e.message;
+      toast(msg, "error");
+    }
+  });
+}
+
+/* ---------------- لوحة المسيّر (Admin) ---------------- */
+function renderAdminGate(){
+  document.getElementById("admin-authed").classList.add("hidden");
+  document.getElementById("admin-auth-gate").classList.remove("hidden");
+}
+
+async function openAdminPanel(){
+  if(!firebaseReady){ toast(t("الموقع غير مربوط بقاعدة بيانات بعد."), "error"); return; }
+  if(isAdminAuthed){ setView("admin"); return; }
+  renderAdminGate();
+  setView("admin");
+}
+
+async function submitAdminAuth(btn){
+  const email = document.getElementById("aa-email").value.trim();
+  const password = document.getElementById("aa-password").value;
+  if(!email || !password){ toast(t("أدخل البريد الإلكتروني وكلمة السر."), "error"); return; }
+
+  withBusyGuard("adminAuth", btn, async () => {
+    try{
+      const cred = await signInWithEmailAndPassword(auth, email, password);
+      if(cred.user.uid !== ADMIN_UID){
+        await signOut(auth); // ليس حساب المسيّر، نخرج فورًا حتى لا يبقى مسجّلًا كبائع بالخطأ
+        toast(t("هذا الحساب ليس حساب المسيّر المصرّح به."), "error");
+        return;
+      }
+      isAdminAuthed = true;
+      startAdminTopupsSync();
+      document.getElementById("admin-auth-gate").classList.add("hidden");
+      document.getElementById("admin-authed").classList.remove("hidden");
+      toast(t("تم تسجيل دخول المسيّر بنجاح."));
+    }catch(e){
+      toast(t("فشل الدخول: ") + friendlyAuthError(e), "error");
+    }
+  });
+}
+
+async function approveTopup(id, btn){
+  if(!firebaseReady){ toast(t("الموقع غير مربوط بقاعدة بيانات بعد."), "error"); return; }
+  const tp = localTopups.find(x => x.id === id);
+  if(!tp || tp.status !== "pending") return;
+  if(!confirm(tf("تأكّد أنّك تحقّقت فعليًا من وصول {amount} د.ج في حسابك البريدي قبل القبول.\n\nهل تريد قبول هذا التحويل وإضافة الرصيد لـ{name}؟", {amount: money(tp.amount), name: tp.sellerName || t("بائع")}))) return;
+  withBusyGuard("topup-"+id, btn, async () => {
+    try{
+      // ⚠️ نفس مبدأ الذرّية: تحديث حالة التحويل وإضافة الرصيد يصيران معًا أو ولا وحدة منهم،
+      // بلا احتمال "تحويل مقبول بلا ما يتضاف رصيده فعليًا".
+      const topupRef = doc(db, "topups", id);
+      const sellerRef = doc(db, "sellers", tp.sellerId);
+      await runTransaction(db, async (tx) => {
+        const topupSnap = await tx.get(topupRef);
+        const sellerSnap = await tx.get(sellerRef);
+        if(!topupSnap.exists() || topupSnap.data().status !== "pending"){
+          throw new Error(t("هذا الطلب لم يعد قابلًا للمراجعة (ربما رُوجع بالفعل)."));
+        }
+        const wallet = sellerSnap.exists() ? (sellerSnap.data().wallet || 0) : 0;
+        tx.update(topupRef, { status: "approved" });
+        tx.update(sellerRef, { wallet: wallet + tp.amount });
+      });
+      toast(tf("تم قبول التحويل وإضافة {amount} د.ج لرصيد {name}.", {amount: money(tp.amount), name: tp.sellerName || t("بائع")}));
+    }catch(e){ toast(e.message || (t("تعذّر التأكيد: ") + friendlyError(e)), "error"); }
+  });
+}
+
+async function rejectTopup(id, btn){
+  if(!firebaseReady){ toast(t("الموقع غير مربوط بقاعدة بيانات بعد."), "error"); return; }
+  const tp = localTopups.find(x => x.id === id);
+  if(!tp || tp.status !== "pending") return;
+  if(!confirm(tf("متأكد تبغي ترفض هذا التحويل ({amount} د.ج من {name})؟ هذا الإجراء لا يمكن التراجع عنه.", {amount: money(tp.amount), name: tp.sellerName || t("بائع")}))) return;
+  withBusyGuard("topup-"+id, btn, async () => {
+    try{
+      await updateDoc(doc(db, "topups", id), { status: "rejected" });
+      toast(t("تم رفض التحويل."), "error");
+    }catch(e){ toast(t("تعذّر الرفض: ") + friendlyError(e), "error"); }
+  });
+}
+
+function renderAdmin(){
+  const list = document.getElementById("admin-topups-list");
+  const pending = localTopups.filter(tp => tp.status === "pending");
+  const done = localTopups.filter(tp => tp.status !== "pending");
+
+  const row = tp => `
+    <div class="offer-row">
+      <div>
+        <b>${money(tp.amount)} ${t("د.ج")}</b> — ${t("البائع:")} <b>${esc(tp.sellerName)||t("غير معروف")}</b>
+        <div style="font-size:11.5px; color:var(--text-soft);">${t("مرجع:")} <span style="font-family:monospace;">${esc(tp.ref)}</span> · ${esc(tp.note)||""} · ${esc(tp.date)}</div>
+      </div>
+      <div style="display:flex; gap:8px;">
+        ${tp.status === "pending" ? `
+          <button class="btn btn-navy btn-sm" onclick="approveTopup('${tp.id}', this)">${t("✅ قبول")}</button>
+          <button class="btn btn-outline btn-sm" onclick="rejectTopup('${tp.id}', this)">${t("✖ رفض")}</button>
+        ` : tp.status === "approved" ? `<span class="badge b-green">${t("مقبول")}</span>` : `<span class="badge b-red">${t("مرفوض")}</span>`}
+      </div>
+    </div>`;
+
+  list.innerHTML = `
+    <div class="section-actions">⏳ ${t("بانتظار المراجعة")} (${pending.length})</div>
+    ${pending.length ? pending.map(row).join("") : `<div class="empty-note">${t("لا توجد طلبات شحن جديدة.")}</div>`}
+    <div class="section-actions mt14" style="margin-top:24px;">${t("📋 السجل")}</div>
+    ${done.length ? done.map(row).join("") : `<div class="empty-note">${t("لا يوجد سجل بعد.")}</div>`}
+  `;
+}
+
+async function sendOffer(reqId, btn){
+  if(!firebaseReady || !isSellerLoggedIn){ toast(t("سجّل دخولك كبائع أولًا."), "error"); return; }
+  const priceEl = document.getElementById("offer-price-"+reqId);
+  const msgEl = document.getElementById("offer-msg-"+reqId);
+  const price = Number(priceEl.value);
+  if(!price || price <= 0){ toast(t("أدخل السعر المقترح أولًا."), "error"); return; }
+  if(price > 50000000){ toast(t("السعر المدخل غير منطقي، تحقق منه."), "error"); return; }
+  if(msgEl.value.trim().length > 300){ toast(t("الرسالة طويلة جدًا (الحد الأقصى 300 حرف)."), "error"); return; }
+
+  withBusyGuard("offer-"+reqId, btn, async () => {
+    try{
+      await updateDoc(doc(db, "requests", reqId), {
+        offers: arrayUnion({
+          id: "O-"+Date.now(), sellerId: currentUid,
+          sellerName: currentSellerProfile ? currentSellerProfile.name : t("بائع"),
+          price, message: msgEl.value.trim()
+        })
+      });
+      toast(t("تم إرسال عرضك للزبون."));
+    }catch(e){ toast(t("تعذّر إرسال العرض: ") + friendlyError(e), "error"); }
+  });
+}
+
+/* حماية بسيطة من تكرار محاولات كود التأكيد (حد أقصى 5 محاولات خاطئة، ثم قفل 60 ثانية) */
+const codeAttempts = new Map();
+function checkCodeLock(reqId){
+  const rec = codeAttempts.get(reqId);
+  if(!rec) return 0;
+  if(rec.lockedUntil && Date.now() < rec.lockedUntil){
+    return Math.ceil((rec.lockedUntil - Date.now()) / 1000);
+  }
+  if(rec.lockedUntil && Date.now() >= rec.lockedUntil){ codeAttempts.delete(reqId); }
+  return 0;
+}
+function registerWrongAttempt(reqId){
+  const rec = codeAttempts.get(reqId) || { count: 0, lockedUntil: 0 };
+  rec.count++;
+  if(rec.count >= 5){ rec.lockedUntil = Date.now() + 60000; rec.count = 0; }
+  codeAttempts.set(reqId, rec);
+}
+
+async function confirmSale(reqId, btn){
+  if(!firebaseReady || !isSellerLoggedIn){ toast(t("سجّل دخولك كبائع أولًا."), "error"); return; }
+  const secondsLeft = checkCodeLock(reqId);
+  if(secondsLeft > 0){
+    toast(tf("محاولات كثيرة خاطئة. انتظر {n} ثانية قبل إعادة المحاولة.", {n: secondsLeft}), "error");
+    return;
+  }
+  const input = document.getElementById("code-"+reqId);
+  const entered = input.value.trim();
+  if(!/^\d{4}$/.test(entered)){ toast(t("أدخل كودًا مكوّنًا من 4 أرقام."), "error"); return; }
+
+  withBusyGuard("confirm-"+reqId, btn, async () => {
+    try{
+      // ⚠️ نستعمل transaction (عملية ذرية) بدل خطوتين منفصلتين، حتى لو انقطع النت
+      // فجأة بين "تأكيد البيع" و"خصم العمولة"، إما تصير العمليتان معًا أو ولا وحدة منهم —
+      // بلا سيناريو "صفقة مؤكدة بلا عمولة مخصومة".
+      // ⚠️ أمان: التحقق من صحة الكود لا يتم هنا في JS، بل تتحقق منه قواعد Firestore
+      // نفسها عند الكتابة (تقارن enteredCode بالقيمة الحقيقية المخزّنة في وثيقة سرية
+      // لا يقدر هذا الحساب قراءتها). إذا كان الكود خاطئًا، الكتابة تُرفض تلقائيًا.
+      const reqRef = doc(db, "requests", reqId);
+      const sellerRef = doc(db, "sellers", currentUid);
+      await runTransaction(db, async (tx) => {
+        const reqSnap = await tx.get(reqRef);
+        const sellerSnap = await tx.get(sellerRef);
+        if(!reqSnap.exists()) throw new Error(t("هذا الطلب لم يعد موجودًا."));
+        const data = reqSnap.data();
+        if(data.status !== "accepted" || data.acceptedSellerId !== currentUid){
+          throw new Error(t("هذه الصفقة لم تعد قابلة للتأكيد (ربما أُكِّدت بالفعل)."));
+        }
+        const wallet = sellerSnap.exists() ? (sellerSnap.data().wallet || 0) : 0;
+        if(wallet < COMMISSION){
+          throw new Error(t("رصيد محفظتك غير كافٍ لدفع العمولة. اشحن رصيدك أولًا."));
+        }
+        tx.update(reqRef, { status: "completed", enteredCode: entered });
+        tx.update(sellerRef, { wallet: wallet - COMMISSION });
+      });
+      toast(tf("تم تأكيد البيع! خُصمت {n} د.ج من محفظتك.", {n: COMMISSION}));
+    }catch(e){
+      if(e.code === "permission-denied"){
+        registerWrongAttempt(reqId);
+        toast(t("الكود غير صحيح، تحقق منه مع الزبون."), "error");
+      } else {
+        toast(e.message || (t("تعذّر التأكيد: ") + friendlyError(e)), "error");
+      }
+    }
+  });
+}
+
+function renderSellerAuthGate(){
+  document.getElementById("seller-authed").classList.add("hidden");
+  document.getElementById("seller-auth-gate").classList.remove("hidden");
+}
+
+let sellerAuthMode = "login"; // login | register
+function setSellerAuthMode(mode){
+  sellerAuthMode = mode;
+  document.getElementById("sa-title").textContent = mode === "login" ? t("🔑 تسجيل الدخول كبائع") : t("📝 إنشاء حساب بائع جديد");
+  document.getElementById("sa-name-field").classList.toggle("hidden", mode === "login");
+  document.getElementById("sa-submit-btn").textContent = mode === "login" ? t("دخول") : t("إنشاء الحساب");
+  document.getElementById("sa-switch-text").innerHTML = mode === "login"
+    ? `${t("ماعندكش حساب؟ ")}<a href="#" onclick="setSellerAuthMode('register'); return false;" style="color:var(--orange); font-weight:800;">${t("أنشئ حساب جديد")}</a>`
+    : `${t("عندك حساب من قبل؟ ")}<a href="#" onclick="setSellerAuthMode('login'); return false;" style="color:var(--orange); font-weight:800;">${t("سجّل دخولك")}</a>`;
+}
+
+async function sellerForgotPassword(evt){
+  evt.preventDefault();
+  if(!firebaseReady){ toast(t("الموقع غير مربوط بقاعدة بيانات بعد."), "error"); return; }
+  const email = document.getElementById("sa-email").value.trim();
+  if(!email){ toast(t("اكتب بريدك الإلكتروني فوق أولًا، ثم دوس على هذا الرابط."), "error"); return; }
+  try{
+    await sendPasswordResetEmail(auth, email);
+    toast(t("أُرسل رابط لإعادة تعيين كلمة السر إلى بريدك. تحقق من صندوق الوارد (والبريد المزعج)."));
+  }catch(e){
+    toast(t("تعذّر الإرسال: ") + friendlyAuthError(e), "error");
+  }
+}
+
+async function submitSellerAuth(btn){
+  if(!firebaseReady){ toast(t("الموقع غير مربوط بقاعدة بيانات بعد."), "error"); return; }
+  const email = document.getElementById("sa-email").value.trim();
+  const password = document.getElementById("sa-password").value;
+  const name = document.getElementById("sa-name").value.trim();
+
+  if(!email || !password){ toast(t("أدخل البريد الإلكتروني وكلمة السر."), "error"); return; }
+  if(password.length < 6){ toast(t("كلمة السر يجب أن تكون 6 أحرف على الأقل."), "error"); return; }
+  if(sellerAuthMode === "register" && !name){ toast(t("أدخل اسمك أو اسم محلك."), "error"); return; }
+  if(name.length > 60){ toast(t("الاسم طويل جدًا."), "error"); return; }
+
+  withBusyGuard("sellerAuth", btn, async () => {
+    try{
+      if(sellerAuthMode === "register"){
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        await setDoc(doc(db, "sellers", cred.user.uid), {
+          name, email, wallet: WELCOME_BONUS, createdAt: serverTimestamp()
+        });
+        toast(tf("🎁 تم إنشاء حسابك بنجاح! هدية ترحيبية {n} د.ج أضيفت لمحفظتك.", {n: money(WELCOME_BONUS)}));
+      } else {
+        const cred = await signInWithEmailAndPassword(auth, email, password);
+        if(cred.user.uid === ADMIN_UID){
+          await signOut(auth); // هذا الحساب مخصص للوحة المسيّر فقط، لا يُستعمل كحساب بائع
+          toast(t("⚠️ هذا الحساب مخصص للوحة المسيّر. استعمل زر 🔑 دخول كمسيّر بالأعلى، أو أنشئ حساب بائع ببريد مختلف."), "error");
+          return;
+        }
+        toast(t("تم تسجيل الدخول بنجاح."));
+      }
+    }catch(e){
+      toast((sellerAuthMode === "register" ? t("تعذّر إنشاء الحساب: ") : t("فشل تسجيل الدخول: ")) + friendlyAuthError(e), "error");
+    }
+  });
+}
+
+async function adminLogout(){
+  try{
+    isAdminAuthed = false;
+    if(unsubTopups){ unsubTopups(); unsubTopups = null; }
+    localTopups = [];
+    await signOut(auth); // يعيد Firebase تسجيل دخول صامت (مجهول) تلقائيًا بعد هذا
+    toast(t("تم تسجيل خروج المسيّر."));
+    setView("home");
+  }catch(e){ toast(t("تعذّر تسجيل الخروج: ") + friendlyError(e), "error"); }
+}
+
+async function sellerLogout(){
+  try{
+    await signOut(auth);
+    toast(t("تم تسجيل الخروج."));
+    setSellerAuthMode("login");
+  }catch(e){ toast(t("تعذّر تسجيل الخروج: ") + friendlyError(e), "error"); }
+}
+
+function renderSeller(){
+  if(!isSellerLoggedIn || currentUid === ADMIN_UID){ renderSellerAuthGate(); return; }
+  document.getElementById("seller-authed").classList.remove("hidden");
+  document.getElementById("seller-auth-gate").classList.add("hidden");
+
+  const wallet = currentSellerProfile ? (currentSellerProfile.wallet || 0) : 0;
+  document.getElementById("wallet-amount").innerHTML = `${money(wallet)} <span>${t("د.ج")}</span>`;
+  document.getElementById("seller-name-tag").textContent = currentSellerProfile ? currentSellerProfile.name : "";
+  const ratingTagEl = document.getElementById("seller-rating-tag");
+  if(ratingTagEl){
+    ratingTagEl.textContent = mySellerRatingStats.count
+      ? `⭐ ${mySellerRatingStats.avg.toFixed(1)} (${mySellerRatingStats.count} ${t("تقييم")})`
+      : t("لا يوجد تقييم بعد");
+  }
+
+  const openReqs = localRequests.filter(r => r.status === "open" && !r.offers.some(o => o.sellerId === currentUid));
+  const pending = localRequests.filter(r => r.status === "open" && r.offers.some(o => o.sellerId === currentUid));
+  const accepted = localRequests.filter(r => r.status === "accepted" && r.acceptedSellerId === currentUid);
+  const myTopups = localTopups.filter(tp => tp.sellerId === currentUid);
+
+  const summary = r => `<div class="tags">
+      <b>${esc(t(r.brand))} ${esc(r.model)||""} ${r.year?"· "+esc(r.year):""}</b>
+      <span class="badge b-steel">🔧 ${esc(t(r.partType))}</span>
+      <span class="badge b-green">📍 ${esc(t(r.wilaya))}</span>
+      <span style="font-size:11px; color:#a3a3a3;">${r.id}</span>
+    </div>`;
+
+  const openList = document.getElementById("seller-open-list");
+  openList.innerHTML = openReqs.length === 0
+    ? `<div class="empty-note">${t("لا توجد طلبات جديدة تطابق تخصصك حاليًا.")}</div>`
+    : openReqs.map(r => `
+      <div class="card">
+        ${summary(r)}
+        <p class="desc">${esc(r.details)}</p>
+        <div class="grid-3 mt14">
+          <div class="field"><label>${t("السعر المقترح (د.ج)")}</label><input type="number" id="offer-price-${r.id}" placeholder="4500"></div>
+          <div class="field"><label>${t("رسالة قصيرة")}</label><input id="offer-msg-${r.id}" placeholder="${t('متوفرة وبحالة جيدة')}"></div>
+          <button class="btn btn-navy" style="align-self:end;" onclick="sendOffer('${r.id}', this)">${t("📤 إرسال العرض")}</button>
+        </div>
+      </div>`).join("");
+
+  const pendingList = document.getElementById("seller-pending-list");
+  pendingList.innerHTML = pending.length === 0
+    ? `<div class="empty-note">${t("لا توجد عروض معلّقة حاليًا.")}</div>`
+    : pending.map(r => {
+        const myOffer = r.offers.find(o => o.sellerId === currentUid);
+        return `<div class="card">
+          ${summary(r)}
+          <span class="note-yellow mt8">${t("عرضك: ")}${money(myOffer.price)} ${t("د.ج")}${t(" — بانتظار قرار الزبون")}</span>
+        </div>`;
+      }).join("");
+
+  const confirmList = document.getElementById("seller-confirm-list");
+  confirmList.innerHTML = accepted.length === 0
+    ? `<div class="empty-note">${t("لا توجد صفقات مقبولة بانتظار التأكيد حاليًا.")}</div>`
+    : accepted.map(r => `
+      <div class="card">
+        ${summary(r)}
+        <div style="display:flex; align-items:flex-end; gap:10px; flex-wrap:wrap; margin-top:12px;">
+          <div class="field" style="width:140px;"><label>${t("كود التأكيد (4 أرقام)")}</label><input id="code-${r.id}" placeholder="0000" maxlength="4"></div>
+          <button class="btn btn-orange" onclick="confirmSale('${r.id}', this)">${tf("✅ تأكيد وخصم العمولة ({n} د.ج)", {n: COMMISSION})}</button>
+        </div>
+      </div>`).join("");
+
+  const topupsList = document.getElementById("seller-topups-list");
+  topupsList.innerHTML = myTopups.length === 0
+    ? `<div class="empty-note">${t("لم تُرسل أي طلب شحن بعد.")}</div>`
+    : myTopups.map(tp => `
+      <div class="offer-row">
+        <div><b>${money(tp.amount)} ${t("د.ج")}</b> — ${t("مرجع:")} <span style="font-family:monospace;">${esc(tp.ref)}</span>
+          <div style="font-size:11.5px; color:var(--text-soft);">${esc(tp.date)}</div>
+        </div>
+        ${tp.status === "pending" ? `<span class="badge b-yellow">${t("بانتظار المراجعة")}</span>`
+          : tp.status === "approved" ? `<span class="badge b-green">${t("تمت الإضافة للرصيد")}</span>`
+          : `<span class="badge b-red">${t("مرفوض")}</span>`}
+      </div>`).join("");
+
+  document.getElementById("cnt-requests").textContent = openReqs.length || "";
+  document.getElementById("cnt-confirm").textContent = accepted.length || "";
+  setSellerTab(currentSellerTab);
+}
+
+/* ================================================================
+   بدء التشغيل — Init
+================================================================ */
+function initCcpInfo(){
+  document.getElementById("ccp-name").textContent = CCP_INFO.accountName;
+  document.getElementById("ccp-number").textContent = CCP_INFO.ccpNumber;
+  document.getElementById("ccp-rip").textContent = CCP_INFO.rip;
+  document.getElementById("ccp-note").textContent = "💡 " + t(CCP_INFO.note);
+}
+
+/* لأن الملف أصبح ES module، لازم نربط الدوال المستعملة في onclick/onchange بالنطاق العام يدويًا
+   هذا أول شيء ينفّذ حتى لو صار خطأ لاحقًا في Firebase — باش الموقع يبقى قابل للتصفح دائمًا */
+Object.assign(window, {
+  setView, toggleBuyerForm, previewImage, submitRequest, acceptOffer, renderHomeBrowse,
+  setSellerTab, submitTopupRequest, payWithChargily, openAdminPanel, adminLogout, approveTopup, rejectTopup,
+  sendOffer, confirmSale, setSellerAuthMode, submitSellerAuth, sellerLogout,
+  submitAdminAuth, sellerForgotPassword,
+  toggleProductForm, previewProductImage, submitProduct, toggleProductStatus, deleteProduct
+});
+
+/* رسالة ترحيبية بعد العودة من صفحة دفع Chargily (نجاح أو فشل) */
+(function handleChargilyReturn(){
+  const params = new URLSearchParams(window.location.search);
+  if(params.get("topup") === "success"){
+    toast("تم إرسال دفعتك! سيُضاف الرصيد لمحفظتك خلال لحظات بعد تأكيد Chargily.");
+  } else if(params.get("topup") === "failed"){
+    toast("لم تكتمل عملية الدفع أو تم إلغاؤها.", "error");
+  }
+  if(params.has("topup")){
+    params.delete("topup");
+    const clean = window.location.pathname + (params.toString() ? "?"+params.toString() : "");
+    window.history.replaceState({}, "", clean);
+  }
+})();
+
+initDropdowns();
+initCcpInfo();
+setSellerAuthMode("login");
+applyStaticI18n();
+setView("home");
+
+(async function boot(){
+  try{
+    await initFirebase();
+    startRealtimeSync();
+    // 🔑 الوصول للوحة المسيّر يكون فقط عبر رابط سري (site-url#admin) — بلا زر ظاهر
+    // لأي زائر عادي، حتى لا نعلن بوجود لوحة إدارة وندعو لمحاولات دخول عشوائية.
+    if(window.location.hash === "#admin"){
+      openAdminPanel();
+    }
+  }catch(e){
+    showFirebaseWarning(t("⚠️ خطأ غير متوقع أثناء الاتصال بقاعدة البيانات: ") + e.message);
+  }
+})();
+</script>
+</body>
+</html>
